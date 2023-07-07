@@ -7,4 +7,11 @@
         <app-subheader></app-subheader>
     </div>
 
+    <div class="home_main">
+        <ul *ngFor="let produto of produtos">
+            <li> #{{produto.produto}}</li>
+            <li>{{produto.nome}}</li>
+        </ul>
+    </div>
+
 </div>
