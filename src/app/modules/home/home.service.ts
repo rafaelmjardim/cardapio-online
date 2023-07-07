@@ -12,7 +12,7 @@ export class HomeService {
   constructor(private http: HttpClient) { }
 
   getProdutos = () => {
-    return this.http.get(`${API_KEY}`, {
+    return this.http.get(`${API_KEY}/produtos`, {
 
     });
   };

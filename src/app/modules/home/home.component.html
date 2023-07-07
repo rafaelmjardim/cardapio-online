@@ -8,10 +8,19 @@
     </div>
 
     <div class="home_main">
-        <ul *ngFor="let produto of produtos">
-            <li> #{{produto.produto}}</li>
-            <li>{{produto.nome}}</li>
-        </ul>
+        <div class="home_main_products">
+            <div class="home_main_products_card" *ngFor="let product of products">
+                <div class="home_main_products_card_content">
+                    <span class="home_main_products_card_content_item">{{ product.nome }}</span>
+                    <span class="home_main_products_card_content_item">{{ product.descricao }}</span>
+                    <span class="home_main_products_card_content_item">{{ product.valor_venda }}</span>
+                </div>
+
+                <div class="home_main_products_card_img">
+                    <img [src]="product.imagem" alt="Imagem do produto">
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
