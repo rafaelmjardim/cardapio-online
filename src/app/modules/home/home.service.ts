@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments.prod';
+import { Observable } from "rxjs";
+import { Product } from './home';
 
 const API_KEY = environment.API_KEY;
 
@@ -11,8 +13,8 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  getProdutos = () => {
-    return this.http.get(`${API_KEY}/produtos`, {
+  getProdutos = ():Observable<any> => {
+    return this.http.get<any>(`${API_KEY}/produtos`, {
 
     });
   };

@@ -10,10 +10,7 @@ import { environment } from 'src/environments/environments.prod';
 })
 export class HomeComponent implements OnInit {
 
-  products!: any;
-
-  URL_IMG: string = environment.API_KEY;
-  barra: string = '/'
+  products!: Product[];
 
   constructor (private home_service: HomeService){}
 
