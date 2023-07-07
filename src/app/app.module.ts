@@ -5,14 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
-// import { HeaderComponent } from './components/header/header.component';
-import { SubheaderComponent } from './components/subheader/subheader.component'
 import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SubheaderComponent,
   ],
   imports: [
     BrowserModule,
