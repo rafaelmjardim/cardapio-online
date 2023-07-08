@@ -45,14 +45,13 @@
                         }
                     }
     
-                    img {
+                    &_img, img {
                         width: auto;
                         height: 10rem;
                         border-radius: 1rem;
                     }
                 }
             }
-
         }
     }
 }
