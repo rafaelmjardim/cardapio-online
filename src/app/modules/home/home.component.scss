@@ -1,7 +1,12 @@
 @import '/src/styles/config';
 .home {
+    &_filters {
+        padding: 0 2rem;
+        margin-top: 2rem;
+    }
+    
     &_main {
-        padding: 3rem 2rem;
+        padding: 2rem;
 
         &_products {
 

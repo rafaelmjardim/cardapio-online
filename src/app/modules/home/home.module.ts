@@ -5,6 +5,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { HeaderComponent } from 'src/app/components/header/header.component';
 import { SubheaderComponent } from 'src/app/components/subheader/subheader.component';
+import { HomeFiltersComponent } from './home-filters/home-filters.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { SubheaderComponent } from 'src/app/components/subheader/subheader.compo
     HomeComponent,
     HeaderComponent,
     SubheaderComponent,
+    HomeFiltersComponent,
   ],
   imports: [
     CommonModule,
