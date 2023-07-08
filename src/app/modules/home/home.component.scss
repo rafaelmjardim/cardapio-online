@@ -16,14 +16,19 @@
             }
             
             &_list {
-                display: flex;
-                gap: 1rem;
-                flex-wrap: wrap;
                 margin-top: 1.2rem;
+                display: grid;
+                gap: 1rem;
+                grid-template-columns: repeat(2, minmax(0,1fr));
+                
+                @media screen and (max-width: 640px) {
+                    grid-template-columns: repeat(1, minmax(0,1fr));
+                }
                 
                 &_card {
                     display: flex;
-                    gap: 2rem;
+                    justify-content: space-between;
+                    gap: 1rem;
                     padding: .5rem;
                     background-color: #fff;
                     border-radius: 1rem;
@@ -34,8 +39,8 @@
                         flex-direction: column;
                         justify-content: space-between;
                         padding: .8rem;
-                        width: 25rem;
-
+                        
+                    
                         &_name {
                             font-weight: 500;
                         }
@@ -43,6 +48,8 @@
                         &_description {
                             font-size: 1.4rem;
                             color: $txt-color-label;
+                            overflow: hidden;
+                           
                         }
 
                         &_value {

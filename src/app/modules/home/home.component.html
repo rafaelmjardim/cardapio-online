@@ -19,7 +19,7 @@
                 <li class="home_main_products_list_card" *ngFor="let product of products">
                     <div class="home_main_products_list_card_content">
                         <span class="home_main_products_list_card_content_name">{{ product.nome }}</span>
-                        <span class="home_main_products_list_card_content_description">{{ product.descricao }}</span>
+                        <span class="home_main_products_list_card_content_description line-clamp-2">{{ product.descricao }}</span>
                         <span class="home_main_products_list_card_content_value">{{ product.valor_venda | currency:'BRL'}}</span>
                     </div>
                     <div class="home_main_products_list_card_img">
