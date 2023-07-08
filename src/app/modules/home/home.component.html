@@ -9,17 +9,20 @@
 
     <div class="home_main">
         <div class="home_main_products">
-            <div class="home_main_products_card" *ngFor="let product of products">
-                <div class="home_main_products_card_content">
-                    <span class="home_main_products_card_content_item">{{ product.nome }}</span>
-                    <span class="home_main_products_card_content_item">{{ product.descricao }}</span>
-                    <span class="home_main_products_card_content_item">{{ product.valor_venda }}</span>
-                </div>
-
-                <div class="home_main_products_card_img">
-                    <img [src]="product.imagem" alt="Imagem do produto">
-                </div>
-            </div>
+            <span class="home_main_products_title">Hambúrguer</span>
+            
+            <ul class="home_main_products_list">
+                <li class="home_main_products_list_card" *ngFor="let product of products">
+                    <div class="home_main_products_list_card_content">
+                        <span class="home_main_products_list_card_content_name">{{ product.nome }}</span>
+                        <span class="home_main_products_list_card_content_description">{{ product.descricao }}</span>
+                        <span class="home_main_products_list_card_content_value">{{ product.valor_venda | currency:'BRL'}}</span>
+                    </div>
+                    <div class="home_main_products_list_card_img">
+                        <img [src]="product.imagem" alt="Imagem do produto">
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 

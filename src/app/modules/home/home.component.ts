@@ -16,15 +16,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.onGetProdutos();
-
-    // this.products = [
-    //   {
-    //     title: 'Burguer Completo',
-    //     description: 'Delicioso hambúrguer gourmet, com ingredientes frescos e suculentos como..',
-    //     value: 24,
-    //     img: 'https://storage.googleapis.com/prod-cardapio-web/uploads/item/image/57544/thumb_amirali-mirhashemian-dyMvDxO3nkE-unsplash.jpg'
-    //   },
-    // ]
   }
 
   onGetProdutos = () => {
