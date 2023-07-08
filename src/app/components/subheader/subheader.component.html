@@ -3,8 +3,35 @@
         <img src="https://images.unsplash.com/photo-1683193063549-b8a50825cbc0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" alt="Logo da marca">
     </div>
 
-    <div class="subheader_content">
-        <h1 class="subheader_content_title">Nome da marca</h1>
-        <span class="subheader_content_txt">Descrição da marca</span>
+    <div class="subheader_group">
+        <div class="subheader_group_content">
+            <h1 class="subheader_group_content_title">Nome da marca</h1>
+            <span class="subheader_group_content_txt">Descrição da marca</span>
+        </div>
+        
+        <div class="subheader_group_menuMobile">
+            <i-lucide name="menu" class="subheader_group_menuMobile_icon"></i-lucide>
+        </div>
+        <ul class="subheader_group_menu">
+            <li class="subheader_group_menu_button clicked">
+                <lucide-icon name="home" class="icon" [size]="20"></lucide-icon>
+                Início
+            </li>
+            <li class="subheader_group_menu_button">
+                <lucide-icon name="badge-percent" [size]="20"></lucide-icon>
+                Promoções
+            </li>
+            <li class="subheader_group_menu_button">
+                <lucide-icon name="shopping-bag" [size]="20"></lucide-icon>
+                Pedidos
+            </li>
+            <li class="subheader_group_menu_button">
+                <lucide-icon name="user" [size]="20"></lucide-icon>
+                Usuário
+            </li>
+            
+        </ul>
     </div>
+        
+        
 </div>

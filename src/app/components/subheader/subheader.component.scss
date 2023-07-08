@@ -7,6 +7,13 @@
     gap: 2rem;
     height: 11rem;
     position: relative;
+    
+    &_logo, img {
+        width: 15rem;
+        height: 15rem; 
+        min-width: 15rem;
+        border-radius: 20rem;
+    }
 
     &_logo {
         object-fit: cover;
@@ -20,24 +27,75 @@
         }
     }
 
-    &_logo, img {
-        width: 15rem;
-        height: 15rem; 
-        border-radius: 20rem;
-    }
-
-    &_content {
+    &_group {
         display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
         
-        &_title {
-            color: $txt-color;
+        &_content {
+            
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            
+            &_title {
+                color: $txt-color;
+            }
+        
+            &_txt {
+                color: $txt-color-label;
+            }
         }
 
-        &_txt {
-            color: $txt-color-label;
+        &_menu {
+            display: flex;
+            gap: 2rem;
+
+            @media screen and (max-width: 1000px) {
+                display: none;
+            }
+
+            &_button {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                border-radius: .5rem;
+                padding: .6rem 1rem;
+                font-weight: 500;
+                transition: .2s;
+                border: .1rem solid transparent;
+
+                &:hover {
+                    border: .1rem solid #ca7e2d;
+                    color: #ca7e2d;
+                }
+            }
+
+            .clicked {
+                background-color: #ca7e2d;
+                color: #fff;
+            }
+
+            &_button {
+                cursor: pointer;
+            }
+        }
+
+        &_menuMobile {
+            display: none;
+            &_icon {
+                cursor: pointer;
+            }
+
+            @media screen and (max-width: 1000px) {
+                display: block;
+            }
         }
     }
-
+}
+//Ajustar tamanho dos icones de acordo com o size do icon no html
+lucide-icon {
+    width: auto;
+    height: 2rem;
 }

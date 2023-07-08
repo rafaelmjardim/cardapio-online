@@ -7,6 +7,8 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { SubheaderComponent } from 'src/app/components/subheader/subheader.component';
 import { HomeFiltersComponent } from './home-filters/home-filters.component';
 
+import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User} from "lucide-angular";
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { HomeFiltersComponent } from './home-filters/home-filters.component';
   imports: [
     CommonModule,
     HomeRoutingModule,
+    LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User})
   ]
 })
 export class HomeModule { }
