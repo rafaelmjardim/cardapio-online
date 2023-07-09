@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from "@angular/forms";
 
 @Component({
   selector: 'app-cadastro-produtos',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./cadastro-produtos.component.scss']
 })
 export class CadastroProdutosComponent {
+
+  categoryForm!: FormGroup;
 
 }
