@@ -8,6 +8,7 @@ import { SubheaderComponent } from 'src/app/components/subheader/subheader.compo
 import { HomeFiltersComponent } from './home-filters/home-filters.component';
 
 import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search} from "lucide-angular";
+import { ProductsCardsComponent } from 'src/app/components/products-cards/products-cards.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search
     HeaderComponent,
     SubheaderComponent,
     HomeFiltersComponent,
+    ProductsCardsComponent,
   ],
   imports: [
     CommonModule,

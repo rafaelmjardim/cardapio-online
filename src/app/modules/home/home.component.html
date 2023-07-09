@@ -12,7 +12,7 @@
     </div>
 
     <div class="home_main">
-        <div class="home_main_products">
+        <!-- <div class="home_main_products">
             <span class="home_main_products_title">Hambúrguer</span>
             
             <ul class="home_main_products_list">
@@ -27,7 +27,11 @@
                     </div>
                 </li>
             </ul>
-        </div>
+        </div> -->
+        <app-products-cards
+            title="Hambúrguer"
+            [productsData]="products"
+        ></app-products-cards>
     </div>
 
 </div>
