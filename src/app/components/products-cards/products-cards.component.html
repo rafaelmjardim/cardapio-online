@@ -2,14 +2,16 @@
     <span class="products_cards_title">{{title}}</span>
     
     <ul class="products_cards_list">
-        <li class="products_cards_list_card" *ngFor="let product of productsData">
-            <div class="products_cards_list_card_content">
-                <span class="products_cards_list_card_content_name">{{ product.nome }}</span>
-                <span class="products_cards_list_card_content_description line-clamp-2">{{ product.descricao }}</span>
-                <span class="products_cards_list_card_content_value">{{ product.valor_venda | currency:'BRL'}}</span>
-            </div>
-            <div class="products_cards_list_card_img">
-                <img [src]="product.imagem" alt="Imagem do produto">
+        <li class="products_cards_list_item" *ngFor="let product of productsData">
+            <div class="products_cards_list_item_card" *ngIf=" idCategory ? product.id_categoria === idCategory : true">
+                <div class="products_cards_list_item_card_content">
+                    <span class="products_cards_list_item_card_content_name">{{ product.nome }}</span>
+                    <span class="products_cards_list_item_card_content_description line-clamp-2">{{ product.descricao }}</span>
+                    <span class="products_cards_list_item_card_content_value">{{ product.valor_venda | currency:'BRL'}}</span>
+                </div>
+                <div class="products_cards_list_item_card_img">
+                    <img [src]="product.imagem" alt="Imagem do produto">
+                </div>
             </div>
         </li>
     </ul>
