@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
       console.log(res);
 
 
+
      this.products.map(key => {
       console.log(key.categoria);
       

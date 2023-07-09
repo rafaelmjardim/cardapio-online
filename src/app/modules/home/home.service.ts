@@ -15,7 +15,7 @@ export class HomeService {
 
   getProdutos = ():Observable<any> => {
     return this.http.get<any>(`${API_KEY}/produtos`, {
-      
+
     });
   };
 }

@@ -3,12 +3,12 @@
 .products_cards {
 
     &_title {
-        font-weight: 500;
-        font-size: 2rem;                
+        font-weight: 600;
+        font-size: 2rem;      
     }
     
     &_list {
-        margin-top: 1.2rem;
+        margin-top: 2rem;
         display: grid;
         gap: 1rem;
         grid-template-columns: repeat(2, minmax(0,1fr));
@@ -42,23 +42,20 @@
                     justify-content: space-between;
                     padding: .8rem;
     
-                    &_item {
+                    &_name {
+                        font-weight: 500;
+                    }
     
-                        &_name {
-                            font-weight: 500;
-                        }
-        
-                        &_description {
-                            font-size: 1.4rem;
-                            color: $txt-color-label;
-                            overflow: hidden;
-                           
-                        }
-        
-                        &_value {
-                            color: $txt-color-green;
-                        }
-                    }            
+                    &_description {
+                        font-size: 1.4rem;
+                        color: $txt-color-label;
+                        overflow: hidden;
+                        
+                    }
+    
+                    &_value {
+                        color: $txt-color-green;
+                    }
                 }
     
                 &_img, img {
@@ -68,6 +65,5 @@
                 }
             }
         }
-        
     }
 }
