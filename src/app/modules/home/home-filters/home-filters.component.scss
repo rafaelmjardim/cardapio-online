@@ -46,12 +46,14 @@
         &_select:focus {
             outline: .1rem solid #bfa27a;
         }
-
+        
         &_select {
+            background-color: #fff;
             width: 20rem;
             padding: 1rem 1.2rem;
             border: .1rem solid #ccc;
             border-radius: .5rem;
+            color: $txt-color-label;
         }
     }
 }
