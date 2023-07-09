@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subheader',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./subheader.component.scss']
 })
 export class SubheaderComponent {
-
+  constructor (public router: Router){}
 }
