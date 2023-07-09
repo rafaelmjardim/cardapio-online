@@ -3,10 +3,19 @@
     &_filters {
         padding: 0 2rem;
         margin-top: 2.5rem;
+
+        @media screen and (min-width: 1200px) {
+            padding: 0 12rem;
+        }
+
     }
     
     &_main {
         padding: 2rem;
+
+        @media screen and (min-width: 1200px) {
+            padding: 2rem 12rem;
+        }
 
         &_products {
 
