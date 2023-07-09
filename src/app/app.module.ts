@@ -11,6 +11,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SubheaderComponent } from './components/subheader/subheader.component';
 import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search} from "lucide-angular";
 
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { CadastroProdutosModule } from './modules/cadastro-produtos/cadastro-produtos.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,9 @@ import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
+    CadastroProdutosModule,
+    ReactiveFormsModule,
+    FormsModule,    
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search})
   ],
   exports: [

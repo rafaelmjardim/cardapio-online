@@ -20,6 +20,7 @@ const routes: Routes = [
   {
     path: 'cadastro-produtos',
     component: CadastroProdutosComponent,
+    loadChildren: () => import('./modules/cadastro-produtos/cadastro-produtos-routing.module').then((m) => m.CadastroProdutosRoutingModule)
   },
 ];
 

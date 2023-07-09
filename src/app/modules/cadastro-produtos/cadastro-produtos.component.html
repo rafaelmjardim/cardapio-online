@@ -1,12 +1,9 @@
 <div class="cadastro_produtos">
    <div class="cadastro_produtos_container">
-       <h3 class="cadastro_produtos_container_title">Cadastro Pedidos:</h3>
+        <h3 class="cadastro_produtos_container_title">Cadastro categoria</h3>
 
-       <form class="cadastro_produtos_container_form" [formGroup]="categoryForm">
-            <input class="cadastro_produtos_container_form_input" type="text" placeholder="Nome do produto">
-            <input class="cadastro_produtos_container_form_input" type="text" placeholder="Descrição do produto">
-            <input class="cadastro_produtos_container_form_input" type="text" placeholder="Valor do produto">
-            <input class="cadastro_produtos_container_form_file" type="file">
+        <form class="cadastro_produtos_container_form" [formGroup]="categoryForm">
+            <input class="cadastro_produtos_container_form_input" type="text" placeholder="Nome da categoria" formControlName="categoryNameInput">
             <button class="cadastro_produtos_container_form_button">Enviar</button>
         </form>
    </div>
