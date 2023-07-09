@@ -13,8 +13,11 @@
 
         <form class="cadastro_produtos_container_form" [formGroup]="productForm">
             <input class="cadastro_produtos_container_form_input" type="text" placeholder="Nome do produto" formControlName="productNameInput">
-            <input class="cadastro_produtos_container_form_input" type="text" placeholder="Descriçãop do produto" formControlName="productCategoryInput">
-            <input class="cadastro_produtos_container_form_input" type="text" placeholder="Valor da categoria" formControlName="productDescriptionInput">
+            <input class="cadastro_produtos_container_form_input" type="text" placeholder="Descrição" formControlName="productDescriptionInput">
+            <select class="cadastro_produtos_container_form_select" name="categoria" id="categoria"  formControlName="productCategoryInput">
+                <option value="" disabled selected hidden>Selecione uma categoria</option>
+                <option [value]="1">Regrigerante</option>
+            </select>
             <button class="cadastro_produtos_container_form_button" (click)="submitCategoryForm()">Enviar</button>
         </form>
    </div>
