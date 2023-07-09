@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   onGetProdutos = () => {
     this.home_service.getProdutos().subscribe(res => {
       this.products = res;      
+      console.log(res);
       
     })
   }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments.prod';
 import { Observable } from "rxjs";
@@ -15,7 +15,7 @@ export class HomeService {
 
   getProdutos = ():Observable<any> => {
     return this.http.get<any>(`${API_KEY}/produtos`, {
-
+      params: new HttpParams().set('nome', '')
     });
   };
 }
