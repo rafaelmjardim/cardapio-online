@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms";
-import { CadastroProdutosService } from './cadastro-produtos.service';
+import { ProdutosService } from 'src/app/services/produtos.service';
 
 @Component({
   selector: 'app-cadastro-produtos',
@@ -15,7 +15,7 @@ export class CadastroProdutosComponent implements OnInit {
 
   uploadImg!: any;
 
-  constructor (private form_builder: FormBuilder, private cadastro_produto_service: CadastroProdutosService){}
+  constructor (private form_builder: FormBuilder, private produtos_service: ProdutosService){}
 
   ngOnInit(): void {
     this.onInitForm();
@@ -35,7 +35,7 @@ export class CadastroProdutosComponent implements OnInit {
     const productDescriptionInput = this.productForm.controls['productDescriptionInput'].value;
 
     if(productNameInput && productCategoryInput) {
-      this.cadastro_produto_service.postProduct(productNameInput, productDescriptionInput, productCategoryInput, this.uploadImg).subscribe(res => {
+      this.produtos_service.postProduct(productNameInput, productDescriptionInput, productCategoryInput, this.uploadImg).subscribe(res => {
         console.log('Cadastrado com sucesso!');
       })
     }else {

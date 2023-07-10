@@ -26,7 +26,6 @@ import { CadastroProdutosModule } from './modules/cadastro-produtos/cadastro-pro
     AppRoutingModule,
     HttpClientModule,
     HomeModule,
-    CadastroProdutosModule,
     ReactiveFormsModule,
     FormsModule,    
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search})
