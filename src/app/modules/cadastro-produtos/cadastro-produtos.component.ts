@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms";
-import { ProdutosService } from 'src/app/services/produtos.service';
+import { ProdutosService } from 'src/app/services/produtos/produtos.service';
+import { Product } from '../home/home';
 
 @Component({
   selector: 'app-cadastro-produtos',
@@ -8,19 +9,31 @@ import { ProdutosService } from 'src/app/services/produtos.service';
   styleUrls: ['./cadastro-produtos.component.scss']
 })
 export class CadastroProdutosComponent implements OnInit {
+  productsData!: Product[];
 
   categoryForm!: FormGroup;
-  
   productForm!: FormGroup;
 
   uploadImg!: any;
+
 
   constructor (private form_builder: FormBuilder, private produtos_service: ProdutosService){}
 
   ngOnInit(): void {
     this.onInitForm();
+
+    this.onGetProductList();
+  
   }
 
+  //Get de produtos(com crud)
+  onGetProductList = () => {
+    this.produtos_service.getProdutos().subscribe(res => {
+      this.productsData = res;
+    })
+  }
+
+  //Carrega o formulario (dados iniciais)
   onInitForm = () => {
     this.productForm = this.form_builder.group({
       productNameInput: [''],
@@ -29,7 +42,8 @@ export class CadastroProdutosComponent implements OnInit {
     })
   }
 
-  submitCategoryForm = () => {
+  //Faz o post para a API
+  submitProductForm = () => {
     const productNameInput = this.productForm.controls['productNameInput'].value;
     const productCategoryInput = this.productForm.controls['productCategoryInput'].value;
     const productDescriptionInput = this.productForm.controls['productDescriptionInput'].value;
@@ -49,9 +63,18 @@ export class CadastroProdutosComponent implements OnInit {
     
   }
 
+  //Seleciona a img para fazer post
   changeUploadFile = (event: any) => {
     const target = event.target;
 
     this.uploadImg = target.files[0];    
+  }
+
+  handleDeleteProduct = (productCodigo: Product) => {
+    
+    this.produtos_service.deleteProduto(productCodigo).subscribe(res => {
+      console.log(`Produto ${productCodigo} deletado`);
+      this.onGetProductList();
+    })
   }
 }

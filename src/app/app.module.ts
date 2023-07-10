@@ -9,10 +9,11 @@ import { HomeModule } from './modules/home/home.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SubheaderComponent } from './components/subheader/subheader.component';
-import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search} from "lucide-angular";
+import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle} from "lucide-angular";
 
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CadastroProdutosModule } from './modules/cadastro-produtos/cadastro-produtos.module';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,8 +28,9 @@ import { CadastroProdutosModule } from './modules/cadastro-produtos/cadastro-pro
     HttpClientModule,
     HomeModule,
     ReactiveFormsModule,
+    CadastroProdutosModule,
     FormsModule,    
-    LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search})
+    LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle})
   ],
   exports: [
     HttpClientModule,

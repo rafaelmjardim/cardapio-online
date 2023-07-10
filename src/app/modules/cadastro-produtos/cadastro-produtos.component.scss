@@ -2,8 +2,12 @@
 
 .cadastro_produtos {
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 
     &_container {
+
         &_title {
             margin-bottom: 1rem;
         }

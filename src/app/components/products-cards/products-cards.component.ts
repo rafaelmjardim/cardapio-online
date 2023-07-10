@@ -10,4 +10,9 @@ export class ProductsCardsComponent {
   @Input() productsData!: Product[]; //Crirar tipagem global ou aqui no componente futuramente
   @Input() title!: string;
   @Input() idCategory!: number;
+
+  @Input() admin: boolean = false;
+
+  @Input() deleteProductFunction!: Function;
+
 }

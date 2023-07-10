@@ -4,17 +4,20 @@ import { CadastroProdutosRoutingModule } from './cadastro-produtos-routing.modul
 import { CadastroProdutosComponent } from './cadastro-produtos.component';
 
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { ProductsCardsComponent } from 'src/app/components/products-cards/products-cards.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    CadastroProdutosComponent
+    CadastroProdutosComponent,
   ],
   imports: [
     CommonModule,
     CadastroProdutosRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class CadastroProdutosModule { }

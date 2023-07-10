@@ -35,6 +35,8 @@
                 background-color: #fff;
                 border-radius: 1rem;
                 border: .1rem solid #ededed;
+
+                position: relative;
     
                 &_content {
                     display: flex;
@@ -62,6 +64,17 @@
                     width: auto;
                     height: 10rem;
                     border-radius: 1rem;
+                }
+
+
+                &_actions {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+
+                    &_delete {
+                        cursor: pointer;
+                    }
                 }
             }
         }

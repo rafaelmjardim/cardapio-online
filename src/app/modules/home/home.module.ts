@@ -6,19 +6,22 @@ import { HomeComponent } from './home.component';
 import { HomeFiltersComponent } from './home-filters/home-filters.component';
 
 import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search} from "lucide-angular";
-import { ProductsCardsComponent } from 'src/app/components/products-cards/products-cards.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     HomeFiltersComponent,
-    ProductsCardsComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
+    SharedModule,
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search})
+  ],
+  exports: [
+    SharedModule
   ]
 })
 export class HomeModule { }

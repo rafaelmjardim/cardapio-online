@@ -1,14 +1,5 @@
 <div class="cadastro_produtos">
-   <!-- <div class="cadastro_produtos_container">
-        <h3 class="cadastro_produtos_container_title">Cadastro categoria</h3>
-
-        <form class="cadastro_produtos_container_form" [formGroup]="categoryForm">
-            <input class="cadastro_produtos_container_form_input" type="text" placeholder="Nome da categoria" formControlName="categoryNameInput">
-            <button class="cadastro_produtos_container_form_button" (click)="submitCategoryForm()">Enviar</button>
-        </form>
-   </div> -->
-
-   <div class="cadastro_produtos_container">
+    <div class="cadastro_produtos_container">
         <h3 class="cadastro_produtos_container_title">Cadastro Produto</h3>
 
         <form class="cadastro_produtos_container_form" [formGroup]="productForm">
@@ -19,7 +10,17 @@
                 <option [value]="1">Regrigerante</option>
             </select>
             <input type="file" (change)="changeUploadFile($event)">
-            <button class="cadastro_produtos_container_form_button" (click)="submitCategoryForm()">Enviar</button>
+            <button class="cadastro_produtos_container_form_button" (click)="submitProductForm()">Enviar</button>
         </form>
-   </div>
+    </div>
+
+    <div class="cadastro_produtos_main">
+        <h3>Produtos</h3>
+
+        <app-products-cards
+            [productsData]="productsData"
+            [admin]="true"
+            [deleteProductFunction]="handleDeleteProduct"
+        ></app-products-cards>
+    </div>
 </div>
