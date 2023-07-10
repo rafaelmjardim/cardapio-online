@@ -18,7 +18,7 @@
                 <option value="" disabled selected hidden>Selecione uma categoria</option>
                 <option [value]="1">Regrigerante</option>
             </select>
-            <input type="files" (change)="changeUploadFile($event)">
+            <input type="file" (change)="changeUploadFile($event)">
             <button class="cadastro_produtos_container_form_button" (click)="submitCategoryForm()">Enviar</button>
         </form>
    </div>
