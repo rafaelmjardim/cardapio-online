@@ -13,6 +13,8 @@ export class CadastroProdutosComponent implements OnInit {
   
   productForm!: FormGroup;
 
+  uploadImg!: any;
+
   constructor (private form_builder: FormBuilder, private cadastro_produto_service: CadastroProdutosService){}
 
   ngOnInit(): void {
@@ -33,7 +35,7 @@ export class CadastroProdutosComponent implements OnInit {
     const productDescriptionInput = this.productForm.controls['productDescriptionInput'].value;
 
     if(productNameInput && productCategoryInput) {
-      this.cadastro_produto_service.postProduct(productNameInput, productDescriptionInput, productCategoryInput).subscribe(res => {
+      this.cadastro_produto_service.postProduct(productNameInput, productDescriptionInput, productCategoryInput, this.uploadImg).subscribe(res => {
         console.log('Cadastrado com sucesso!');
       })
     }else {
@@ -44,6 +46,15 @@ export class CadastroProdutosComponent implements OnInit {
     this.productForm.controls['productNameInput'].setValue('')
     this.productForm.controls['productCategoryInput'].setValue('')
     this.productForm.controls['productDescriptionInput'].setValue('')
+    
+  }
+
+  changeUploadFile = (event: any) => {
+    const target = event.target;
+
+    this.uploadImg = target.files[0];
+
+    console.log(this.uploadImg);
     
   }
 }

@@ -12,11 +12,12 @@ export class CadastroProdutosService {
 
   constructor(private http: HttpClient) { }
 
-  postProduct = (productName: string, productDescription: string, produCategory: number) => {
+  postProduct = (productName: string, productDescription: string, produCategory: number, uploadImg: any) => {
     return this.http.post(`${API_KEY}/produtos`, {
       nome: productName,
       descricao: productDescription,
       id_categoria: produCategory,
+      upload_imagem: uploadImg,
       status: 1
     })
   }
