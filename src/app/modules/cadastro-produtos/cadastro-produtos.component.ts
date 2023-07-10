@@ -52,9 +52,6 @@ export class CadastroProdutosComponent implements OnInit {
   changeUploadFile = (event: any) => {
     const target = event.target;
 
-    this.uploadImg = target.files[0];
-
-    console.log(this.uploadImg);
-    
+    this.uploadImg = target.files[0];    
   }
 }
