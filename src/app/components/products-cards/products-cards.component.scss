@@ -37,6 +37,8 @@
                 border: .1rem solid #ededed;
                 position: relative;
                 cursor: pointer;
+                transition: .3s;
+
 
                 &:hover &_content {
                     opacity: .2;
@@ -44,6 +46,7 @@
 
                 &:hover &_img {
                     opacity: .2;
+                    margin-right: 3.2rem;
                 }
 
                 &:hover &_actions {
@@ -78,7 +81,7 @@
                     width: auto;
                     height: 10rem;
                     border-radius: 1rem;
-                    transition: .3s;
+                    transition: .3s ease-in-out;
 
                 }
 
@@ -86,9 +89,10 @@
                 &_actions {
                     display: none;
                     position: absolute;
-                    top: .8rem;
                     right: .8rem;
                     z-index: 999;
+                    transition: .3s ease-in-out;
+
 
                     &_delete {
                         cursor: pointer;
