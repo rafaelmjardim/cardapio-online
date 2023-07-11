@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
 import { PedidosComponent } from './modules/pedidos/pedidos.component';
 import { CadastroProdutosComponent } from './modules/cadastro-produtos/cadastro-produtos.component';
+import { PromocoesComponent } from './modules/promocoes/promocoes.component';
+import { UserComponent } from './modules/user/user.component';
 
 const routes: Routes = [
   {
@@ -14,6 +16,10 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'promocoes',
+    component: PromocoesComponent,
+  },
+  {
     path: 'pedidos',
     component: PedidosComponent,
   },
@@ -21,6 +27,10 @@ const routes: Routes = [
     path: 'cadastro-produtos',
     component: CadastroProdutosComponent,
     loadChildren: () => import('./modules/cadastro-produtos/cadastro-produtos-routing.module').then((m) => m.CadastroProdutosRoutingModule)
+  },
+  {
+    path: 'user',
+    component: UserComponent,
   },
 ];
 
