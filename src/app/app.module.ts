@@ -26,7 +26,6 @@ import { SharedModule } from './modules/shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HomeModule,
     ReactiveFormsModule,
     CadastroProdutosModule,
     FormsModule,    
