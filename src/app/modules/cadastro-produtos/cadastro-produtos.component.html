@@ -7,7 +7,9 @@
             <input class="cadastro_produtos_container_form_input" type="text" placeholder="Descrição" formControlName="productDescriptionInput">
             <select class="cadastro_produtos_container_form_select" name="categoria" id="categoria"  formControlName="productCategoryInput">
                 <option value="" disabled selected hidden>Selecione uma categoria</option>
-                <option [value]="1">Regrigerante</option>
+                <option [value]="1">Lanches</option>
+                <option [value]="2">Porções</option>
+                <option [value]="3">Refrigerante</option>
             </select>
             <input type="file" (change)="changeUploadFile($event)">
             <button class="cadastro_produtos_container_form_button" (click)="submitProductForm()">Enviar</button>
