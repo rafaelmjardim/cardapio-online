@@ -3,7 +3,7 @@
     
     <ul class="products_cards_list">
         <li class="products_cards_list_item" *ngFor="let product of productsData">
-            <div class="products_cards_list_item_card" *ngIf=" idCategory ? product.id_categoria === idCategory : true">
+            <div class="products_cards_list_item_card" [ngClass]="admin ? 'card-hover' : ''" *ngIf=" idCategory ? product.id_categoria === idCategory : true">
                 <div class="products_cards_list_item_card_actions" *ngIf="admin">
                     <div class="products_cards_list_item_card_actions_delete" (click)="deleteProductFunction(product)">
                         <lucide-icon name="x-circle"></lucide-icon>

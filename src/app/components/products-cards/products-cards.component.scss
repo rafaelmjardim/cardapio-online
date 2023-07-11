@@ -39,17 +39,16 @@
                 cursor: pointer;
                 transition: .3s;
 
-
-                &:hover &_content {
+                .card-hover:hover &_content {
                     opacity: .2;
                 }
 
-                &:hover &_img {
+                .card-hover:hover &_img {
                     opacity: .2;
                     margin-right: 3.2rem;
                 }
 
-                &:hover &_actions {
+                .card-hover:hover &_actions {
                     display: block;
                 }
 
