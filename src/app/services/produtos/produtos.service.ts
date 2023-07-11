@@ -27,9 +27,7 @@ export class ProdutosService {
     return this.http.post(`${API_KEY}/produtos`, formData, {} as any);
   }
 
-  getProdutos = (id_category?: number):Observable<any> => {
-    console.log(id_category);
-    
+  getProdutos = (id_category?: number):Observable<any> => {    
     return this.http.get<any>(`${API_KEY}/produtos`, {
       params: new HttpParams().set('id_categoria', id_category ? id_category : '' )
     });

@@ -27,5 +27,4 @@ export class ProductsCardsComponent implements OnInit{
       this.productsData = res;            
     })
   }
-
 }
