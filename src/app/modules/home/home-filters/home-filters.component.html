@@ -4,16 +4,12 @@
         <lucide-icon class="home_filters_search_input_icon" name="search" [size]="18"></lucide-icon>
     </div>
     
-    <div class="home_filters_category">
-        <select class="home_filters_category_select" name="category" id="category">
+    <form class="home_filters_category" [formGroup]="selectForm">
+        <select class="home_filters_category_select" name="category" id="category" formControlName="selectInput" (change)="onChangeCategoryValue()">
             <option class="home_filters_category_select_option" value="" disabled selected hidden>Selecione um produto </option>
-            <option class="home_filters_category_select_option" value="">Hambúrguer Tradicional</option>
-            <option class="home_filters_category_select_option" value="">Hambúrguer Bacon</option>
-            <option class="home_filters_category_select_option" value="">Hambúrguer Duplo</option>
-            <option class="home_filters_category_select_option" value="">Hambúrguer Triplo</option>
-            <option class="home_filters_category_select_option" value="">Hambúrguer da Casa</option>
-            <option class="home_filters_category_select_option" value="">Hambúrguer Mini</option>
-            <option class="home_filters_category_select_option" value="">Hambúrguer Master</option>
+            <option class="home_filters_category_select_option" value="1">Lanches</option>
+            <option class="home_filters_category_select_option" value="2">Porções</option>
+            <option class="home_filters_category_select_option" value="3">Bebidas</option>
         </select>
-    </div>
+    </form>
 </div>

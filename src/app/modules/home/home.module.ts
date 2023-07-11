@@ -7,6 +7,7 @@ import { HomeFiltersComponent } from './home-filters/home-filters.component';
 
 import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search} from "lucide-angular";
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search})
   ],
   exports: [

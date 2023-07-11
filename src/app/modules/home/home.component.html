@@ -6,7 +6,7 @@
     </div>
 
     <div class="home_main">
-        <div class="home_main_products">
+        <div class="home_main_products" *ngIf="!filter ; else filtered">
             <app-products-cards
                 title="Lanches"
                 [productsData]="products"
@@ -24,8 +24,11 @@
                 [productsData]="products"
                 [idCategory]="3"
             ></app-products-cards>
-
         </div>
     </div>
 
 </div>
+
+<ng-template #filtered>
+    filtrado
+</ng-template>
