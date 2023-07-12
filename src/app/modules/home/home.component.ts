@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Product } from './home';
+import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.service';
 
 @Component({
   selector: 'app-home',
@@ -12,9 +13,9 @@ export class HomeComponent implements OnInit {
 
   filter!: string;
 
-  constructor (){}
+  constructor (public mobile_utils: MobileUtilsService){}
 
   ngOnInit(): void {
-        
+    this.mobile_utils.onInitBreakpoint();    
   }
 }
