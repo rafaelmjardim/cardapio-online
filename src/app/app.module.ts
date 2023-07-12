@@ -14,6 +14,7 @@ import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CadastroProdutosModule } from './modules/cadastro-produtos/cadastro-produtos.module';
 import { SharedModule } from './modules/shared/shared.module';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SharedModule } from './modules/shared/shared.module';
     FooterComponent,
     HeaderComponent,
     SubheaderComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
