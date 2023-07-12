@@ -20,6 +20,11 @@
             padding: .8rem .5rem;
             border-radius: .8rem;
             min-width: 5.5rem;
+            cursor: pointer;
+            -webkit-transition: .2s;
+            -moz-transition: .2s;
+            -o-transition: .2s;
+            -ms-transition: .2s;
             transition: .2s ease-in;
 
             &.clicked {
