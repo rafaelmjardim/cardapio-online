@@ -14,7 +14,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.mobile_utils.onInitBreakpoint();
+    this.mobile_utils.onInitMediaScreen();
 
     //Verificar pq precisa disso (adicionado para remover erro)
     this.changeDetectorRef.detectChanges();

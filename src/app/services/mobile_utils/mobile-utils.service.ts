@@ -1,5 +1,5 @@
 // PARA UTILIZAR ESSE SERVIÇO É PRECISO CHAMAR A FUNÇÃO ONINITBREAKPOINT NO ngAfterViewInit DO COMPONENTE
-// TAMBÉM SERÁ NECESSARIO UTILIZAR A FUNÇÃO this.changeDetectorRef.detectChanges(); PARA EVITAR UM ERRO
+// TAMBÉM SERÁ NECESSARIO UTILIZAR A FUNÇÃO this.changeDetectorRef.detectChanges(); no afterInit do app-module PARA EVITAR UM ERRO
 
 import { Injectable } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from "@angular/cdk/layout";
@@ -11,16 +11,16 @@ export class MobileUtilsService {
   
   breakpoints = Breakpoints; //Contem os valores de resolução(Não está em uso mas pode ser usado)
 
-  mobileResolution!: boolean;
+  resolution!: boolean;
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 
-  onInitBreakpoint = () => {    
-    this.breakpointObserver.observe(['(max-width: 640px)']).subscribe((state: BreakpointState) => {      
+  onInitMediaScreen = (maxWidth?: string) => {    
+    this.breakpointObserver.observe(maxWidth ? `(max-width: ${maxWidth})` : `(max-width: 640px)`).subscribe((state: BreakpointState) => {      
       if (state.matches) {
-        this.mobileResolution = true;
+        this.resolution = true;
       }else {
-        this.mobileResolution = false;
+        this.resolution = false;
       }
     })
   }  
