@@ -6,17 +6,7 @@ import { MobileUtilsService } from './services/mobile_utils/mobile-utils.service
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'cardapio-online';
 
-  constructor (public mobile_utils: MobileUtilsService, private changeDetectorRef: ChangeDetectorRef){
-
-  }
-
-  ngAfterViewInit(): void {
-    this.mobile_utils.onInitMediaScreen();
-
-    //Verificar pq precisa disso (adicionado para remover erro)
-    this.changeDetectorRef.detectChanges();
-  }
 }

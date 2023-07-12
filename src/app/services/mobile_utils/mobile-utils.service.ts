@@ -11,16 +11,16 @@ export class MobileUtilsService {
   
   breakpoints = Breakpoints; //Contem os valores de resolução(Não está em uso mas pode ser usado)
 
-  resolution!: boolean;
+  mediaMobile!: boolean;
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 
-  onInitMediaScreen = (maxWidth?: string) => {    
-    this.breakpointObserver.observe(maxWidth ? `(max-width: ${maxWidth})` : `(max-width: 640px)`).subscribe((state: BreakpointState) => {      
+  onInitMediaScreen = () => {    
+    this.breakpointObserver.observe('(max-width: 640px)').subscribe((state: BreakpointState) => {      
       if (state.matches) {
-        this.resolution = true;
+        this.mediaMobile = true;
       }else {
-        this.resolution = false;
+        this.mediaMobile = false;
       }
     })
   }  

@@ -13,6 +13,6 @@ export class SubheaderComponent implements AfterViewInit {
   constructor (public router: Router, public mobile_utils: MobileUtilsService, private change_detector_ref: ChangeDetectorRef){}
 
   ngAfterViewInit(): void {
-    this.mobile_utils.onInitMediaScreen('1160px');
+    this.mobile_utils.onInitMediaScreen();
   }
 }
