@@ -1,5 +1,5 @@
 // PARA UTILIZAR ESSE SERVIÇO É PRECISO CHAMAR A FUNÇÃO ONINITBREAKPOINT NO ngAfterViewInit DO COMPONENTE
-// TAMBÉM SERÁ NECESSARIO UTILIZAR A FUNÇÃO this.changeDetectorRef.detectChanges(); no afterInit do app-module PARA EVITAR UM ERRO
+// CASO PRECISE UTILIZAR ESTE SERVIÇO NO APP.COMPONENT SERÁ NECESSARIO UTILIZAR A FUNÇÃO this.changeDetectorRef.detectChanges(); no afterInit do app-module PARA EVITAR UM ERRO
 
 import { Injectable } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from "@angular/cdk/layout";
