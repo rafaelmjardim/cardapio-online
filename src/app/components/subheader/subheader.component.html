@@ -15,7 +15,7 @@
         <div class="subheader_group_menuMobile">
             <i-lucide name="menu" class="subheader_group_menuMobile_icon"></i-lucide>
         </div>
-        <ul class="subheader_group_menu">
+        <ul class="subheader_group_menu" *ngIf="!mobile_utils.mediaMobile">
             <li class="subheader_group_menu_button" [ngClass]="router.url === '/home' || router.url === '/' ? 'clicked' : '' " routerLink="/home">
                 <lucide-icon name="home" class="icon" [size]="20"></lucide-icon>
                 Início
