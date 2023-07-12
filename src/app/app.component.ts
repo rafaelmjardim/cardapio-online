@@ -1,5 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component } from '@angular/core';
-import { MobileUtilsService } from './services/mobile_utils/mobile-utils.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
