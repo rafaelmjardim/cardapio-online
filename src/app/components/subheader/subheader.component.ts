@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.service';
 
 import { MatDialog } from "@angular/material/dialog";
-import { InfoDialogComponent } from 'src/app/modules/home/info-dialog/info-dialog.component';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 
 
 @Component({

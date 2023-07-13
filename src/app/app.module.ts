@@ -19,6 +19,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CadastroProdutosModule } from './modules/cadastro-produtos/cadastro-produtos.module';
 import { LayoutModule } from "@angular/cdk/layout";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InfoDialogComponent } from './components/subheader/info-dialog/info-dialog.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     SubheaderComponent,
     NavbarComponent,
+    InfoDialogComponent,
   ],
   imports: [
     BrowserModule,
