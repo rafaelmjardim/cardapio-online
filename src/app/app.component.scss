@@ -10,8 +10,8 @@
     }
     
     &_footer {
-        position: relative;
+        position: fixed;
         bottom: 0;
-        background-color: red;
+        width: 100%;
     }
 }
