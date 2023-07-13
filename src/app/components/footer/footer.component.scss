@@ -1,0 +1,34 @@
+.footer {
+    margin-top: 4rem;
+    height: 20rem;
+    background-color: rgba(0, 0, 0, 0.705);
+
+    &_background {
+        width: 100%;
+        height: 20rem;
+        position: relative;
+        background-image: url('https://images.unsplash.com/photo-1630278156268-12d56c2e135f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80');
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(.4);
+
+        &_content {
+            width: 100%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            
+            span {
+                max-width: 32rem;
+                text-align: center;
+            }
+
+            &_social {
+
+            }
+        }
+    }
+
+}
