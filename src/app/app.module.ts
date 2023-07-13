@@ -18,6 +18,7 @@ import { LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Searc
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CadastroProdutosModule } from './modules/cadastro-produtos/cadastro-produtos.module';
 import { LayoutModule } from "@angular/cdk/layout";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { LayoutModule } from "@angular/cdk/layout";
     FormsModule,
     HomeModule,
     LayoutModule,
-    LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle, BaggageClaim})
+    LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle, BaggageClaim}),
+    BrowserAnimationsModule
   ],
   exports: [
     HttpClientModule,

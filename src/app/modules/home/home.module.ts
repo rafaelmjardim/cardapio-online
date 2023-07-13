@@ -8,12 +8,16 @@ import { HomeFiltersComponent } from './home-filters/home-filters.component';
 import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search} from "lucide-angular";
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InfoDialogComponent } from './info-dialog/info-dialog.component';
+
+import { MatDialogModule } from "@angular/material/dialog";
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     HomeFiltersComponent,
+    InfoDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -21,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    MatDialogModule,
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search})
   ],
   exports: [
