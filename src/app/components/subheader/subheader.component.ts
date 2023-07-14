@@ -26,6 +26,8 @@ export class SubheaderComponent implements AfterViewInit {
   }
 
   handleOpenDialog = () => {
-    this.dialog.open(InfoDialogComponent)
+    this.dialog.open(InfoDialogComponent, {
+      panelClass: 'mobile-dialog'
+    })
   }
 }
