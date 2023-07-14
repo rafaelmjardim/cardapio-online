@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from 'src/app/modules/home/home';
+import { Product } from 'src/app/components/products-cards/products-cards';
 import { environment } from 'src/environments/environments.prod';
 
 const API_KEY = environment.API_KEY;

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Product } from 'src/app/modules/home/home';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
+import { Product } from './products-cards';
 
 @Component({
   selector: 'app-products-cards',

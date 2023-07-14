@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from "@angular/forms";
+import { Product } from 'src/app/components/products-cards/products-cards';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
-import { Product } from '../home/home';
 
 @Component({
   selector: 'app-cadastro-produtos',

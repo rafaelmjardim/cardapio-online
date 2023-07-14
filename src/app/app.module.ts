@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfoDialogComponent } from './components/subheader/info-dialog/info-dialog.component';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { ProductDialogComponent } from './components/products-cards/product-dialog/product-dialog.component';
 
 
 
@@ -35,6 +36,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     NavbarComponent,
     InfoDialogComponent,
     LoginComponent,
+    ProductDialogComponent,
   ],
   imports: [
     BrowserModule,

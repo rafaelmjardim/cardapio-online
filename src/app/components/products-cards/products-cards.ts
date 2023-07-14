@@ -15,4 +15,3 @@ export interface Product {
     tamanho: string
     imagem: string
 }
-

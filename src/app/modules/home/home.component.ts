@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from './home';
 import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Product } from 'src/app/components/products-cards/products-cards';
 
 @Component({
   selector: 'app-home',
