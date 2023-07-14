@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SubheaderComponent } from './components/subheader/subheader.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle, BaggageClaim, X } from "lucide-angular";
@@ -22,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfoDialogComponent } from './components/subheader/info-dialog/info-dialog.component';
 
 import { MatTabsModule } from '@angular/material/tabs';
-import { LoginComponent } from './components/login/login.component';
+
 
 
 @NgModule({

@@ -1,0 +1,19 @@
+.login {
+    width: 40rem;
+    height: 30rem;
+
+    &_header {
+        padding: 1.2rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: .1rem solid #e4e4e4 ;
+    }
+
+    &_main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100% - 5.3rem);
+    }
+}
