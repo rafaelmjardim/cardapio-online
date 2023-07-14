@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-info-dialog',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class InfoDialogComponent {
 
+  constructor (public dialog: MatDialog){}
 }
