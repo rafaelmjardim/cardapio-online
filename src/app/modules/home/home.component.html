@@ -19,7 +19,7 @@
     </div>
 
     <div class="home_main">
-        <div class="home_main_products" *ngIf="!filter ; else filtered">
+        <div class="home_main_products" *ngIf="!filterValue ; else filtered">
             <app-products-cards
                 title="Lanches"
                 [productsData]="products"
@@ -43,5 +43,11 @@
 </div>
 
 <ng-template #filtered>
-    filtrado
+    <div class="fitered">
+        <app-products-cards
+                title="Lanches"
+                [productsData]="products"
+                [idCategory]="filterValue === filterValue ? filterValue : 0"
+        ></app-products-cards>
+    </div>
 </ng-template>

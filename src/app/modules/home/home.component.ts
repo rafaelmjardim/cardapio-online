@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit{
 
   products!: Product[];
 
-  filter!: string;
+  filterValue!: number;
 
   selectForm!: FormGroup;
 
@@ -25,8 +25,9 @@ export class HomeComponent implements OnInit{
   }
   
   onChangeCategoryValue = () => {
-    const optionValue = this.selectForm.controls['selectInput'].value;
-       
-    console.log(optionValue);
+    this.filterValue = this.selectForm.controls['selectInput'].value;
+
+    console.log(this.filterValue);
+    
   }
 }
