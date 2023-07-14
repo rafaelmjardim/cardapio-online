@@ -1,4 +1,30 @@
 .info_dialog {
-    width: 45rem;
-    height: 40rem;
+    width: 60rem;
+    min-height: 45rem;
+
+    &_header {
+        width: 100%;
+        padding: 1.2rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &_txt {
+            font-size: 1.8rem;
+        }
+
+        &_close {
+            cursor: pointer;
+        }
+    }
+
+    &_tabs {
+        &_group {            
+            &_tab {
+                &_content {
+                    padding: 1.2rem;
+                }
+            }
+        }
+    }
 }
