@@ -26,8 +26,9 @@ export class HomeComponent implements OnInit{
   
   onChangeCategoryValue = () => {
     this.filterValue = this.selectForm.controls['selectInput'].value;
-
-    console.log(this.filterValue);
     
+    if (this.selectForm.controls['selectInput'].value === '0'){
+      this.filterValue = 0;
+    }    
   }
 }

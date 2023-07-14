@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Product } from 'src/app/modules/home/home';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 
@@ -7,7 +7,7 @@ import { ProdutosService } from 'src/app/services/produtos/produtos.service';
   templateUrl: './products-cards.component.html',
   styleUrls: ['./products-cards.component.scss']
 })
-export class ProductsCardsComponent implements OnInit{
+export class ProductsCardsComponent implements OnInit, OnChanges{
   @Input() productsData!: Product[]; //Crirar tipagem global ou aqui no componente futuramente
   @Input() title!: string;
   @Input() idCategory!: number;
@@ -19,7 +19,10 @@ export class ProductsCardsComponent implements OnInit{
   constructor (private produtos_service: ProdutosService){}
 
   ngOnInit(): void {
-    this.onGetProducts(this.idCategory);
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    this.onGetProducts(this.idCategory);    
   }
 
   onGetProducts = (id_categoria?: number) => {
