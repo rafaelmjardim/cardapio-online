@@ -10,23 +10,23 @@
     </div>
 
     <div class="login_main">
-        <form class="login_main_form">
+        <form class="login_main_form" [formGroup]="loginForm">
             <div class="login_main_form_content">
                 <span class="login_main_form_content_txt">Informe seu contato</span>
                 <!-- <span class="login_main_form_content_sub">assim podemos identificar você</span> -->
             </div>
 
             <mat-form-field appearance="outline">
-                <input matInput placeholder="Seu nome" >
+                <input matInput placeholder="Seu nome" formControlName="nameInput">
                 <mat-label>Nome</mat-label>
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <input matInput placeholder="(51) X XXX-XXXX" >
+                <input matInput placeholder="(51) X XXX-XXXX" formControlName="phoneInput">
                 <mat-label>Celular</mat-label>
             </mat-form-field>
             
-            <button class="login_main_form_button">Confirmar</button>
+            <button class="login_main_form_button" (click)="submitLoginForm()">Confirmar</button>
         </form>
 
     </div>
