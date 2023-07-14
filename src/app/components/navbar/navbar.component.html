@@ -16,10 +16,14 @@
             <lucide-icon name="baggage-claim" [size]="18"></lucide-icon>
             Cadastrar
         </li>
-        <li class="navbar_menu_button" [ngClass]="router.url === '/user' ? 'clicked' : '' " (click)="handleOpenLogin()">
+        <li class="navbar_menu_button" [ngClass]="router.url === '/user' ? 'clicked' : '' " [matMenuTriggerFor]="user.userData ? userMenu : null" (click)="!user.userData ? handleOpenLogin() : null">
             <lucide-icon name="user" [size]="18"></lucide-icon>
             Usuário
         </li>
         
     </ul>
 </div>
+
+<mat-menu #userMenu>
+    <button mat-menu-item (click)="handleLogout()">Sair</button>
+</mat-menu>

@@ -5,6 +5,7 @@ import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -17,12 +18,14 @@ import { MatInputModule } from '@angular/material/input';
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatMenuModule,
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle})
   ],
   exports: [
     ProductsCardsComponent,
     MatFormFieldModule,
     MatInputModule,
+    MatMenuModule,
   ]
 })
 export class SharedModule { }

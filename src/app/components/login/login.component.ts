@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor (public dialog: MatDialog, private form_builder: FormBuilder){}
+  constructor (public dialog: MatDialog, private form_builder: FormBuilder, private user: UserService){}
 
   ngOnInit(): void {
     this.loginForm = this.form_builder.group({
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('nome', nameInput);
     localStorage.setItem('numero', phoneInput);
 
+    this.user.userGetItem();
     this.dialog.closeAll();
   }
 }
