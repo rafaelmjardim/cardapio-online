@@ -1,4 +1,4 @@
 export type User = {
-    name: string
-    phone: string
+    name: string | null
+    phone: string | null
 }

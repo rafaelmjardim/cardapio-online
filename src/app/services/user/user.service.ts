@@ -8,7 +8,16 @@ import { BehaviorSubject } from 'rxjs';
 export class UserService {
 
   // user = new BehaviorSubject<User>({name: '', phone: ''})
-
+  userData!: User;
 
   constructor() { }
+
+  userGetItem = () => {
+    if (localStorage.getItem('nome')) {
+      this.userData= {
+        name: localStorage.getItem('nome'),
+        phone: localStorage.getItem('numero')
+      }
+    }
+  }
 }

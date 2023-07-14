@@ -5,6 +5,7 @@ import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.s
 import { MatDialog } from "@angular/material/dialog";
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
 import { LoginComponent } from '../login/login.component';
+import { UserService } from 'src/app/services/user/user.service';
 
 
 @Component({
@@ -18,12 +19,14 @@ export class SubheaderComponent implements AfterViewInit {
   constructor (
     public router: Router, 
     public mobile_utils: MobileUtilsService, 
-    private change_detector_ref: ChangeDetectorRef,
-    private dialog: MatDialog  
+    public user: UserService,
+    private dialog: MatDialog
   ){}
 
   ngAfterViewInit(): void {
     this.mobile_utils.onInitMediaScreen();
+
+    this.user.userGetItem();      
   }
 
   handleOpenInfoDialog = () => {
