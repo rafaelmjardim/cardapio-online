@@ -1,3 +1,5 @@
+@import '/src/styles/config';
+
 // line-clamp é usada para adicionar 3 pontinhos ao texto overflowe o clamp determina a quantidade das linhas que irão aparecer 
 
 .line-clamp {
@@ -37,5 +39,9 @@
 }
 
 .mobile-dialog {
-    max-width: 100% !important;
+    @media screen and (max-width: $media-mobile) {
+        width: 100%;
+        max-width: 100% !important;
+        height: 100%;
+    }
 }
