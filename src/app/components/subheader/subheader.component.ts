@@ -4,6 +4,7 @@ import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.s
 
 import { MatDialog } from "@angular/material/dialog";
 import { InfoDialogComponent } from './info-dialog/info-dialog.component';
+import { LoginComponent } from '../login/login.component';
 
 
 @Component({
@@ -25,9 +26,13 @@ export class SubheaderComponent implements AfterViewInit {
     this.mobile_utils.onInitMediaScreen();
   }
 
-  handleOpenDialog = () => {
+  handleOpenInfoDialog = () => {
     this.dialog.open(InfoDialogComponent, {
       panelClass: 'mobile-dialog'
     })
+  }
+
+  handleOpenLoginDialog = () => {
+    this.dialog.open(LoginComponent)
   }
 }

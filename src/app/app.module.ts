@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InfoDialogComponent } from './components/subheader/info-dialog/info-dialog.component';
 
 import { MatTabsModule } from '@angular/material/tabs';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     SubheaderComponent,
     NavbarComponent,
     InfoDialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

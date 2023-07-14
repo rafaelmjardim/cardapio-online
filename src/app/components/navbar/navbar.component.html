@@ -16,7 +16,7 @@
             <lucide-icon name="baggage-claim" [size]="18"></lucide-icon>
             Cadastrar
         </li>
-        <li class="navbar_menu_button" [ngClass]="router.url === '/user' ? 'clicked' : '' " routerLink="/user">
+        <li class="navbar_menu_button" [ngClass]="router.url === '/user' ? 'clicked' : '' " (click)="handleOpenLogin()">
             <lucide-icon name="user" [size]="18"></lucide-icon>
             Usuário
         </li>
