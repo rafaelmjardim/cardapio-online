@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  constructor (public dialog: MatDialog){}
 }

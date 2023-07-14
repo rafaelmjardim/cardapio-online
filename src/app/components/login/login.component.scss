@@ -1,6 +1,7 @@
+@import '/src/styles/config';
+
 .login {
-    width: 40rem;
-    height: 30rem;
+    width: 30rem;
 
     &_header {
         padding: 1.2rem 1rem;
@@ -8,12 +9,61 @@
         justify-content: space-between;
         align-items: center;
         border-bottom: .1rem solid #e4e4e4 ;
+
+        &_txt {
+            font-size: 1.6rem;
+            // font-weight: 500;
+        }
+
+        &_close {
+            cursor: pointer;
+        }
     }
 
     &_main {
+        padding: 4rem;
+
         display: flex;
         align-items: center;
         justify-content: center;
         height: calc(100% - 5.3rem);
+
+        &_form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            &_content {
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                margin-bottom: 2rem;
+                
+                &_txt {
+                    font-size: 1.8rem;
+                    color: $txt-color-label;
+                }
+                
+                &_sub {
+                    font-size: 1.4rem;
+                    color: $txt-color-label;
+                }    
+            }
+
+            &_button{
+                background-color: $primary-color;
+                color: #fff;
+                border-radius: .8rem;
+                padding: 1.6rem 0;
+                font-size: 1.6rem;
+                font-weight: 600;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $primary-color-hover;
+                }
+            }
+        }
     }
 }

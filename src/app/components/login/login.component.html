@@ -4,17 +4,30 @@
             Login
         </div>
 
-        <div class="login_header_close">
+        <div class="login_header_close" (click)="dialog.closeAll()">
             <lucide-icon name="x"></lucide-icon>
         </div>
     </div>
 
     <div class="login_main">
-        <form>
+        <form class="login_main_form">
+            <div class="login_main_form_content">
+                <span class="login_main_form_content_txt">Informe seu contato</span>
+                <!-- <span class="login_main_form_content_sub">assim podemos identificar você</span> -->
+            </div>
+
             <mat-form-field appearance="outline">
-                <input matInput placeholder="Placeholder">
-                <mat-label>Outline form field</mat-label>
-              </mat-form-field>
+                <input matInput placeholder="Seu nome" >
+                <mat-label>Nome</mat-label>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="(51) X XXX-XXXX" >
+                <mat-label>Celular</mat-label>
+            </mat-form-field>
+            
+            <button class="login_main_form_button">Confirmar</button>
         </form>
+
     </div>
 </div>
