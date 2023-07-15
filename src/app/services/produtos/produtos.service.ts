@@ -33,6 +33,12 @@ export class ProdutosService {
     });
   };
 
+  getProduto = (product: Product) => {
+    return this.http.get<any>(`${API_KEY}/produto`, {
+      params: new HttpParams().set('codigo', product.codigo).set('codigo_interno', '')
+    })
+  }
+
   deleteProduto = (codigo: Product) => {
     return this.http.delete(`${API_KEY}/produtos`, {
       params: new HttpParams().set('codigo', codigo.codigo)

@@ -9,15 +9,18 @@
                 <lucide-icon name="x" [size]="20"></lucide-icon>
             </div>
         </div>
-        <img src="assets/classic-duplo.jpg" alt="">
+        <img [src]="currentProduct.imagem" alt="Imagem ilustrativa">
     </div>
 
     <div class="product_dialog_main">
         <div class="product_dialog_main_content">
-            <span class="product_dialog_main_content_title">Duplo Classic</span>
-            <p class="product_dialog_main_content_description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta assumenda tenetur excepturi sit animi nam laudantium, ratione magnam asperiores officia illo autem porro distinctio quos odio doloremque sunt quam ab.</p>
+            <span class="product_dialog_main_content_title">{{ currentProduct.nome }}</span>
+            <p class="product_dialog_main_content_description">{{ currentProduct.descricao}}</p>
+        </div>
+        
+        <div class="product_dialog_main_content_actions">
             <div class="product_dialog_main_content_quantity">
-
+    
                 <div class="product_dialog_main_content_quantity_selector">
                     <div class="product_dialog_main_content_quantity_selector_less">
                         <lucide-icon name="minus"></lucide-icon>
@@ -31,12 +34,9 @@
                         <lucide-icon name="plus"></lucide-icon>
                     </div>
                 </div>
-
+    
                 <span class="product_dialog_main_content_quantity_value">valor</span>
             </div>
-        </div>
-
-        <div class="product_dialog_main_content_actions">
             <button class="product_dialog_content_button button-primary">Adicionar</button>
         </div>
     </div>

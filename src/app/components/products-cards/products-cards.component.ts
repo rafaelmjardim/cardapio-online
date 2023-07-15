@@ -1,7 +1,7 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges, Inject } from '@angular/core';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 import { Product } from './products-cards';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 
 @Component({
@@ -18,9 +18,13 @@ export class ProductsCardsComponent implements OnInit, OnChanges{
 
   @Input() deleteProductFunction!: Function;
 
-  constructor (private produtos_service: ProdutosService, private dialog: MatDialog){}
+  constructor (
+    private produtos_service: ProdutosService, 
+    private dialog: MatDialog, 
+  ){}
 
   ngOnInit(): void {
+
   }
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -33,9 +37,10 @@ export class ProductsCardsComponent implements OnInit, OnChanges{
     })
   }
 
-  handleOpenProductDialog = () => {
+  handleOpenProductDialog = (currentProduct: Product) => {
     this.dialog.open(ProductDialogComponent, {
-      panelClass: 'mobile-dialog'
+      panelClass: 'mobile-dialog',
+      data: currentProduct
     })
   }
 }
