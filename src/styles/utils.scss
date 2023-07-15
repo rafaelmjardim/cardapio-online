@@ -51,4 +51,8 @@
     &:hover {
         background-color: $primary-color-hover;
     }
+
+    &:focus {
+        outline: none;
+    }
 }
