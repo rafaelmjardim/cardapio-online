@@ -1,0 +1,7 @@
+.mobile-dialog {
+    @media screen and (max-width: $media-mobile) {
+        width: 100%;
+        max-width: 100% !important;
+        height: 100%;
+    }
+}

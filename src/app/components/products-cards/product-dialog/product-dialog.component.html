@@ -1,1 +1,43 @@
-<p>product-dialog works!</p>
+<div class="product_dialog">
+    <div class="product_dialog_header">
+        <div class="product_dialog_header_actions">
+            <div class="product_dialog_header_actions_bag">
+                <lucide-icon name="shopping-bag" [size]="20"></lucide-icon>
+            </div>
+
+            <div class="product_dialog_header_actions_close" (click)="dialog.closeAll()">
+                <lucide-icon name="x" [size]="20"></lucide-icon>
+            </div>
+        </div>
+        <img src="assets/classic-duplo.jpg" alt="">
+    </div>
+
+    <div class="product_dialog_main">
+        <div class="product_dialog_main_content">
+            <span class="product_dialog_main_content_title">Duplo Classic</span>
+            <p class="product_dialog_main_content_description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta assumenda tenetur excepturi sit animi nam laudantium, ratione magnam asperiores officia illo autem porro distinctio quos odio doloremque sunt quam ab.</p>
+            <div class="product_dialog_main_content_quantity">
+
+                <div class="product_dialog_main_content_quantity_selector">
+                    <div class="product_dialog_main_content_quantity_selector_less">
+                        <lucide-icon name="minus"></lucide-icon>
+                    </div>
+    
+                    <div class="product_dialog_main_content_quantity_selector_value">
+                        1
+                    </div>
+    
+                    <div class="product_dialog_main_content_quantity_selector_more">
+                        <lucide-icon name="plus"></lucide-icon>
+                    </div>
+                </div>
+
+                <span class="product_dialog_main_content_quantity_value">valor</span>
+            </div>
+        </div>
+
+        <div class="product_dialog_main_content_actions">
+            <button class="product_dialog_content_button button-primary">Adicionar</button>
+        </div>
+    </div>
+</div>
