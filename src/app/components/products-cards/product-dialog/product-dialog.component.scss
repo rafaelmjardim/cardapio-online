@@ -8,6 +8,10 @@
     grid-template-columns: 100%;
     grid-template-rows: 60% 40%;
 
+    @media screen and (max-width: $media-mobile) {
+        width: 100%;
+    }
+
     &_header {
         
         &_actions {
