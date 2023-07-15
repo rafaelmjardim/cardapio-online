@@ -82,10 +82,12 @@
                 }
     
                 &_img, img {
-                    width: auto;
+                    width: 11rem;
                     height: 10rem;
                     border-radius: 1rem;
                     transition: .3s ease-in-out;
+
+                    object-fit: cover;
 
                 }
 
