@@ -39,6 +39,11 @@
                 cursor: pointer;
                 transition: .3s;
 
+                &:hover {
+                    box-shadow: rgba(74, 74, 74, 0.24) 0px 3px 8px;
+            
+                }
+
                 .card-hover:hover &_content {
                     opacity: .2;
                 }
