@@ -41,8 +41,7 @@ export class ProdutosService {
 
   deleteProduto = (product: Product) => {
     return this.http.delete(`${API_KEY}/produtos`, {
-     headers: new HttpHeaders().set('nomeImagem', String(product.imagem)), //Testando enviar codigo por header
-      params: new HttpParams().set('codigo', product.codigo)
+      params: new HttpParams().set('codigo', product.codigo).set('nome_imagem_delete', product.imagem ? product.imagem : '')
     })
   }
 }
