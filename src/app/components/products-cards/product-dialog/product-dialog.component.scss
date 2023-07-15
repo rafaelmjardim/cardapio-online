@@ -1,7 +1,12 @@
 @import '/src/styles/config';
 
 .product_dialog {
-    height: 100%;
+    width: 51rem;
+    height: 80vh;
+
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60% 40%;
 
     &_header {
         
@@ -34,12 +39,17 @@
         position: relative;
         top: -3rem;
         background-color: #fff;
-        height: calc(50% - 3rem);
+        height: calc(100% + 3rem);
         border-radius: 3rem 3rem 0 0;
-        padding: 2rem 1.2rem;
+        padding: 2rem 1.4rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        // @media screen and (max-width: $media-mobile) {
+        //     height: calc(50% - 3rem);
+
+        // }
 
         &_content {
             display: flex;
