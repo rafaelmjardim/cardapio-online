@@ -29,7 +29,7 @@ export class ProdutosService {
 
   getProdutos = (id_category?: number):Observable<any> => {    
     return this.http.get<any>(`${API_KEY}/produtos`, {
-      params: new HttpParams().set('id_categoria', id_category ? id_category : '' )
+      params: new HttpParams().set('nome', '').set('id_categoria', id_category ? id_category : '' )
     });
   };
 

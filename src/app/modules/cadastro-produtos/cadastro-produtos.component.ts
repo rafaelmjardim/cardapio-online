@@ -29,7 +29,7 @@ export class CadastroProdutosComponent implements OnInit {
   //Get de produtos(com crud)
   onGetProductList = () => {
     this.produtos_service.getProdutos().subscribe(res => {
-      this.productsData = res;
+      this.productsData = res;      
     })
   }
 
