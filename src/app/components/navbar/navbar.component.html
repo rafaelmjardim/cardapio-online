@@ -1,5 +1,5 @@
 <div class="navbar" *ngIf="mobile_utils.mediaMobile">
-    <ul class="navbar_menu">
+    <ul class="navbar_menu" (click)="dialog.closeAll()">
         <li class="navbar_menu_button" [ngClass]="router.url === '/home' || router.url === '/' ? 'clicked' : '' " routerLink="/home">
             <lucide-icon name="home" class="icon" [size]="18"></lucide-icon>
             Início
