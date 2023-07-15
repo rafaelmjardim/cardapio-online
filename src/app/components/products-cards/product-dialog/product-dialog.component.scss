@@ -14,10 +14,9 @@
         grid-template-rows: 50% 50%;
     }
 
-    @media screen and (max-width: 500px) {
-       
-        grid-template-rows: 40% 60%;
-    }
+    // @media screen and (max-width: 500px) {
+    //     grid-template-rows: 40% 60%;
+    // }
 
     &_header {
         &_actions {
@@ -39,11 +38,8 @@
                 border-radius: 10rem;
             }
         }
-        
         img {
             width: 100%;
-            object-fit: cover;
-
         }
     }
 
