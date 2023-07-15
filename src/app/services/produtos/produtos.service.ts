@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/components/products-cards/products-cards';
@@ -39,9 +39,10 @@ export class ProdutosService {
     })
   }
 
-  deleteProduto = (codigo: Product) => {
+  deleteProduto = (product: Product) => {
     return this.http.delete(`${API_KEY}/produtos`, {
-      params: new HttpParams().set('codigo', codigo.codigo)
+     headers: new HttpHeaders().set('nomeImagem', String(product.imagem)), //Testando enviar codigo por header
+      params: new HttpParams().set('codigo', product.codigo)
     })
   }
 }

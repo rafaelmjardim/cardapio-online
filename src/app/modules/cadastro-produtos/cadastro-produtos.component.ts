@@ -72,10 +72,10 @@ export class CadastroProdutosComponent implements OnInit {
     this.uploadImg = target.files[0];    
   }
 
-  handleDeleteProduct = (productCodigo: Product) => {
+  handleDeleteProduct = (product: Product) => {
     
-    this.produtos_service.deleteProduto(productCodigo).subscribe(res => {
-      console.log(`Produto ${productCodigo} deletado`);
+    this.produtos_service.deleteProduto(product).subscribe(res => {
+      console.log(`Produto ${product.codigo} deletado`);
       this.onGetProductList();
     })
   }
