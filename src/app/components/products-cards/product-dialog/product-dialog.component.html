@@ -16,24 +16,40 @@
         <div class="product_dialog_main_content">
             <span class="product_dialog_main_content_title">{{ currentProduct.nome }}</span>
             <p class="product_dialog_main_content_description">{{ currentProduct.descricao}}</p>
-            <div class="product_dialog_main_content_quantity">    
-                <span class="product_dialog_main_content_quantity_value"> {{currentProduct.valor_venda}} </span>
-            </div>
+                   
+            <!-- <ul class="product_dialog_main_content_add">
+                <span>Adicionais</span>
+                <p>Escolher até 8 opções</p>
+                <li>Bacon</li>
+                <li>Chaddar</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul> -->
         </div>
 
+
         <div class="product_dialog_main_content_actions">
-            <div class="product_dialog_main_content_quantity_selector">
-                <button class="product_dialog_main_content_quantity_selector_less" [ngClass]="count === 1 ? 'disabled' : '' " (click)="handleCountProducts('less')">
+            <div class="product_dialog_main_content_actions_quantity_selector">
+                <button class="product_dialog_main_content_actions_quantity_selector_less" [ngClass]="count === 1 ? 'disabled' : '' " (click)="handleCountProducts('less')">
                     <lucide-icon name="minus" [size]="20"></lucide-icon>
                 </button>
 
-                <div class="product_dialog_main_content_quantity_selector_value">
+                <div class="product_dialog_main_content_actions_quantity_selector_value">
                     {{count}}
                 </div>
 
-                <button class="product_dialog_main_content_quantity_selector_more" (click)="handleCountProducts('plus')">
+                
+                <button class="product_dialog_main_content_actions_quantity_selector_more" (click)="handleCountProducts('plus')">
                     <lucide-icon name="plus"  [size]="20"></lucide-icon>
                 </button>
+                
+                <div class="product_dialog_main_content_actions_quantity">    
+                    <span class="product_dialog_main_content_quantity_value"> 
+                       R$22,90 <!-- {{currentProduct.valor_venda}} -->
+                    </span>
+                </div>
             </div>
 
             <button class="product_dialog_content_button button-primary">Adicionar</button>
