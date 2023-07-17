@@ -52,7 +52,7 @@ export class CadastroProdutosComponent implements OnInit {
     const productValueInput = this.productForm.controls['productValueInput'].value;
 
     if(productNameInput && productCategoryInput) {
-      this.produtos_service.postProduct(productNameInput, productDescriptionInput, Number(productValueInput), productCategoryInput, this.uploadImg).subscribe(res => {
+      this.produtos_service.postProduct(productNameInput, productDescriptionInput, productValueInput, productCategoryInput, this.uploadImg).subscribe(res => {
         console.log('Cadastrado com sucesso!');
         this.onGetProductList();
       })

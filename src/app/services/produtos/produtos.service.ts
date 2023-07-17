@@ -13,7 +13,7 @@ export class ProdutosService {
 
   constructor(private http: HttpClient) { }
 
-  postProduct = (productName: string, productDescription: string, productValue: any, productCategory: number, uploadImg: any) => {
+  postProduct = (productName: string, productDescription: string, productValue: number, productCategory: number, uploadImg: any) => {
     
     const formData = new FormData();
 
@@ -21,7 +21,7 @@ export class ProdutosService {
 
     formData.set('nome', productName)
     formData.set('descricao', productDescription)
-    formData.set('valor_venda', productValue)
+    formData.set('valor_venda', String(productValue))
     formData.set('id_categoria', String(productCategory))
     formData.set('status', String(1))
 
