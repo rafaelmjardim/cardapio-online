@@ -1,0 +1,14 @@
+.cart {
+    padding: 2rem;
+
+    &_main {
+        
+        &_list {
+           
+            &_item {
+                display: flex;
+                gap: 1rem;
+            }
+        }
+    }
+}

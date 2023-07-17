@@ -5,6 +5,7 @@ import { PedidosComponent } from './modules/pedidos/pedidos.component';
 import { CadastroProdutosComponent } from './modules/cadastro-produtos/cadastro-produtos.component';
 import { PromocoesComponent } from './modules/promocoes/promocoes.component';
 import { UserComponent } from './modules/user/user.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -19,9 +20,13 @@ const routes: Routes = [
     path: 'promocoes',
     component: PromocoesComponent,
   },
+  // {
+  //   path: 'pedidos',
+  //   component: PedidosComponent,
+  // },
   {
-    path: 'pedidos',
-    component: PedidosComponent,
+    path: 'carrinho',
+    component: CartComponent,
   },
   {
     path: 'cadastro-produtos',
