@@ -25,14 +25,12 @@ export class ProductDialogComponent implements OnInit{
 
   onGetProduct = () => {
     this.produtos_service.getProduto(this.dialog_data).subscribe(res => {
-      this.currentProduct = res[0];
-      console.log(res[0]);
-            
+      this.currentProduct = res[0];            
     })
   }
 
+  //Função que realiza a contagem de produtos
   handleCountProducts = (option: string) => {
-
     if (option === 'plus') {
       this.count = ++ this.count ;
     }else {
