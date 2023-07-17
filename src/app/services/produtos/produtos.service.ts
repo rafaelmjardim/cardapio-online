@@ -35,7 +35,7 @@ export class ProdutosService {
 
   getProduto = (product: Product) => {
     return this.http.get<any>(`${API_KEY}/produto`, {
-      params: new HttpParams().set('codigo', product.codigo).set('codigo_interno', '')
+      params: new HttpParams().set('codigo', product.codigo)
     })
   }
 
