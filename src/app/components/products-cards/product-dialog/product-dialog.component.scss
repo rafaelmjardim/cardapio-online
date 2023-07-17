@@ -6,7 +6,7 @@
 
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 60% 40%;
 
     @media screen and (max-width: $media-mobile) {
         width: 100%;
@@ -83,16 +83,35 @@
                 &_selector {
                     display: flex;
                     align-items: center;
-                    gap: 1.6rem;
+                    gap: 1.4rem;
                     font-size: 2rem;
+
+                    button {
+                        border: none;
+
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
 
                     lucide-icon {
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         background-color: #cecece86;
-                        padding: .5rem;
+                        padding: .4rem;
                         border-radius: .5rem;
+                        transition: .3s;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #82828286;
+                        }
+                    }
+
+                    &_value {
+                        font-size: 1.4rem;
                     }
                     
                 }
@@ -107,6 +126,11 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.2rem;
+
+                .disabled {
+                    pointer-events: none;
+                    opacity: .5;
+                }
             }
         }
     }

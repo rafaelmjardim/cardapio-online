@@ -2,7 +2,7 @@
     <span class="products_cards_title">{{title}}</span>
     
     <ul class="products_cards_list">
-        <li class="products_cards_list_item" *ngFor="let product of productsData" (click)="handleOpenProductDialog(product)">
+        <li class="products_cards_list_item" *ngFor="let product of productsData" (click)=" !admin ? handleOpenProductDialog(product) : null">
             <div class="products_cards_list_item_card" [ngClass]="admin ? 'card-hover' : ''">
                 <div class="products_cards_list_item_card_actions" *ngIf="admin">
                     <div class="products_cards_list_item_card_actions_delete" (click)="deleteProductFunction(product)">

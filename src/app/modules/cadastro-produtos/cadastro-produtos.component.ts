@@ -39,6 +39,8 @@ export class CadastroProdutosComponent implements OnInit {
       productNameInput: [''],
       productCategoryInput: [''],
       productDescriptionInput: [''],
+      productValueInput: [''],
+      productFileInput: ['']
     })
   }
 
@@ -47,9 +49,10 @@ export class CadastroProdutosComponent implements OnInit {
     const productNameInput = this.productForm.controls['productNameInput'].value;
     const productCategoryInput = this.productForm.controls['productCategoryInput'].value;
     const productDescriptionInput = this.productForm.controls['productDescriptionInput'].value;
+    const productValueInput = this.productForm.controls['productValueInput'].value;
 
     if(productNameInput && productCategoryInput) {
-      this.produtos_service.postProduct(productNameInput, productDescriptionInput, productCategoryInput, this.uploadImg).subscribe(res => {
+      this.produtos_service.postProduct(productNameInput, productDescriptionInput, Number(productValueInput), productCategoryInput, this.uploadImg).subscribe(res => {
         console.log('Cadastrado com sucesso!');
         this.onGetProductList();
       })
@@ -62,6 +65,8 @@ export class CadastroProdutosComponent implements OnInit {
     this.productForm.controls['productNameInput'].setValue('')
     this.productForm.controls['productCategoryInput'].setValue('')
     this.productForm.controls['productDescriptionInput'].setValue('')
+    this.productForm.controls['productValueInput'].setValue('')
+    this.productForm.controls['productFileInput'].setValue('')
     
   }
 

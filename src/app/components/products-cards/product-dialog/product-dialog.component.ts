@@ -17,6 +17,8 @@ export class ProductDialogComponent implements OnInit{
 
   currentProduct!: Product;
 
+  count: number = 1;
+
   ngOnInit(): void {
     this.onGetProduct();
   }
@@ -27,5 +29,14 @@ export class ProductDialogComponent implements OnInit{
       console.log(res[0]);
             
     })
+  }
+
+  handleCountProducts = (option: string) => {
+
+    if (option === 'plus') {
+      this.count = ++ this.count ;
+    }else {
+      this.count = -- this.count
+    }    
   }
 }
