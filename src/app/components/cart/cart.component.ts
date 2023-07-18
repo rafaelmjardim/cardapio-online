@@ -29,8 +29,6 @@ export class CartComponent implements OnInit {
       
     })
     
-    console.log('itens map', this.itens);
-
     this.newOrder = {
       id_cliente: 1,
       lista_carrinho: [
@@ -38,7 +36,6 @@ export class CartComponent implements OnInit {
       ],
       mesa: 2
     }
-    console.log('pedido', this.newOrder);
 
     this.cart_service.postPedido(this.newOrder).subscribe(res => {
       console.log('post realizado com sucesso');
