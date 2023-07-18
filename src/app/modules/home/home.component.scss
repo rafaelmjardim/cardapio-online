@@ -105,8 +105,8 @@
             right: 2rem;
             bottom: 6rem;
 
-            &_icon lucide-icon {
-                padding: 1.5rem;
+            &_icon {
+                padding: 1.3rem;
                 border-radius: 50rem;
                 background-color: $primary-color;
                 display: flex;
@@ -114,6 +114,12 @@
                 justify-content: center;
                 color: #fff;
                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+                lucide-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
         }
     }

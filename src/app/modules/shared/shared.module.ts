@@ -8,7 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { CartComponent } from 'src/app/components/cart/cart.component';
 
-
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
@@ -21,6 +21,7 @@ import { CartComponent } from 'src/app/components/cart/cart.component';
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
+    MatBadgeModule,
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle})
   ],
   exports: [
@@ -29,6 +30,7 @@ import { CartComponent } from 'src/app/components/cart/cart.component';
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
+    MatBadgeModule,
   ]
 })
 export class SharedModule { }
