@@ -10,14 +10,16 @@
     <div class="cart_main">
         <ul class="cart_main_list" *ngIf="cartItens.length; else empty">
             <li class="cart_main_list_item" *ngFor="let item of cartItens">
-                <img [src]="item.imagem" alt="">
+                <div class="cart_main_list_item_img">
+                    <img [src]="item.imagem" alt="">
+                </div>
                 <div class="cart_main_list_item_group">
                     <div class="cart_main_list_item_group_content">
                         <span class="cart_main_list_item_group_content_title">{{item.nome}}</span>
                         <span class="cart_main_list_item_group_content_value">{{item.valor_venda | currency:'BRL'}}</span>
                     </div>
                     <div class="cart_main_list_item_group_actions">
-                        <lucide-icon name="x-circle"></lucide-icon>
+                        <lucide-icon name="x-circle" [size]="20"></lucide-icon>
                     </div>
                 </div>
             </li>
