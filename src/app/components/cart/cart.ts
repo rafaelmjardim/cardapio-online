@@ -1,4 +1,4 @@
-export type Cart = {
+export type Pedido = {
     // codigo: number
     id_produto: number
     id_cliente: number
