@@ -46,6 +46,7 @@ export class ProductDialogComponent implements OnInit{
   handleAddCart = (currentProduct: Product,) => {
 
     this.cart_service.setCartItens(currentProduct);
+    this.dialog.closeAll()
 
   }
 }
