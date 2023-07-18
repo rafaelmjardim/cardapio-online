@@ -5,3 +5,9 @@
         height: 100%;
     }
 }
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    @media screen and (min-width: 528px) {
+        border-radius: 2rem !important;
+    }
+}
