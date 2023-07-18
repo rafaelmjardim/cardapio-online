@@ -68,6 +68,9 @@
     
     &_main {
         padding: 3rem 2rem;
+        display: grid;
+        grid-template-columns: 75% auto;
+        gap: 2rem;
 
         @media screen and (min-width: 1200px) {
             padding: 2rem 12rem;
@@ -78,5 +81,11 @@
             flex-direction: column;
             gap: 3rem;
         }
+
+        // &_cart{
+        //   position: fixed;
+        //   bottom: 2rem;
+        //   right: 0rem;
+        // }
     }
 }

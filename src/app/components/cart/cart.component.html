@@ -1,5 +1,8 @@
 <div class="cart">
-    <h3>Carrinho (temporario):</h3>
+    <div class="cart_header">
+        <span>Carrinho</span>
+        <span>Limpar</span>
+    </div>
 
     <div class="cart_main">
         <ul class="cart_main_list">
@@ -15,10 +18,10 @@
                     </div>
                 </div>
             </li>
-            <div *ngIf="cartItens.length">
-                <button class="button-primary" (click)="handleSubmitOrder()">Finalizar pedido</button>
-            </div>
         </ul>
+        <div class="cart_main_action" >
+            <button class="button-primary" [ngClass]="cartItens.length ? '' : 'disabled' " (click)="handleSubmitOrder()">{{cartItens.length ? 'Finalizar pedido' : 'Sacola vazia'}}</button>
+        </div>
     </div>
 
 </div>

@@ -38,7 +38,6 @@ import { CartComponent } from './components/cart/cart.component';
     InfoDialogComponent,
     LoginComponent,
     ProductDialogComponent,
-    CartComponent,
   ],
   imports: [
     BrowserModule,

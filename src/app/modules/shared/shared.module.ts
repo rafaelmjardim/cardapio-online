@@ -6,13 +6,15 @@ import {LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { CartComponent } from 'src/app/components/cart/cart.component';
 
 
 
 
 @NgModule({
   declarations: [
-    ProductsCardsComponent
+    ProductsCardsComponent,
+    CartComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { MatMenuModule } from '@angular/material/menu';
   ],
   exports: [
     ProductsCardsComponent,
+    CartComponent,
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
