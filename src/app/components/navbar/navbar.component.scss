@@ -1,6 +1,9 @@
 @import '/src/styles/config';
 
 .navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #fff;
     height: 5rem;
     border-top: .1rem solid #e2e2e2;

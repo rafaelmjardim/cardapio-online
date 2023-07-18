@@ -44,8 +44,6 @@ export class HomeComponent implements OnInit{
   }
 
   handleOpenDialogCart = () => {
-    this.dialog.open(CartComponent, {
-      maxWidth: 'none'
-    })
+    this.dialog.open(CartComponent)
   }
 }
