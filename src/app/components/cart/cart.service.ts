@@ -7,22 +7,22 @@ import { Cart } from './cart';
 })
 export class CartService {
 
-  cartItens: Cart[] = []
-  newCartItens: Cart[] = []
+  cartItens: Product[] = []
+  // newCartItens: Cart[] = []
 
   constructor() { }
 
-  setCartItens = (cod_prod: number, id_cliente: number, mesa: number) => {
+  setCartItens = (product: Product) => {
 
-    this.newCartItens = [
-      {
-        id_produto: cod_prod,
-        id_cliente: id_cliente,
-        mesa: mesa
-      }
-    ]
+    // this.newCartItens = [
+    //   {
+    //     id_produto: cod_prod,
+    //     id_cliente: id_cliente,
+    //     mesa: mesa
+    //   }
+    // ]
 
-    this.cartItens.push(...this.newCartItens);
+    this.cartItens.push(product);
     
     console.log(' items do servico',this.cartItens);
     

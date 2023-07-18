@@ -10,11 +10,11 @@ import { Cart } from './cart';
 })
 export class CartComponent implements OnInit {
 
-  // cartItens: Cart[] = [];
+  cartItens: Product[] = [];
 
   constructor (private cart_service: CartService){}
   ngOnInit(): void {
-    // console.log('init', this.cart_service.cartItens);
-    // this.cartItens = this.cart_service.cartItens;
+    console.log('init', this.cart_service.cartItens);
+    this.cartItens = this.cart_service.cartItens;
   }
 }
