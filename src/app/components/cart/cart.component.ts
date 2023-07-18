@@ -42,4 +42,8 @@ export class CartComponent implements OnInit {
       
     })
   }
+
+  handleClearBag = () => {
+    this.cartItens = []
+  }
 }
