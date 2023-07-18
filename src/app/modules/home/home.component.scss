@@ -94,9 +94,26 @@
             gap: 3rem;
         }
 
-        &_cart{
+        &_cart {
             @media screen and (max-width: 940px) {
                 display: none;
+            }
+        }
+
+        &_cartMobile {
+            position: fixed;
+            right: 2rem;
+            bottom: 6rem;
+
+            &_icon lucide-icon {
+                padding: 1.5rem;
+                border-radius: 50rem;
+                background-color: $primary-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             }
         }
     }

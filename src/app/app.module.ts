@@ -24,9 +24,6 @@ import { InfoDialogComponent } from './components/subheader/info-dialog/info-dia
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProductDialogComponent } from './components/products-cards/product-dialog/product-dialog.component';
-import { CartComponent } from './components/cart/cart.component';
-
-
 
 @NgModule({
   declarations: [

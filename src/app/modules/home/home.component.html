@@ -42,6 +42,12 @@
         <div class="home_main_cart">
             <app-cart></app-cart>
         </div>
+
+        <div class="home_main_cartMobile" *ngIf="cart_service.cartItens.length">
+            <div class="home_main_cartMobile_icon" (click)="handleOpenDialogCart()">
+                <lucide-icon name="ShoppingBag"></lucide-icon>
+            </div>
+        </div>
     </div>
 
 </div>
