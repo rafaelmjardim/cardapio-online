@@ -5,41 +5,13 @@
       "mesa": 2,
       "lista_carrinho": [
         {
-          "id_produto": [
-            30,
-            31,
-            32,
-            30,
-            31,
-            32
-          ]
+          "id_produto": 1
+        },
+        {
+          "id_produto": 2
         }
       ],
       "id": 1
-    },
-    {
-      "id_cliente": 1,
-      "mesa": 2,
-      "lista_carrinho": [
-        {
-          "id_produto": [
-            30,
-            23,
-            40
-          ]
-        }
-      ],
-      "id": 2
-    },
-    {
-      "id_cliente": 1,
-      "mesa": 2,
-      "lista_carrinho": [
-        {
-          "id_produto": 30
-        }
-      ],
-      "id": 3
     }
   ],
   "comments": [
