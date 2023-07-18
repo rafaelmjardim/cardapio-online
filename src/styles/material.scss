@@ -3,11 +3,13 @@
         width: 100%;
         max-width: 100% !important;
         height: 100%;
+
+        .mat-mdc-dialog-container .mdc-dialog__surface {
+            border-radius: 0 !important;
+        }
     }
 }
 
 .mat-mdc-dialog-container .mdc-dialog__surface {
-    @media screen and (min-width: 528px) {
-        border-radius: 2rem !important;
-    }
+    border-radius: 1.5rem !important;
 }
