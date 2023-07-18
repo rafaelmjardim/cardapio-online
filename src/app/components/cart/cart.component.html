@@ -15,7 +15,9 @@
                     </div>
                 </div>
             </li>
-            <button class="button-primary" *ngIf="cartItens.length">Finalizar pedido</button>
+            <div *ngIf="cartItens.length">
+                <button class="button-primary" (click)="handleSubmitOrder()">Finalizar pedido</button>
+            </div>
         </ul>
     </div>
 

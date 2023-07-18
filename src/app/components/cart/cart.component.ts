@@ -12,9 +12,32 @@ export class CartComponent implements OnInit {
 
   cartItens: Product[] = [];
 
+  order!: any;
+
+  newOrder!: Pedido;
+
+  itens: number[] = []
+
   constructor (private cart_service: CartService){}
   ngOnInit(): void {
-    console.log('init', this.cart_service.cartItens);
     this.cartItens = this.cart_service.cartItens;
+  }
+
+  handleSubmitOrder = () => {
+    this.cartItens.map(item => {  
+      this.itens.push(item.codigo)
+      
+    })
+    
+    console.log('itens map', this.itens);
+
+    this.newOrder = {
+      id_cliente: 1,
+      lista_carrinho: [
+        {id_produto: this.itens}
+      ],
+      mesa: 2
+    }
+    console.log('pedido', this.newOrder);
   }
 }

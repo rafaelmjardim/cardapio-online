@@ -13,18 +13,9 @@ export class CartService {
   constructor() { }
 
   setCartItens = (product: Product) => {
-
-    // this.newCartItens = [
-    //   {
-    //     id_produto: cod_prod,
-    //     id_cliente: id_cliente,
-    //     mesa: mesa
-    //   }
-    // ]
-
     this.cartItens.push(product);
     
-    console.log(' items do servico',this.cartItens);
+    // console.log(' items do servico',this.cartItens);
     
   }
 }
