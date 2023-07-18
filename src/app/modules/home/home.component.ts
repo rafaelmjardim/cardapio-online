@@ -30,6 +30,9 @@ export class HomeComponent implements OnInit{
     this.selectForm = this.form_builder.group({
       selectInput: ['']
     })
+
+    this.mobile_utils.onInitMediaMedium()
+    this.mobile_utils.onInitMediaMobile()
   }
   
   onChangeCategoryValue = () => {

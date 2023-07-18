@@ -26,7 +26,7 @@ export class MobileUtilsService {
         this.mediaMobile = false;
       }
     })
-    return this.mediaMobile;
+    // return this.mediaMobile;
   } 
    
   onInitMediaMedium = () => {    
@@ -37,6 +37,6 @@ export class MobileUtilsService {
         this.mediaMedium = false;
       }
     })
-    return this.mediaMedium;
+    // return this.mediaMedium;
   }  
 }
