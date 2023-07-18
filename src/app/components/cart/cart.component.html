@@ -5,13 +5,18 @@
         <ul class="cart_main_list">
             <li class="cart_main_list_item" *ngFor="let item of cartItens">
                 <img [src]="item.imagem" alt="">
-                <div class="cart_main_list_item_content">
-                    <span class="cart_main_list_item_content_title">{{item.nome}}</span>
-                    <span class="cart_main_list_item_content_value">{{item.valor_venda | currency:'BRL'}}</span>
+                <div class="cart_main_list_item_group">
+                    <div class="cart_main_list_item_group_content">
+                        <span class="cart_main_list_item_group_content_title">{{item.nome}}</span>
+                        <span class="cart_main_list_item_group_content_value">{{item.valor_venda | currency:'BRL'}}</span>
+                    </div>
+                    <div class="cart_main_list_item_group_actions">
+                        <lucide-icon name="x-circle"></lucide-icon>
+                    </div>
                 </div>
             </li>
+            <button class="button-primary" *ngIf="cartItens.length">Finalizar pedido</button>
         </ul>
     </div>
 
-    <button class="button-primary" *ngIf="cartItens.length">Finalizar pedido</button>
 </div>
