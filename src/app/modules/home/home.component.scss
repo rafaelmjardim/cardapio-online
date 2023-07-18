@@ -69,10 +69,22 @@
     &_main {
         padding: 3rem 2rem;
         display: grid;
-        grid-template-columns: 75% auto;
+        grid-template-columns: 70% auto;
         gap: 2rem;
 
+        @media screen and (max-width: 940px) {
+            grid-template-columns: 100%;
+        }
+      
+        @media screen and (min-width: 941px) {
+            grid-template-columns: 70% auto;
+        }
+
         @media screen and (min-width: 1200px) {
+            grid-template-columns: 75% auto;
+        }
+       
+        @media screen and (min-width: 1420px) {
             padding: 2rem 12rem;
         }
 
@@ -82,10 +94,10 @@
             gap: 3rem;
         }
 
-        // &_cart{
-        //   position: fixed;
-        //   bottom: 2rem;
-        //   right: 0rem;
-        // }
+        &_cart{
+            @media screen and (max-width: 940px) {
+                display: none;
+            }
+        }
     }
 }
