@@ -20,13 +20,9 @@ const routes: Routes = [
     path: 'promocoes',
     component: PromocoesComponent,
   },
-  // {
-  //   path: 'pedidos',
-  //   component: PedidosComponent,
-  // },
   {
-    path: 'carrinho',
-    component: CartComponent,
+    path: 'pedidos',
+    component: PedidosComponent,
   },
   {
     path: 'cadastro-produtos',
