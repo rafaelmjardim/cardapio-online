@@ -12,10 +12,13 @@ export class MobileUtilsService {
   breakpoints = Breakpoints; //Contem os valores de resolução(Não está em uso mas pode ser usado)
 
   mediaMobile!: boolean;
+  
+  mediaMedium!: boolean;
+  
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 
-  onInitMediaScreen = () => {    
+  onInitMediaMobile = () => {    
     this.breakpointObserver.observe('(max-width: 640px)').subscribe((state: BreakpointState) => {      
       if (state.matches) {
         this.mediaMobile = true;
@@ -23,5 +26,17 @@ export class MobileUtilsService {
         this.mediaMobile = false;
       }
     })
+    return this.mediaMobile;
+  } 
+   
+  onInitMediaMedium = () => {    
+    this.breakpointObserver.observe('(max-width: 940px)').subscribe((state: BreakpointState) => {      
+      if (state.matches) {
+        this.mediaMedium = true;
+      }else {
+        this.mediaMedium = false;
+      }
+    })
+    return this.mediaMedium;
   }  
 }

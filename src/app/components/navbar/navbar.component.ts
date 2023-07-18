@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit, OnChanges {
     public dialog: MatDialog){}
 
   ngOnInit(): void {
-    this.mobile_utils.onInitMediaScreen();
+    this.mobile_utils.onInitMediaMobile();
     this.user.userGetItem();
 
   }

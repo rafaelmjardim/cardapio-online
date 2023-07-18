@@ -24,7 +24,7 @@ export class SubheaderComponent implements AfterViewInit {
   ){}
 
   ngAfterViewInit(): void {
-    this.mobile_utils.onInitMediaScreen();
+    this.mobile_utils.onInitMediaMobile();
 
     this.user.userGetItem();      
   }
