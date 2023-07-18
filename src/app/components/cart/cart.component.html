@@ -1,11 +1,14 @@
 <div class="cart">
     <div class="cart_header">
-        <span>Carrinho</span>
-        <span>Limpar</span>
+        <div class="cart_header_title">
+            <lucide-icon name="ShoppingBag" [size]="18"></lucide-icon>
+            <span>Sacola</span>
+        </div>
+        <span class="cart_header_limp">Limpar</span>
     </div>
 
     <div class="cart_main">
-        <ul class="cart_main_list">
+        <ul class="cart_main_list" *ngIf="cartItens.length; else empty">
             <li class="cart_main_list_item" *ngFor="let item of cartItens">
                 <img [src]="item.imagem" alt="">
                 <div class="cart_main_list_item_group">
@@ -25,3 +28,10 @@
     </div>
 
 </div>
+
+<ng-template #empty>
+    <div class="empty">
+        <lucide-icon name="ShoppingBag" [size]="40"></lucide-icon>
+        <span>Sacola vazia</span>
+    </div>
+</ng-template>
