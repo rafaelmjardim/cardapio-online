@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../products-cards/products-cards';
-import { Pedido } from './cart';
+import { Order } from './cart';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environments.prod';
 
@@ -20,11 +20,15 @@ export class CartService {
         
   }
 
-  postPedido = (pedido: Pedido) => {
+  postPedido = (pedido: Order) => {
     return this.http.post(`${API_KEY}/pedidos`, {
       id_cliente: pedido.id_cliente,
       mesa: pedido.mesa,
-      lista_carrinho: pedido.lista_carrinho
+      lista_carrinho: pedido.lista_carrinho,
+      data_venda: pedido.data_venda,
+      form_pag: 1,
+      entrega: false,
+      finalizado: false,
     })
   }
 }

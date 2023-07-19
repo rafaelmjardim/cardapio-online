@@ -1,9 +1,12 @@
-export type Pedido = {
-    id_cliente: number
-    lista_carrinho: Produto[]
-    mesa: number
-}
+import { Product } from "../products-cards/products-cards"
 
-export type Produto = {
-    id_produto: number[]
+export type Order = {
+    lista_carrinho: Product[]
+    id_cliente: number
+    mesa: number
+    form_pag: number
+    data_venda: Date
+    entrega: boolean
+    finalizado: boolean
+    desconto?: number
 }

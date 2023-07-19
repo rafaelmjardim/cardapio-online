@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Product } from '../products-cards/products-cards';
 import { CartService } from './cart.service';
-import { Pedido } from './cart';
+import { Order } from './cart';
 
 @Component({
   selector: 'app-cart',
@@ -12,12 +12,8 @@ export class CartComponent implements OnInit, OnChanges {
 
   cartItens: Product[] = [];
 
-  order!: any;
-
-  newOrder!: Pedido;
-
-  itens: number[] = []
-
+  newOrder!: Order;
+  
   constructor (private cart_service: CartService){}
   ngOnInit(): void {
     this.cartItens = this.cart_service.cartItens;
@@ -29,19 +25,20 @@ export class CartComponent implements OnInit, OnChanges {
   }
 
   handleSubmitOrder = () => {
-    this.cartItens.map(item => {  
-      this.itens.push(item.codigo)
-      
-    })
-    
+    const date = new Date();
+
     this.newOrder = {
       id_cliente: 1,
-      lista_carrinho: [
-        {id_produto: this.itens}
-      ],
-      mesa: 2
+      lista_carrinho: this.cartItens,
+      mesa: 2,
+      form_pag: 1,
+      data_venda: date,
+      entrega: false,
+      finalizado: false,
     }
 
+    console.log('new',this.newOrder);
+    
     this.cart_service.postPedido(this.newOrder).subscribe(res => {
       console.log('post realizado com sucesso');
       
