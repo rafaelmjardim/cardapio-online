@@ -16,7 +16,10 @@
                 <div class="cart_main_list_item_group">
                     <div class="cart_main_list_item_group_content">
                         <span class="cart_main_list_item_group_content_title">{{item.nome}}</span>
-                        <span class="cart_main_list_item_group_content_value">{{item.valor_venda | currency:'BRL'}}</span>
+                        <div class="cart_main_list_item_group_content_values">
+                            <span class="cart_main_list_item_group_content_values_count">{{item.quantidade + "x "}}</span>
+                           <span class="cart_main_list_item_group_content_values_value">{{item.quantidade ? item.quantidade * item.valor_venda : item.valor_venda | currency:'BRL'}}</span>
+                        </div>
                     </div>
                     <div class="cart_main_list_item_group_actions">
                         <lucide-icon name="x-circle" [size]="20"></lucide-icon>

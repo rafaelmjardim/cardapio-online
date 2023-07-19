@@ -79,9 +79,16 @@
                             font-size: 1.4rem;
                         }
         
-                        &_value {
-                            color: $txt-color-green;
+                        &_values {
                             font-size: 1.4rem;
+
+                            &_count {
+                                font-weight: 500;
+                            }
+
+                            &_value {
+                                color: $txt-color-green;
+                            }
                         }
                     }
                
