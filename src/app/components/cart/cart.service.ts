@@ -15,8 +15,8 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  setCartItens = (product: Product) => {
-    this.cartItens.push(product);
+  setCartItens = (product: Product, quantity: number) => {
+    this.cartItens.push({...product, quantidade: quantity});
         
   }
 

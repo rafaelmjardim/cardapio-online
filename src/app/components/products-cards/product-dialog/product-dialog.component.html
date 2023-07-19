@@ -16,17 +16,6 @@
         <div class="product_dialog_main_content">
             <span class="product_dialog_main_content_title">{{ currentProduct.nome }}</span>
             <p class="product_dialog_main_content_description">{{ currentProduct.descricao}}</p>
-                   
-            <!-- <ul class="product_dialog_main_content_add">
-                <span>Adicionais</span>
-                <p>Escolher até 8 opções</p>
-                <li>Bacon</li>
-                <li>Chaddar</li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul> -->
         </div>
 
 
@@ -39,15 +28,14 @@
                 <div class="product_dialog_main_content_actions_quantity_selector_value">
                     {{count}}
                 </div>
-
                 
                 <button class="product_dialog_main_content_actions_quantity_selector_more" (click)="handleCountProducts('plus')">
                     <lucide-icon name="plus"  [size]="20"></lucide-icon>
                 </button>
                 
                 <div class="product_dialog_main_content_actions_quantity">    
-                    <span class="product_dialog_main_content_quantity_value"> 
-                       {{currentProduct.valor_venda | currency:'BRL' }}
+                    <span class="product_dialog_main_content_actions_quantity_value"> 
+                       {{count * currentProduct.valor_venda | currency:'BRL' }}
                     </span>
                 </div>
             </div>

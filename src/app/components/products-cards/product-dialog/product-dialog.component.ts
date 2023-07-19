@@ -19,12 +19,13 @@ export class ProductDialogComponent implements OnInit{
 
   currentProduct!: Product;
 
+  //Contador de quantidade do produto
   count: number = 1;
+
+  updateCurrentProduct: Product[] = [];
 
   ngOnInit(): void {
     this.onGetProduct();
-
-    
   }
   
   onGetProduct = () => {
@@ -43,10 +44,8 @@ export class ProductDialogComponent implements OnInit{
   }
 
   //Função para adicionar item ao carrinho
-  handleAddCart = (currentProduct: Product,) => {
-
-    this.cart_service.setCartItens(currentProduct);
+  handleAddCart = (currentProduct: Product,) => {    
+    this.cart_service.setCartItens(currentProduct, this.count);
     this.dialog.closeAll()
-
   }
 }

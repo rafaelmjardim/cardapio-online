@@ -13,5 +13,6 @@ export interface Product {
     destaque: boolean
     observacao: string
     tamanho: string
+    quantidade?: number
     imagem?: string
 }
