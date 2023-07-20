@@ -45,7 +45,7 @@ export class ProductDialogComponent implements OnInit{
 
   //Função para adicionar item ao carrinho
   handleAddCart = (currentProduct: Product,) => {    
-    this.cart_service.setCartItens(currentProduct, this.count);
+    this.cart_service.setCartItens(currentProduct, this.count, currentProduct.valor_venda);
     this.dialog.closeAll()
   }
 }

@@ -16,15 +16,27 @@ export class CartService {
 
   amountAll!: number;
 
+  amountValues: any = []; //Rever tipagem para essa variavel
+
   constructor(private http: HttpClient) { }
 
-  setCartItens = (product: Product, quantity: number) => {
+  setCartItens = (product: Product, quantity: number, itemValue?: number) => {
     this.cartItens.push({...product, quantidade: quantity});
+    localStorage.setItem('cartItens', JSON.stringify(this.cartItens))    
+
+    //Seta os valores na variavel (para preparar para o reduce)
+    this.amountValues.push(itemValue)
 
     //Armazena uma contagem conforme é adicionado quantidade de item
     this.quantityCount = this.quantityCount + quantity;      
     
-    localStorage.setItem('cartItens', JSON.stringify(this.cartItens))
+    //Variavel para converter o valor em number[]
+    const amountValuesArray: number[] = this.amountValues; //Necessario conversão para array de numeros
+
+    //Função que acumula a soma dos valores
+    amountValuesArray.reduce((acumulador, currentValue) => {
+      return this.amountAll = acumulador + currentValue;
+    }, 0)
   }
 
   postPedido = (pedido: Order) => {
