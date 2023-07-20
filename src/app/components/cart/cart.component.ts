@@ -2,13 +2,14 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Product } from '../products-cards/products-cards';
 import { CartService } from './cart.service';
 import { Order } from './cart';
+import { ChangeDetectionStrategy } from '@angular/compiler';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit, OnChanges {
+export class CartComponent implements OnInit {
 
   cartItens: Product[] = [];
 
@@ -19,11 +20,6 @@ export class CartComponent implements OnInit, OnChanges {
     this.cartItens = this.cart_service.cartItens;
   }
   
-  ngOnChanges(changes: SimpleChanges): void {
-    this.cartItens = this.cart_service.cartItens;
-    
-  }
-
   handleSubmitOrder = () => {
     const date = new Date();
 
@@ -46,6 +42,7 @@ export class CartComponent implements OnInit, OnChanges {
   }
 
   handleClearBag = () => {
-    this.cartItens = []
+    this.cartItens.length = 0
+    this.cart_service.quantityCount = 0;
   }
 }
