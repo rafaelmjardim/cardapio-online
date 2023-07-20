@@ -14,13 +14,17 @@ export class CartService {
   cartItens: Product[] = []
   quantityCount: number = 0
 
+  amountAll!: number;
+
   constructor(private http: HttpClient) { }
 
   setCartItens = (product: Product, quantity: number) => {
     this.cartItens.push({...product, quantidade: quantity});
 
     //Armazena uma contagem conforme é adicionado quantidade de item
-    this.quantityCount = this.quantityCount + quantity;            
+    this.quantityCount = this.quantityCount + quantity;      
+    
+    localStorage.setItem('cartItens', JSON.stringify(this.cartItens))
   }
 
   postPedido = (pedido: Order) => {
