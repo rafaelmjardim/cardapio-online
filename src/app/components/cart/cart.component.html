@@ -4,12 +4,12 @@
             <lucide-icon name="ShoppingBag" [size]="18"></lucide-icon>
             <span>Sacola</span>
         </div>
-        <span class="cart_header_limp"(click)="handleClearBag()">Limpar</span>
+        <span class="cart_header_limp"(click)="handleClearAllBag()">Limpar</span>
     </div>
 
     <div class="cart_main">
         <ul class="cart_main_list" *ngIf="cartItens.length; else empty">
-            <li class="cart_main_list_item" *ngFor="let item of cartItens">
+            <li class="cart_main_list_item" *ngFor="let item of cartItens; let index = index" [attr.data-index]="index">
                 <div class="cart_main_list_item_img">
                     <img [src]="item.imagem" alt="">
                 </div>
@@ -22,7 +22,9 @@
                         </div>
                     </div>
                     <div class="cart_main_list_item_group_actions">
-                        <lucide-icon name="x-circle" [size]="20"></lucide-icon>
+                        <div (click)="handleCleanCartIten(index)">
+                            <lucide-icon name="x-circle" [size]="20" ></lucide-icon>
+                        </div>
                     </div>
                 </div>
             </li>

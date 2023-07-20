@@ -41,7 +41,12 @@ export class CartComponent implements OnInit {
     })
   }
 
-  handleClearBag = () => {
+  handleCleanCartIten = (index: number) => {
+   this.cartItens.splice(index, 1)
+   this.cart_service.quantityCount = index;
+  }
+
+  handleClearAllBag = () => {
     this.cartItens.length = 0
     this.cart_service.quantityCount = 0;
   }
