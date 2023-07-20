@@ -15,6 +15,9 @@ export class CartComponent implements OnInit {
   cartItens: Product[] = [];
 
   newOrder!: Order;
+
+  amountValues: any = []; //Rever tipagem para essa variavel
+
   
   constructor (public cart_service: CartService){}
   ngOnInit(): void {
@@ -44,14 +47,7 @@ export class CartComponent implements OnInit {
     })
   }
 
-  mathRound = (quantity:number, value: number) => {
-
-    let result =  value;
-    
-
-    return value
-  }
-
+  
   //função que converte valor para ficar com duas casas decimais
   decimalConvert = (value: number) => {
     return value.toFixed(2)

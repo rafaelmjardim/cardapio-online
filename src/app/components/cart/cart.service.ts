@@ -24,15 +24,20 @@ export class CartService {
     this.cartItens.push({...product, quantidade: quantity});
     localStorage.setItem('cartItens', JSON.stringify(this.cartItens))    
 
-    //Seta os valores na variavel (para preparar para o reduce)
-    this.amountValues.push(itemValue)
+    if (itemValue){
+      //Multiplica a quantidade de iten ao valor do item 
+      var itemMaisQuantidade =  itemValue * quantity   
+      
+      //Seta os valores na variavel (para preparar para o reduce)
+      this.amountValues.push(itemMaisQuantidade)
+    }
 
     //Armazena uma contagem conforme é adicionado quantidade de item
     this.quantityCount = this.quantityCount + quantity;      
     
     //Variavel para converter o valor em number[]
     const amountValuesArray: number[] = this.amountValues; //Necessario conversão para array de numeros
-
+  
     //Função que acumula a soma dos valores
     amountValuesArray.reduce((acumulador, currentValue) => {
       return this.amountAll = acumulador + currentValue;
