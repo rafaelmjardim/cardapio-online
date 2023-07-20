@@ -26,10 +26,10 @@ export class CartService {
 
     if (itemValue){
       //Multiplica a quantidade de iten ao valor do item 
-      var itemMaisQuantidade =  itemValue * quantity   
+      var itemValueMultQuantity =  itemValue * quantity   
       
       //Seta os valores na variavel (para preparar para o reduce)
-      this.amountValues.push(itemMaisQuantidade)
+      this.amountValues.push(itemValueMultQuantity)
     }
 
     //Armazena uma contagem conforme é adicionado quantidade de item
@@ -42,6 +42,9 @@ export class CartService {
     amountValuesArray.reduce((acumulador, currentValue) => {
       return this.amountAll = acumulador + currentValue;
     }, 0)
+
+    console.log(this.amountAll);
+    
   }
 
   postPedido = (pedido: Order) => {

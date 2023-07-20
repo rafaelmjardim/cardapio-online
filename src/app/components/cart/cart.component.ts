@@ -47,7 +47,7 @@ export class CartComponent implements OnInit {
     })
   }
 
-  
+
   //função que converte valor para ficar com duas casas decimais
   decimalConvert = (value: number) => {
     return value.toFixed(2)
