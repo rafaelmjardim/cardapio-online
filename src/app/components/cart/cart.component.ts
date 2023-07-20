@@ -3,6 +3,7 @@ import { Product } from '../products-cards/products-cards';
 import { CartService } from './cart.service';
 import { Order } from './cart';
 import { ChangeDetectionStrategy } from '@angular/compiler';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -41,6 +42,19 @@ export class CartComponent implements OnInit {
       console.log('post realizado com sucesso');
       
     })
+  }
+
+  mathRound = (quantity:number, value: number) => {
+
+    let result =  value;
+    
+
+    return value
+  }
+
+  //função que converte valor para ficar com duas casas decimais
+  decimalConvert = (value: number) => {
+    return value.toFixed(2)
   }
 
   handleCleanCartIten = (index: number) => {
