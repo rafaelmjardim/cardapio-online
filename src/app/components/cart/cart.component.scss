@@ -110,12 +110,26 @@
             border-radius: 0 0 1rem 1rem;
             border-top: .1rem solid #ddd;
 
-            &_all {
-                display: flex;
-                justify-content: space-between;
-                
-                span {
-                    font-weight: 500;
+            &_values {
+                display: grid;
+                gap: .5rem;
+
+
+                &_sub, &_all {
+                    display: flex;
+                    justify-content: space-between;                    
+                }
+
+                &_sub {
+                    &_value {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                &_all {
+                    &_value {
+                        font-weight: 500;
+                    }
                 }
             }
 

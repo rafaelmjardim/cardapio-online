@@ -30,9 +30,19 @@
 
         
         <div class="cart_main_finish">
-            <div class="cart_main_finish_all">
-                <span>Total</span>
-                <span>R$200.00</span>
+            <div class="cart_main_finish_values">
+                <div class="cart_main_finish_values_sub">
+                    <span class="cart_main_finish_values_sub_value">Subtotal</span>
+                    <span class="cart_main_finish_values_sub_value">R$200.00</span>
+                </div>
+                <div class="cart_main_finish_values_sub">
+                    <span class="cart_main_finish_values_sub_value">Desconto</span>
+                    <span class="cart_main_finish_values_sub_value">R$0.00</span>
+                </div>
+                <div class="cart_main_finish_values_all">
+                    <span class="cart_main_finish_values_all_value">Total</span>
+                    <span class="cart_main_finish_values_all_value">R$200.00</span>
+                </div>
             </div>
             <button class="button-primary" [ngClass]="cartItens.length ? '' : 'disabled' " (click)="handleSubmitOrder()">{{cartItens.length ? 'Finalizar pedido' : 'Sacola vazia'}}</button>
         </div>
