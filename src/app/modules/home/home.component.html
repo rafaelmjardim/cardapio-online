@@ -45,7 +45,7 @@
 
         <div class="home_main_cartMobile" *ngIf="cart_service.cartItens.length && mobile_utils.mediaMedium">
             <div class="home_main_cartMobile_icon" (click)="handleOpenDialogCart()">
-                <lucide-icon name="ShoppingBag"  [matBadge]="cart_service.cartItens.length" matBadgeColor="warn" ></lucide-icon>
+                <lucide-icon name="ShoppingBag"  [matBadge]="cart_service.quantityCount" matBadgeColor="warn" ></lucide-icon>
             </div>
         </div>
     </div>
