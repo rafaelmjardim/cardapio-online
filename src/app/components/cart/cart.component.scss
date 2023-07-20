@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
     // gap: 2rem;
-    border: .1rem solid #ccc;
+    border: .1rem solid #ddd;
     border-radius: 1rem;
     height: 58rem;
     background-color: #f9fafb;
@@ -16,7 +16,8 @@
     &_header {
         padding: 1.2rem 1rem;
         border-radius: 1rem 1rem 0 0;
-
+        background-color: $primary-color;
+        color: #fff;
         display: flex;
         justify-content: space-between;
         font-weight: 500;
@@ -34,7 +35,6 @@
     }
 
     &_main {
-        padding: 1rem;
         width: 100%;
         height: 100%;
         display: flex;
@@ -42,11 +42,12 @@
         justify-content: space-between;
         
         &_list {
-           display: flex;
-           flex-direction: column;
-           gap: .8rem;
-           overflow-x: hidden;
-           max-height: 46rem;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+            overflow-x: hidden;
+            max-height: 43rem;
            
             &_item {
                 display: flex;
@@ -101,7 +102,23 @@
             }
         }
         
-        &_action {
+        &_finish {
+            padding: 1.2rem;
+            display: grid;
+            gap: 1rem;
+            background-color: #fff;
+            border-radius: 0 0 1rem 1rem;
+            border-top: .1rem solid #ddd;
+
+            &_all {
+                display: flex;
+                justify-content: space-between;
+                
+                span {
+                    font-weight: 500;
+                }
+            }
+
             button {
                 width: 100%;
             }
