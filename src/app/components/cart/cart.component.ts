@@ -1,9 +1,7 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../products-cards/products-cards';
 import { CartService } from './cart.service';
 import { Order } from './cart';
-import { ChangeDetectionStrategy } from '@angular/compiler';
-import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +14,7 @@ export class CartComponent implements OnInit {
 
   newOrder!: Order;
 
-  amountValues: any = []; //Rever tipagem para essa variavel
+  @Input() amountValues: any = []; //Rever tipagem para essa variavel
 
   
   constructor (public cart_service: CartService){}
@@ -61,5 +59,10 @@ export class CartComponent implements OnInit {
   handleClearAllBag = () => {
     this.cartItens.length = 0
     this.cart_service.quantityCount = 0;
+    this.cart_service.amountValuesArray = [0];
+    this.cart_service.amountAll = 0;
+
+    console.log(this.cart_service.amountAll);
+    
   }
 }

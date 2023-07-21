@@ -35,7 +35,7 @@
             <div class="cart_main_finish_values">
                 <div class="cart_main_finish_values_sub">
                     <span class="cart_main_finish_values_sub_value">Subtotal</span>
-                    <span class="cart_main_finish_values_sub_value">{{ cart_service.amountAll ? (cart_service.amountAll | currency: 'BRL') : (0 | currency: 'BRL') }}</span>
+                    <span class="cart_main_finish_values_sub_value">{{ cart_service.amountAll && cart_service.cartItens.length ? (cart_service.amountAll | currency: 'BRL') : (0 | currency: 'BRL') }}</span>
                 </div>
                 <div class="cart_main_finish_values_sub">
                     <span class="cart_main_finish_values_sub_value">Desconto</span>

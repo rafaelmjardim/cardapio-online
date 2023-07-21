@@ -18,33 +18,43 @@ export class CartService {
 
   amountValues: any = []; //Rever tipagem para essa variavel
 
+  itemValueMultQuantity: any = 0
+
+  clearAllValue: boolean = false;
+  amountValuesArray!: number[];
+
   constructor(private http: HttpClient) { }
 
   setCartItens = (product: Product, quantity: number, itemValue?: number) => {
     this.cartItens.push({...product, quantidade: quantity});
-    localStorage.setItem('cartItens', JSON.stringify(this.cartItens))    
 
+    console.log('itens', this.cartItens);
+    
+    // localStorage.setItem('cartItens', JSON.stringify(this.cartItens))   
+    
     if (itemValue){
       //Multiplica a quantidade de iten ao valor do item 
-      var itemValueMultQuantity =  itemValue * quantity   
+      this.itemValueMultQuantity =  itemValue * quantity   
       
       //Seta os valores na variavel (para preparar para o reduce)
-      this.amountValues.push(itemValueMultQuantity)
+      this.amountValues.push(this.itemValueMultQuantity)
     }
 
     //Armazena uma contagem conforme é adicionado quantidade de item
     this.quantityCount = this.quantityCount + quantity;      
     
     //Variavel para converter o valor em number[]
-    const amountValuesArray: number[] = this.amountValues; //Necessario conversão para array de numeros
+    this.amountValuesArray = this.amountValues; //Necessario conversão para array de numeros
   
-    //Função que acumula a soma dos valores
-    amountValuesArray.reduce((acumulador, currentValue) => {
-      return this.amountAll = acumulador + currentValue;
+    this.amountValuesArray.reduce((acumulador, currentValue) => {
+      if (this.cartItens.length >= 2){
+        return this.amountAll = acumulador + currentValue;
+      }else {
+        return this.amountAll = currentValue;
+      }
     }, 0)
 
-    console.log(this.amountAll);
-    
+    console.log('valor', this.amountAll);
   }
 
   postPedido = (pedido: Order) => {
