@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../products-cards/products-cards';
 import { CartService } from './cart.service';
 import { Order } from './cart';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,8 @@ export class CartComponent implements OnInit {
   @Input() amountValues: any = []; //Rever tipagem para essa variavel
 
   
-  constructor (public cart_service: CartService){}
+  constructor (public cart_service: CartService, public dialog: MatDialog){}
+  
   ngOnInit(): void {
     this.cartItens = this.cart_service.cartItens;
     // const getCartItens = (localStorage.getItem('cartItens'))    

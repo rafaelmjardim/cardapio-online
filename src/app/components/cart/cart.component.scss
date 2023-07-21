@@ -33,8 +33,28 @@
             gap: .5rem;
         }
 
-        &_limp {
-            cursor: pointer;
+        &_actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+
+            &_limp {
+                cursor: pointer;
+            }
+            
+            &_close {
+                background-color: #cecece86;
+                @media screen and (min-width: 940px) {
+                    display: none;
+                }
+            }
+
+            &_close, lucide-icon {
+                padding: .3rem;
+                border-radius: 50rem;
+                color: $txt-color;
+                cursor: pointer;
+            }
         }
     }
 

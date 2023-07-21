@@ -4,7 +4,12 @@
             <lucide-icon name="ShoppingBag" [size]="18"></lucide-icon>
             <span>Sacola</span>
         </div>
-        <span class="cart_header_limp"(click)="handleClearAllBag()">Limpar</span>
+        <div class="cart_header_actions">
+            <span class="cart_header_actions_limp"(click)="handleClearAllBag()">Limpar</span>
+            <div class="cart_header_actions_close" (click)="dialog.closeAll()">
+                <lucide-icon name="x" [size]="18"></lucide-icon>
+            </div>
+        </div>
     </div>
 
     <div class="cart_main">
