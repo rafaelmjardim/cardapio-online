@@ -9,6 +9,10 @@
     height: 58rem;
     background-color: #f9fafb;
 
+    @media screen and (max-width: 940px) {
+        border: none;
+    }
+
     @media screen and (max-width: $media_mobile) {
         border-radius: 0;
     }
