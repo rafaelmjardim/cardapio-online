@@ -140,6 +140,11 @@
             display: grid;
             gap: 1rem;
 
+            @media screen and (min-width: $media-mobile) {
+                max-height: 22rem;
+                overflow-x: hidden;
+            }
+
             &_item {
                 display: flex;
                 justify-content: space-between;
