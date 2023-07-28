@@ -19,46 +19,18 @@
         </div>
 
         <ul class="product_dialog_main_add scroll">
-            <li class="product_dialog_main_add_item">
+            <li class="product_dialog_main_add_item" *ngFor="let adicional of adicionaisList">
                 <div class="product_dialog_main_add_item_content">
                     <span class="product_dialog_main_add_item_content_title">
-                        Bacon
+                        {{adicional.nome}}
                     </span>
                     <span class="product_dialog_main_add_item_content_value">
-                        + {{2.50 | currency:"BRL"}}
+                        + {{adicional.valor_venda | currency:"BRL"}}
                     </span>
                 </div>
 
                 <div class="product_dialog_main_add_item_action">
                     <lucide-icon name="plus" [size]="16"></lucide-icon>
-                </div>
-            </li>
-            <li class="product_dialog_main_add_item">
-                <div class="product_dialog_main_add_item_content">
-                    <span class="product_dialog_main_add_item_content_title">
-                        Cebola
-                    </span>
-                    <span class="product_dialog_main_add_item_content_value">
-                        + {{2.00 | currency:"BRL"}}
-                    </span>
-                </div>
-
-                <div class="product_dialog_main_add_item_action">
-                    <lucide-icon name="plus" [size]="16"></lucide-icon>
-                </div>
-            </li>
-            <li class="product_dialog_main_add_item">
-                <div class="product_dialog_main_add_item_content">
-                    <span class="product_dialog_main_add_item_content_title">
-                        Queijo
-                    </span>
-                    <span class="product_dialog_main_add_item_content_value">
-                        + {{3.00| currency:"BRL"}}
-                    </span>
-                </div>
-
-                <div class="product_dialog_main_add_item_action">
-                    <lucide-icon name="plus" [size]="18"></lucide-icon>
                 </div>
             </li>
         </ul>
