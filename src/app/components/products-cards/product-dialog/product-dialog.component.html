@@ -30,19 +30,29 @@
                 </div>
 
                 <div class="product_dialog_main_add_item_action">
-                    <lucide-icon name="plus" [size]="16"></lucide-icon>
+                    <button (click)="handleCountAdicional('minus', adicional.codigo)">
+                        <lucide-icon name="minus" [size]="16"></lucide-icon>
+                    </button>
+
+                    <span class="product_dialog_main_add_item_action_value">
+                        {{countAdicional}}
+                    </span>
+                    
+                    <button (click)="handleCountAdicional('plus', adicional.codigo)">
+                        <lucide-icon name="plus" [size]="16"></lucide-icon>
+                    </button>
                 </div>
             </li>
         </ul>
 
         <div class="product_dialog_main_content_actions">
             <div class="product_dialog_main_content_actions_quantity_selector">
-                <button class="product_dialog_main_content_actions_quantity_selector_less" [ngClass]="count === 1 ? 'disabled' : '' " (click)="handleCountProducts('less')">
+                <button class="product_dialog_main_content_actions_quantity_selector_less" [ngClass]="countProduct === 1 ? 'disabled' : '' " (click)="handleCountProducts('less')">
                     <lucide-icon name="minus" [size]="20"></lucide-icon>
                 </button>
 
                 <div class="product_dialog_main_content_actions_quantity_selector_value">
-                    {{count}}
+                    {{countProduct}}
                 </div>
                 
                 <button class="product_dialog_main_content_actions_quantity_selector_more" (click)="handleCountProducts('plus')">
@@ -51,7 +61,7 @@
                 
                 <div class="product_dialog_main_content_actions_quantity">    
                     <span class="product_dialog_main_content_actions_quantity_value"> 
-                       {{count * currentProduct.valor_venda | currency:'BRL' }}
+                       {{countProduct * currentProduct.valor_venda | currency:'BRL' }}
                     </span>
                 </div>
             </div>

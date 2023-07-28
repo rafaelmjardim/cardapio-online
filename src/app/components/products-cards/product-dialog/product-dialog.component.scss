@@ -169,8 +169,28 @@
                     }
                 }
 
-                &_action {
-                    color: #cc2222;
+                &_action, lucide-icon {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+
+                    &_value {
+                        font-size: 1.2rem;
+                    }
+
+                    lucide-icon {
+                        color: $color-red;
+                    }
+                    
+                    button {
+                        cursor: pointer;
+                        border: none;
+                        background-color: transparent;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
                 }
             }
         }
