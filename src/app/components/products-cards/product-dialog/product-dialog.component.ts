@@ -26,7 +26,7 @@ export class ProductDialogComponent implements OnInit{
   countProduct: number = 1;
 
   //Contador de quantidade do Adicional
-  countAdicional: number = 1;
+  countAdicional: number = 0;
 
   updateCurrentProduct: Product[] = [];
 

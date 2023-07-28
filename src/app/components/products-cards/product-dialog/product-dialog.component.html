@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="product_dialog_main_add_item_action">
-                    <button (click)="handleCountAdicional('minus', adicional.codigo)" [ngClass]="{'disabled': countAdicional <= 1}">
+                    <button (click)="handleCountAdicional('minus', adicional.codigo)" [ngClass]="{'disabled': countAdicional <= 0}">
                         <lucide-icon name="minus" [size]="16"></lucide-icon>
                     </button>
 
