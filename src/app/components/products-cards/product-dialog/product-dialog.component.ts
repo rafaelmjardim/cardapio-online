@@ -64,8 +64,6 @@ export class ProductDialogComponent implements OnInit{
 
   //Função que realiza a contagem de produtos
   handleCountAdicional = (option: string, codigo: number) => {
-
-    console.log('codigo', codigo);
     
     if (option === 'plus' && codigo) {
       this.countAdicional = ++ this.countAdicional ;
