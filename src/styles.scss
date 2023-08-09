@@ -20,6 +20,12 @@ body {
     color: $txt-color;
 }
 
+//Reset para icons sempre ficar centralizados conforme div pai
+lucide-icon {
+    display: flex;
+    align-items: center;
+}
+
 ul, li {
     list-style: none;
 
