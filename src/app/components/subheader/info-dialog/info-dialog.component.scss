@@ -67,6 +67,21 @@
                         }
                     }
 
+                    &_options {
+                        display: grid;
+                        gap: 2rem;
+
+                        &_cards {
+                            span {
+                                font-weight: 500;
+                            }
+
+                            li {
+                                color: $txt-color-label;
+                            }
+                        }
+                    }
+
                     &_about {
 
                         img {
