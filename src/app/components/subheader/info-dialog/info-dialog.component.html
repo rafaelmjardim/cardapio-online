@@ -26,12 +26,7 @@
                 <div class="info_dialog_tabs_group_tab_content">
                     <h3 class="info_dialog_tabs_group_tab_content_title">Horarios de atendimento:</h3>
                     <ul class="info_dialog_tabs_group_tab_content_hours">
-                        <li class="info_dialog_tabs_group_tab_content_hours_item">Domingo: <span>18h às 23h30m</span></li>
-                        <li class="info_dialog_tabs_group_tab_content_hours_item">Terça-feira: <span>18h às 23h30m</span></li>
-                        <li class="info_dialog_tabs_group_tab_content_hours_item">Quarta-feira: <span>18h às 23h30m</span></li>
-                        <li class="info_dialog_tabs_group_tab_content_hours_item">Quinta-feira: <span>18h às 23h30m</span></li>
-                        <li class="info_dialog_tabs_group_tab_content_hours_item">Sexta-feira: <span>18h às 00h</span></li>
-                        <li class="info_dialog_tabs_group_tab_content_hours_item">Sábado: <span>18h às 00h</span></li>
+                        <li class="info_dialog_tabs_group_tab_content_hours_item" *ngFor="let element of hoursList">{{element.semana}}: <span>{{element.horario}}</span></li>
                     </ul>
                 </div>
             </mat-tab>
