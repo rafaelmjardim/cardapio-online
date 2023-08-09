@@ -34,7 +34,48 @@
         &_group {            
             &_tab {
                 &_content {
-                    padding: 1.2rem;
+                    padding: 1.4rem 1.2rem;
+
+                    &_title {
+                        color: $txt-color-label;
+                        margin-bottom: 2rem;
+                    }
+
+                    &_hours {
+                        display: flex;
+                        flex-direction: column;
+                        gap: .5rem;
+
+                        &_item {
+                            color: $txt-color-label;
+                            font-size: 1.7rem;
+
+                            span {
+                                font-weight: 500;
+                                color: $txt-color-green;
+                            }
+                        }
+                    }
+
+                    &_about {
+
+                        img {
+                            width: auto;
+                            height: 14rem;
+                            float: left;
+                            margin-right: .8rem;
+                            border-radius: .5rem;
+
+                            @media screen and (max-width: $media-mobile) {
+                                height: 12rem;
+                            }
+                        }
+                        
+                        p {
+                            text-align: justify;
+                            color: $txt-color-label;
+                        }
+                    }
                 }
             }
         }
