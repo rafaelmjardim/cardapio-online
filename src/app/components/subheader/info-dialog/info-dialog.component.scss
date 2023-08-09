@@ -31,9 +31,11 @@
     }
 
     &_tabs {
-        &_group {            
+        &_group {    
+            
             &_tab {
                 &_content {
+                    min-height: 29rem;   
                     padding: 1.4rem 1.2rem;
 
                     &_title {
