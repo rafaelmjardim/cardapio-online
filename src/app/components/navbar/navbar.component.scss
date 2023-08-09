@@ -29,6 +29,7 @@
             -o-transition: .2s;
             -ms-transition: .2s;
             transition: .2s ease-in;
+            width: 7.2rem;
 
             &.clicked {
                 background-color: $primary-color;
@@ -36,6 +37,7 @@
                 position: relative;
                 top: -.6rem;
                 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                width: 7.2rem;
             }
         }
     }

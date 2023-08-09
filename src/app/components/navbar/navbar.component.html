@@ -12,10 +12,6 @@
             <lucide-icon name="shopping-bag" [size]="18"></lucide-icon>
             Pedidos
         </li>
-        <li class="navbar_menu_button" [ngClass]="router.url === '/cadastro-produtos' ? 'clicked' : '' " routerLink="/cadastro-produtos">
-            <lucide-icon name="baggage-claim" [size]="18"></lucide-icon>
-            Cadastrar
-        </li>
         <li class="navbar_menu_button" [ngClass]="router.url === '/user' ? 'clicked' : '' " [matMenuTriggerFor]="user.userData ? userMenu : null" (click)="!user.userData ? handleOpenLogin() : null">
             <lucide-icon name="user" [size]="18"></lucide-icon>
             Usuário

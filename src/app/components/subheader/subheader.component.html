@@ -28,10 +28,6 @@
                 <lucide-icon name="shopping-bag" [size]="20"></lucide-icon>
                 Pedidos
             </li>
-            <li class="subheader_group_menu_button" [ngClass]="router.url === '/cadastro-produtos' ? 'clicked' : '' " routerLink="/cadastro-produtos">
-                <lucide-icon name="baggage-claim" [size]="20"></lucide-icon>
-                Cadastrar
-            </li>
             <li class="subheader_group_menu_button" [ngClass]="router.url === '/user' ? 'clicked' : '' " (click)="handleOpenLoginDialog()">
                 <lucide-icon name="user" [size]="20"></lucide-icon>
                 Usuário
