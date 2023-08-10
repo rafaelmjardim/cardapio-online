@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
-import { Product } from '../products-cards';
+import { AdicionaisList, Product } from '../products-cards';
 import { CartService } from '../../cart/cart.service';
 import { ProductDialogService } from './product-dialog.service';
 import { Adicinal } from './product-dialog';
@@ -26,7 +26,7 @@ export class ProductDialogComponent implements OnInit{
   countProduct: number = 1;
 
   //Contador de quantidade do Adicional
-  countAdicionalList: { [codigo: number]: number} = {};
+  countAdicionalList: AdicionaisList = {};
 
   updateCurrentProduct: Product[] = [];
 
