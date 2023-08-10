@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Order } from './cart';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environments.prod';
-import { Adicional, Product } from '../products-cards/products-cards';
+import { AdicionaisList, Product } from '../products-cards/products-cards';
 
 const API_KEY = environment.API_KEY;
 
@@ -26,9 +26,13 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   setCartItens = (product: Product, quantity: number, itemValue?: number, adicionais?: any) => {
+    if(adicionais) {
+      this.cartItens.push({...product, quantidade: quantity, adicionais});
+      
+    }
     this.cartItens.push({...product, quantidade: quantity, adicionais});
 
-    console.log('itens', this.cartItens);    
+    console.log('itens', this.cartItens);      
     
     // localStorage.setItem('cartItens', JSON.stringify(this.cartItens))   
     

@@ -8,7 +8,7 @@ export interface Product {
     categoria: string
     status: boolean
     id_categoria: number
-    adicionais: Adicional[]
+    adicionais: AdicionaisList[]
     id_sabores: number
     destaque: boolean
     observacao: string
@@ -17,7 +17,7 @@ export interface Product {
     imagem?: string
 }
 
-export interface Adicional {
+export interface AdicionaisList {
     codigo: number
     quantidade: number
 }
