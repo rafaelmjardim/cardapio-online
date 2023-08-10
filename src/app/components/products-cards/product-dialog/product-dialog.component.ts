@@ -26,7 +26,7 @@ export class ProductDialogComponent implements OnInit{
   countProduct: number = 1;
 
   //Contador de quantidade do Adicional
-  countAdicional: { [key: number]: number} = {};
+  countAdicionalList: { [codigo: number]: number} = {};
 
   updateCurrentProduct: Product[] = [];
 
@@ -64,20 +64,26 @@ export class ProductDialogComponent implements OnInit{
 
   //Função que realiza a contagem de produtos
   handleCountAdicional = (option: string, adicional: Adicinal) => {
-    if (option === 'plus' && this.countAdicional[adicional.codigo]) {
-      this.countAdicional[adicional.codigo]++
+    if (option === 'plus' && this.countAdicionalList[adicional.codigo]) {
+      this.countAdicionalList[adicional.codigo]++
     }else {
-      this.countAdicional[adicional.codigo] = 1
+      this.countAdicionalList[adicional.codigo] = 1
     } 
     
-    if (option === 'minus' && this.countAdicional[adicional.codigo]) {
-      this.countAdicional[adicional.codigo]--
+    if (option === 'minus' && this.countAdicionalList[adicional.codigo]) {
+      this.countAdicionalList[adicional.codigo]--
     }
-  }
 
+    
+  }
+  
   //Função para adicionar item ao carrinho
   handleAddCart = (currentProduct: Product,) => {    
-    this.cart_service.setCartItens(currentProduct, this.countProduct, currentProduct.valor_venda);
+    this.cart_service.setCartItens(currentProduct, this.countProduct, currentProduct.valor_venda, this.countAdicionalList);
     this.dialog.closeAll()
+    
+    
+    // console.log('adicionais', this.countAdicionalList);
+    
   }
 }
