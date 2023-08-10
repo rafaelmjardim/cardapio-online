@@ -68,7 +68,11 @@ export class ProductDialogComponent implements OnInit{
       this.countAdicional[adicional.codigo]++
     }else {
       this.countAdicional[adicional.codigo] = 1
-    }    
+    } 
+    
+    if (option === 'minus' && this.countAdicional[adicional.codigo]) {
+      this.countAdicional[adicional.codigo]--
+    }
   }
 
   //Função para adicionar item ao carrinho
