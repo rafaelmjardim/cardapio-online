@@ -26,7 +26,7 @@ export class ProductDialogComponent implements OnInit{
   countProduct: number = 1;
 
   //Contador de quantidade do Adicional
-  countAdicional: number = 0;
+  countAdicional: { [key: number]: number} = {};
 
   updateCurrentProduct: Product[] = [];
 
@@ -47,7 +47,7 @@ export class ProductDialogComponent implements OnInit{
 
   onGetAdicionais = () => {
     this.product_dialog_service.getAdicionais().subscribe(res => {
-      this.adicionaisList = res;
+      this.adicionaisList = res;      
       console.log(this.adicionaisList);
       
     })
@@ -63,12 +63,11 @@ export class ProductDialogComponent implements OnInit{
   }
 
   //Função que realiza a contagem de produtos
-  handleCountAdicional = (option: string, codigo: number) => {
-    
-    if (option === 'plus' && codigo) {
-      this.countAdicional = ++ this.countAdicional ;
+  handleCountAdicional = (option: string, adicional: Adicinal) => {
+    if (option === 'plus' && this.countAdicional[adicional.codigo]) {
+      this.countAdicional[adicional.codigo]++
     }else {
-      this.countAdicional = -- this.countAdicional
+      this.countAdicional[adicional.codigo] = 1
     }    
   }
 
