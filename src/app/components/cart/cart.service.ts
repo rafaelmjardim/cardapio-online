@@ -31,8 +31,6 @@ export class CartService {
     }else {
       this.cartItens.push({...product, quantidade: quantity, adicionais});
     }
-
-    console.log('itens', this.cartItens);      
     
     // localStorage.setItem('cartItens', JSON.stringify(this.cartItens))   
     
@@ -50,6 +48,7 @@ export class CartService {
     //Variavel para converter o valor em number[]
     this.amountValuesArray = this.amountValues; //Necessario conversão para array de numeros
   
+    //Se tiver valor no array de amount chama a função para fazer o acumulador
     if(this.amountValuesArray) {
       this.accumulateValuesAmount();
     }
@@ -62,6 +61,7 @@ export class CartService {
     console.log('array', this.amountValuesArray);
   }
 
+  //Limpa o acumulador
   cleanAccumulateValuesAmount = () => {
     this.amountAll = 0;
     this.amountValues = [];
