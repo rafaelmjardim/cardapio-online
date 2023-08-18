@@ -14,14 +14,14 @@ export class CartService {
   cartItens: Product[] = []
   quantityCount: number = 0
 
-  amountAll!: number;
+  amountAll: number = 0;
 
   amountValues: any = []; //Rever tipagem para essa variavel
 
   itemValueMultQuantity: any = 0
 
   clearAllValue: boolean = false;
-  amountValuesArray!: number[];
+  amountValuesArray: number[] = [0];
 
   constructor(private http: HttpClient) { }
 
@@ -50,15 +50,22 @@ export class CartService {
     //Variavel para converter o valor em number[]
     this.amountValuesArray = this.amountValues; //Necessario conversão para array de numeros
   
-    this.amountValuesArray.reduce((acumulador, currentValue) => {
-      if (this.cartItens.length >= 2){
-        return this.amountAll = acumulador + currentValue;
-      }else {
-        return this.amountAll = currentValue;
-      }
-    }, 0)
+    if(this.amountValuesArray) {
+      this.accumulateValuesAmount();
+    }
+  }
 
-    console.log('valor', this.amountAll);
+  accumulateValuesAmount = () => {
+    this.amountAll = this.amountValuesArray.reduce((acumulador, currentValue) => {
+      return acumulador + currentValue;
+    }, 0)
+    console.log('array', this.amountValuesArray);
+  }
+
+  cleanAccumulateValuesAmount = () => {
+    this.amountAll = 0;
+    this.amountValues = [];
+    this.accumulateValuesAmount();
   }
 
   postPedido = (pedido: Order) => {

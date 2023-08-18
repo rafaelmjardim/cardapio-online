@@ -62,9 +62,11 @@ export class CartComponent implements OnInit {
     this.cartItens.length = 0
     this.cart_service.quantityCount = 0;
     this.cart_service.amountValuesArray = [0];
-    this.cart_service.amountAll = 0;
+    // this.cart_service.amountAll = 0;
 
     console.log(this.cart_service.amountAll);
+
+    this.cart_service.cleanAccumulateValuesAmount();
     
   }
 }
