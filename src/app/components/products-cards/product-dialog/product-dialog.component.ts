@@ -47,9 +47,7 @@ export class ProductDialogComponent implements OnInit{
 
   onGetAdicionais = () => {
     this.product_dialog_service.getAdicionais().subscribe(res => {
-      this.adicionaisList = res;      
-      console.log(this.adicionaisList);
-      
+      this.adicionaisList = res;            
     })
   }
 
@@ -73,17 +71,11 @@ export class ProductDialogComponent implements OnInit{
     if (option === 'minus' && this.countAdicionalList[adicional.codigo]) {
       this.countAdicionalList[adicional.codigo]--
     }
-
-    
   }
   
   //Função para adicionar item ao carrinho
   handleAddCart = (currentProduct: Product,) => {    
     this.cart_service.setCartItens(currentProduct, this.countProduct, currentProduct.valor_venda, this.countAdicionalList);
-    this.dialog.closeAll()
-    
-    
-    // console.log('adicionais', this.countAdicionalList);
-    
+    this.dialog.closeAll()    
   }
 }
