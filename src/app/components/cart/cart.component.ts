@@ -67,6 +67,9 @@ export class CartComponent implements OnInit {
     console.log(this.cart_service.amountAll);
 
     this.cart_service.cleanAccumulateValuesAmount();
+
+    //Limpa local storge
+    localStorage.removeItem('cartItens');
     
   }
 }

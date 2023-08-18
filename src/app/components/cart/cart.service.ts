@@ -12,6 +12,8 @@ const API_KEY = environment.API_KEY;
 export class CartService {
 
   cartItens: Product[] = []
+  cartItensLocalStorge: Product[] = []
+
   quantityCount: number = 0
 
   amountAll: number = 0;
@@ -26,7 +28,13 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   setCartItens = (product: Product, quantity: number, itemValue?: number, adicionais?: any) => {
-    this.cartItens.push({...product, quantidade: quantity, adicionais});  
+    
+    if (product) {
+      this.cartItens.push({...product, quantidade: quantity, adicionais});
+      this.setCartItensLocalStorge(this.cartItens);
+
+
+    }
     
     // localStorage.setItem('cartItens', JSON.stringify(this.cartItens))   
     
@@ -74,5 +82,19 @@ export class CartService {
       entrega: false,
       finalizado: false,
     })
+  }
+
+  //Função que envia os objetos para a localStorge
+  setCartItensLocalStorge = (cartItens: Product[]) => {
+    console.log('SetCartItens', cartItens);
+    localStorage.setItem('cartItens', JSON.stringify(cartItens))
+  }
+
+  setCartItensList = () => {
+    const cartItensString = localStorage.getItem('cartItens');
+
+    if (cartItensString) {
+      return JSON.parse(cartItensString);      
+    }    
   }
 }
