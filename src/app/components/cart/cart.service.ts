@@ -26,11 +26,7 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   setCartItens = (product: Product, quantity: number, itemValue?: number, adicionais?: any) => {
-    if(adicionais) {
-      this.cartItens.push({...product, quantidade: quantity, adicionais});
-    }else {
-      this.cartItens.push({...product, quantidade: quantity, adicionais});
-    }
+    this.cartItens.push({...product, quantidade: quantity, adicionais});  
     
     // localStorage.setItem('cartItens', JSON.stringify(this.cartItens))   
     
