@@ -13,8 +13,7 @@ const API_KEY = environment.API_KEY;
 export class CartService {
 
   cartItens: Product[] = [];
-  cartItenOnPush = new BehaviorSubject<boolean>(false);
-  
+    
   quantityCount: number = 0
 
   amountAll: number = 0;
