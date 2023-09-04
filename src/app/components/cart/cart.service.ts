@@ -28,16 +28,12 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   setCartItens = (product: Product, quantity: number, itemValue?: number, adicionais?: any) => {
-
-    if (localStorage.getItem('cartItens')) {
-      this.cartItens = this.getCartItens();
-    }
     
     if (product) {
       this.cartItens.push({...product, quantidade: quantity, adicionais});
       this.setCartItensLocalStorge(this.cartItens);      
     }
-        
+    
     if (itemValue){
       //Multiplica a quantidade de iten ao valor do item 
       this.itemValueMultQuantity =  itemValue * quantity   
@@ -92,7 +88,7 @@ export class CartService {
     const cartItensString = localStorage.getItem('cartItens');
 
     if (cartItensString) {
-      return JSON.parse(cartItensString);      
+      this.cartItens = JSON.parse(cartItensString);      
     }    
   }
 }

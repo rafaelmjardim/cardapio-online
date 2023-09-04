@@ -21,7 +21,11 @@ export class CartComponent implements OnInit {
   constructor (public cart_service: CartService, public dialog: MatDialog){}
   
   ngOnInit(): void {
-    this.cartItens = this.cart_service.getCartItens();
+    if (!this.cartItens.length) {
+      this.cart_service.getCartItens();
+    }
+
+    this.cartItens = this.cart_service.cartItens;
   }
   
   handleSubmitOrder = () => {
