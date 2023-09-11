@@ -42,8 +42,7 @@ export class CartService {
       this.amountValues.push(this.itemValueMultQuantity)
     }
 
-    //Armazena uma contagem conforme é adicionado quantidade de item
-    this.quantityCount = this.quantityCount + quantity;      
+    this.setQuantityCount(quantity);
     
     //Variavel para converter o valor em number[]
     this.amountValuesArray = this.amountValues; //Necessario conversão para array de numeros
@@ -54,16 +53,27 @@ export class CartService {
     }
   }
 
+  setQuantityCount = (quantity: number) => {
+    //Armazena uma contagem conforme é adicionado quantidade de item
+    this.quantityCount = this.quantityCount + quantity; 
+
+    localStorage.setItem('quantityCount', JSON.stringify(this.quantityCount));
+}
+
   accumulateValuesAmount = () => {
     this.amountAll = this.amountValuesArray.reduce((acumulador, currentValue) => {
       return acumulador + currentValue;
     }, 0)
+
+    localStorage.setItem('amountAll', JSON.stringify(this.amountAll))
+    
   }
 
   //Limpa o acumulador
   cleanAccumulateValuesAmount = () => {
     this.amountAll = 0;
     this.amountValues = [];
+    this.quantityCount = 0;
     this.accumulateValuesAmount();
   }
 
@@ -84,11 +94,36 @@ export class CartService {
     localStorage.setItem('cartItens', JSON.stringify(cartItens))
   }
 
+
+  //Gets do local storge
+
   getCartItens = () => {
     const cartItensString = localStorage.getItem('cartItens');
 
     if (cartItensString) {
       this.cartItens = JSON.parse(cartItensString);      
     }    
+  }
+
+  getAmountAll = () => {
+    if (localStorage.getItem('amountAll')){
+
+      const amountAllString = localStorage.getItem('amountAll');
+
+      if (amountAllString) {
+        this.amountAll = JSON.parse(amountAllString);
+      }
+    }
+  }
+
+  getQuantityCount = () => {
+    if (localStorage.getItem('quantityCount')) {
+      
+      const quantityCountString = localStorage.getItem('quantityCount');
+
+      if (quantityCountString) {
+        this.quantityCount = JSON.parse(quantityCountString);
+      }
+    }
   }
 }

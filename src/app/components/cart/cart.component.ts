@@ -23,6 +23,8 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     if (!this.cartItens.length) {
       this.cart_service.getCartItens();
+      this.cart_service.getAmountAll();
+      this.cart_service.getQuantityCount();
     }
 
     this.cartItens = this.cart_service.cartItens;
@@ -64,7 +66,7 @@ export class CartComponent implements OnInit {
     this.cartItens.length = 0
     this.cart_service.quantityCount = 0;
     this.cart_service.amountValuesArray = [0];
-    // this.cart_service.amountAll = 0;
+    this.cart_service.amountAll = 0;
 
     console.log(this.cart_service.amountAll);
 
