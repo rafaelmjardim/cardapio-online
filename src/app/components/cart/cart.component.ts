@@ -42,8 +42,6 @@ export class CartComponent implements OnInit {
       entrega: false,
       finalizado: false,
     }
-
-    console.log('new',this.newOrder);
     
     this.cart_service.postPedido(this.newOrder).subscribe(res => {
       console.log('post realizado com sucesso');
@@ -67,8 +65,6 @@ export class CartComponent implements OnInit {
     this.cart_service.quantityCount = 0;
     this.cart_service.amountValuesArray = [0];
     this.cart_service.amountAll = 0;
-
-    console.log(this.cart_service.amountAll);
 
     this.cart_service.cleanAccumulateValuesAmount();
 
