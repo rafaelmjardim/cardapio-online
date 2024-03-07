@@ -20,12 +20,13 @@ const routes: Routes = [
     path: 'promocoes',
     component: PromocoesComponent,
   },
+  // {
+  //   path: 'pedidos',
+  //   component: PedidosComponent,
+  // },
   {
+    // path: 'cadastro-produtos',
     path: 'pedidos',
-    component: PedidosComponent,
-  },
-  {
-    path: 'cadastro-produtos',
     component: CadastroProdutosComponent,
     loadChildren: () => import('./modules/cadastro-produtos/cadastro-produtos-routing.module').then((m) => m.CadastroProdutosRoutingModule)
   },
