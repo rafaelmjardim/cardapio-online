@@ -6,6 +6,7 @@ import { AdicionaisList, Product } from '../products-cards/products-cards';
 import { BehaviorSubject } from 'rxjs';
 
 const API_KEY = environment.API_KEY;
+const JSON_SERVER = environment.JSON_SERVER;
 
 @Injectable({
   providedIn: 'root'
@@ -78,7 +79,7 @@ export class CartService {
   }
 
   postPedido = (pedido: Order) => {
-    return this.http.post(`${API_KEY}/pedidos`, {
+    return this.http.post(`${JSON_SERVER}/pedidos`, {
       id_cliente: pedido.id_cliente,
       mesa: pedido.mesa,
       lista_carrinho: pedido.lista_carrinho,
