@@ -13,6 +13,12 @@ const JSON_SERVER = environment.JSON_SERVER;
 })
 export class CartService {
 
+  private cartItensSubject = new BehaviorSubject<Product[]>([]);
+  cartItensStram$ = this.cartItensSubject.asObservable();
+
+
+  
+
   cartItens: Product[] = [];
     
   quantityCount: number = 0
@@ -28,54 +34,11 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  setCartItens = (product: Product, quantity: number, itemValue?: number, adicionais?: any) => {
-    
-    if (product) {
-      this.cartItens.push({...product, quantidade: quantity, adicionais});
-      this.setCartItensLocalStorge(this.cartItens);      
-    }
-    
-    if (itemValue){
-      //Multiplica a quantidade de iten ao valor do item 
-      this.itemValueMultQuantity =  itemValue * quantity   
-      
-      //Seta os valores na variavel (para preparar para o reduce)
-      this.amountValues.push(this.itemValueMultQuantity)
-    }
+  updateCartItensSubject = (newProductCart: Product) => {
+    const currentCart: Product[]  = this.cartItensSubject.value;    
+    const cartList: Product[] = [...currentCart, newProductCart];
 
-    this.setQuantityCount(quantity);
-    
-    //Variavel para converter o valor em number[]
-    this.amountValuesArray = this.amountValues; //Necessario conversão para array de numeros
-  
-    //Se tiver valor no array de amount chama a função para fazer o acumulador
-    if(this.amountValuesArray) {
-      this.accumulateValuesAmount();
-    }
-  }
-
-  setQuantityCount = (quantity: number) => {
-    //Armazena uma contagem conforme é adicionado quantidade de item
-    this.quantityCount = this.quantityCount + quantity; 
-
-    localStorage.setItem('quantityCount', JSON.stringify(this.quantityCount));
-}
-
-  accumulateValuesAmount = () => {
-    this.amountAll = this.amountValuesArray.reduce((acumulador, currentValue) => {
-      return acumulador + currentValue;
-    }, 0)
-
-    localStorage.setItem('amountAll', JSON.stringify(this.amountAll))
-    
-  }
-
-  //Limpa o acumulador
-  cleanAccumulateValuesAmount = () => {
-    this.amountAll = 0;
-    this.amountValues = [];
-    this.quantityCount = 0;
-    this.accumulateValuesAmount();
+    this.cartItensSubject.next(cartList);
   }
 
   postPedido = (pedido: Order) => {
@@ -90,41 +53,12 @@ export class CartService {
     })
   }
 
-  //Função que envia os objetos para a localStorge
-  setCartItensLocalStorge = (cartItens: Product[]) => {
-    localStorage.setItem('cartItens', JSON.stringify(cartItens))
-  }
-
-
   //Gets do local storge
-
   getCartItens = () => {
     const cartItensString = localStorage.getItem('cartItens');
 
     if (cartItensString) {
-      this.cartItens = JSON.parse(cartItensString);      
+      return JSON.parse(cartItensString);      
     }    
-  }
-
-  getAmountAll = () => {
-    if (localStorage.getItem('amountAll')){
-
-      const amountAllString = localStorage.getItem('amountAll');
-
-      if (amountAllString) {
-        this.amountAll = JSON.parse(amountAllString);
-      }
-    }
-  }
-
-  getQuantityCount = () => {
-    if (localStorage.getItem('quantityCount')) {
-      
-      const quantityCountString = localStorage.getItem('quantityCount');
-
-      if (quantityCountString) {
-        this.quantityCount = JSON.parse(quantityCountString);
-      }
-    }
   }
 }

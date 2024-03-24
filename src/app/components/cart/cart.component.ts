@@ -1,17 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../products-cards/products-cards';
 import { CartService } from './cart.service';
 import { Order } from './cart';
 import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
+  subscription = new Subscription();
 
   cartItens: Product[] = [];
+  amountAll: number = 0;
 
   newOrder!: Order;
 
@@ -20,15 +23,57 @@ export class CartComponent implements OnInit {
   
   constructor (public cart_service: CartService, public dialog: MatDialog){}
   
-  ngOnInit(): void {
-    if (!this.cartItens.length) {
-      this.cart_service.getCartItens();
-      this.cart_service.getAmountAll();
-      this.cart_service.getQuantityCount();
-    }
-
-    this.cartItens = this.cart_service.cartItens;
+  ngOnInit(): void {    
+    this.onCartItensList();
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+  
+  onCartItensList = () => {
+    this.subscription = this.cart_service.cartItensStram$.subscribe(cartItens => {
+      this.cartItens = cartItens; 
+      this.setAmountAll();
+      
+      if (this.cartItens.length) {
+        this.saveCartItensLocalStorge(this.cartItens);
+      }
+    })
+  }
+
+  setAmountAll = () => {
+
+    //Pega os valores de todos os produtos do carrinho e retorna num array (já verificando a quantidade)
+    const productsCartValuesArray = this.cartItens.map(productCart => {
+      return productCart.quantidade ? productCart.valor_venda * productCart.quantidade : productCart.valor_venda;
+    })
+    
+    this.accumulatedValuesAmount(productsCartValuesArray);    
+  } 
+
+  accumulatedValuesAmount = (productsValues: number[]) => {
+    this.amountAll = productsValues.reduce((acumulador, currentValue) => {
+      return acumulador + currentValue;
+    }, 0)
+  }
+
+  //Fimção que salva na local storge
+  saveCartItensLocalStorge = (cartItens: Product[]) => {
+    localStorage.setItem('cartItens', JSON.stringify(cartItens));
+  }
+
+  //Função que obtem os dados da local storge
+  recoverCartItens = () => {
+    const cartItensString = localStorage.getItem('cartItens');
+
+    if (cartItensString) {
+      this.cartItens = JSON.parse(cartItensString);
+      console.log('teste', this.cartItens);
+      
+    }
+  }
+
   
   handleSubmitOrder = () => {
     const date = new Date();
@@ -49,7 +94,6 @@ export class CartComponent implements OnInit {
     })
   }
 
-
   //função que converte valor para ficar com duas casas decimais
   decimalConvert = (value: number) => {
     return value.toFixed(2)
@@ -57,19 +101,16 @@ export class CartComponent implements OnInit {
 
   handleCleanCartIten = (index: number) => {
    this.cartItens.splice(index, 1)
-   this.cart_service.quantityCount = index;
+
+   this.setAmountAll();
   }
 
   handleClearAllBag = () => {
-    this.cartItens.length = 0
-    this.cart_service.quantityCount = 0;
-    this.cart_service.amountValuesArray = [0];
-    this.cart_service.amountAll = 0;
+    this.cartItens.length = 0;
+    this.amountAll = 0;
 
-    this.cart_service.cleanAccumulateValuesAmount();
 
     //Limpa local storge
     localStorage.removeItem('cartItens');
-    
   }
 }
