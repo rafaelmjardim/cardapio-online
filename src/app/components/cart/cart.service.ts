@@ -12,12 +12,11 @@ const JSON_SERVER = environment.JSON_SERVER;
   providedIn: 'root'
 })
 export class CartService {
+  storedCartItens = localStorage.getItem('cartItens');
 
-  private cartItensSubject = new BehaviorSubject<Product[]>([]);
+  private cartItensSubject = new BehaviorSubject<Product[]>(this.storedCartItens ? JSON.parse(this.storedCartItens) : []);
   cartItensStram$ = this.cartItensSubject.asObservable();
 
-
-  
 
   cartItens: Product[] = [];
     
@@ -51,14 +50,5 @@ export class CartService {
       entrega: false,
       finalizado: false,
     })
-  }
-
-  //Gets do local storge
-  getCartItens = () => {
-    const cartItensString = localStorage.getItem('cartItens');
-
-    if (cartItensString) {
-      return JSON.parse(cartItensString);      
-    }    
   }
 }

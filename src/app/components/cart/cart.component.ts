@@ -102,13 +102,13 @@ export class CartComponent implements OnInit, OnDestroy {
   handleCleanCartIten = (index: number) => {
    this.cartItens.splice(index, 1)
 
+   this.saveCartItensLocalStorge(this.cartItens);
    this.setAmountAll();
   }
 
   handleClearAllBag = () => {
     this.cartItens.length = 0;
     this.amountAll = 0;
-
 
     //Limpa local storge
     localStorage.removeItem('cartItens');
