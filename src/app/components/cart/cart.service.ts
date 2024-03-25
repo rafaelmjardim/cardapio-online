@@ -16,20 +16,8 @@ export class CartService {
 
   private cartItensSubject = new BehaviorSubject<Product[]>(this.storedCartItens ? JSON.parse(this.storedCartItens) : []);
   cartItensStram$ = this.cartItensSubject.asObservable();
-
-
-  cartItens: Product[] = [];
     
   quantityCount: number = 0
-
-  amountAll: number = 0;
-
-  amountValues: any = []; //Rever tipagem para essa variavel
-
-  itemValueMultQuantity: any = 0
-
-  clearAllValue: boolean = false;
-  amountValuesArray: number[] = [0];
 
   constructor(private http: HttpClient) { }
 
