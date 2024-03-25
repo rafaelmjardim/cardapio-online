@@ -15,6 +15,7 @@ import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 export class HomeComponent implements OnInit{
   
   cartItens!: Product[]
+  countCart: number = 1;
 
   products!: Product[];
   filterValue!: number;
@@ -47,7 +48,21 @@ export class HomeComponent implements OnInit{
 
       console.log('home cartItens', this.cartItens);
       
+      // this.countCart = this.cartItens.length
+
+      this.quantityCalc();
     })
+  }
+
+  //Pega o array de quantidades e soma para adicionar a contagem do matBadge
+  quantityCalc = () => {
+    const arrayQuantity: number[] = this.cartItens.map(product => {
+      return Number(product.quantidade);
+    })
+    
+    this.countCart = arrayQuantity.reduce((soma, elemento) => {
+      return soma + elemento;
+    })    
   }
 
   onChangeCategoryValue = () => {
