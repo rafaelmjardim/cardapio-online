@@ -4,6 +4,7 @@ import { CartService } from './cart.service';
 import { Order } from './cart';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
+import { UtilsService } from 'src/app/services/utils/utils.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,19 +13,24 @@ import { Subscription } from 'rxjs';
 })
 export class CartComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
+  
+  @Input() amountValues: any = []; //Rever tipagem para essa variavel
 
   cartItens: Product[] = [];
   amountAll: number = 0;
-
   newOrder!: Order;
 
-  @Input() amountValues: any = []; //Rever tipagem para essa variavel
-
+  API_URL!: string;
   
-  constructor (public cart_service: CartService, public dialog: MatDialog){}
+  constructor (
+    private utils_service: UtilsService,
+    public cart_service: CartService,
+    public dialog: MatDialog
+  ){}
   
   ngOnInit(): void {    
     this.onCartItensList();
+    this.checkUrlApi();
   }
 
   ngOnDestroy(): void {
@@ -74,7 +80,6 @@ export class CartComponent implements OnInit, OnDestroy {
     }
   }
 
-  
   handleSubmitOrder = () => {
     const date = new Date();
 
@@ -112,5 +117,9 @@ export class CartComponent implements OnInit, OnDestroy {
 
     //Limpa local storge
     localStorage.removeItem('cartItens');
+  }
+
+  checkUrlApi = () => {
+    this.API_URL = this.utils_service.returnUrlServer();
   }
 }
