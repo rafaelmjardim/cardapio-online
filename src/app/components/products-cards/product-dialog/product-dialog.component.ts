@@ -5,6 +5,7 @@ import { AdicionaisList, Product } from '../products-cards';
 import { CartService } from '../../cart/cart.service';
 import { ProductDialogService } from './product-dialog.service';
 import { Adicinal } from './product-dialog';
+import { UtilsService } from 'src/app/services/utils/utils.service';
 
 @Component({
   selector: 'app-product-dialog',
@@ -12,28 +13,28 @@ import { Adicinal } from './product-dialog';
   styleUrls: ['./product-dialog.component.scss']
 })
 export class ProductDialogComponent implements OnInit{
+  currentProduct!: Product;
+  //Contador de quantidade do produto
+  countProduct: number = 1;
+  //Contador de quantidade do Adicional
+  countAdicionalList: AdicionaisList = {};
+  updateCurrentProduct: Product[] = [];
+  adicionaisList: Adicinal[] = [];
+
+  API_URL!: string;
+
   constructor (
     public dialog: MatDialog,
     private produtos_service: ProdutosService, 
     private cart_service: CartService,
     private product_dialog_service: ProductDialogService,
+    private utils_service: UtilsService,
     @Inject(MAT_DIALOG_DATA) private dialog_data: Product,
   ){}
 
-  currentProduct!: Product;
-
-  //Contador de quantidade do produto
-  countProduct: number = 1;
-
-  //Contador de quantidade do Adicional
-  countAdicionalList: AdicionaisList = {};
-
-  updateCurrentProduct: Product[] = [];
-
-  adicionaisList: Adicinal[] = [];
-
   ngOnInit(): void {
     this.onGetProduct();
+    this.checkUrlApi();
   }
   
   onGetProduct = () => {
@@ -82,5 +83,9 @@ export class ProductDialogComponent implements OnInit{
 
     this.cart_service.updateCartItensSubject(newProductCart);
     this.dialog.closeAll()    
+  }
+
+  checkUrlApi = () => {
+    this.API_URL = this.utils_service.returnUrlServer();
   }
 }
