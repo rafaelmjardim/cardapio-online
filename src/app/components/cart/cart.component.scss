@@ -80,6 +80,12 @@
                 border-radius: 1rem;
                 padding: .5rem;
                 border: .1rem solid #e1e1e1;
+                cursor: pointer;
+                
+                &:hover {
+                    box-shadow: rgba(74, 74, 74, 0.24) 0px 3px 8px;
+            
+                }
                 
                 &_img, img {
                     object-fit: cover;

@@ -35,7 +35,7 @@
                     </button>
 
                     <span class="product_dialog_main_add_item_action_value">
-                        <span>{{countAdicionalList[adicional.codigo] || 0 }}</span>
+                        <span>{{ countAdicionalList[adicional.codigo] || 0 }}</span>
                     </span>
                     
                     <button (click)="handleCountAdicional('plus', adicional)">
@@ -47,7 +47,7 @@
 
         <div class="product_dialog_main_content_actions">
             <div class="product_dialog_main_content_actions_quantity_selector">
-                <button class="product_dialog_main_content_actions_quantity_selector_less" [ngClass]="countProduct === 1 ? 'disabled' : '' " (click)="handleCountProducts('less')">
+                <button class="product_dialog_main_content_actions_quantity_selector_less" [ngClass]="countProduct < 1 ? 'disabled' : '' " (click)="handleCountProducts('less')">
                     <lucide-icon name="minus" [size]="20"></lucide-icon>
                 </button>
 
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <button class="product_dialog_content_button button-primary" (click)="handleAddCart(currentProduct)">Adicionar</button>
+            <button class="product_dialog_content_button button-primary" (click)="!isEdit ? handleAddCart(currentProduct) : handleEditCart()">{{!isEdit ? 'Adicionar' : 'Editar'}}</button>
         </div>
     </div>
 </div>

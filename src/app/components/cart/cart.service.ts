@@ -21,10 +21,17 @@ export class CartService {
 
   constructor(private http: HttpClient) { }
 
-  updateCartItensSubject = (newProductCart: Product) => {
+  updateCartItensSubject = (newProductCart: Product, editProduceCarList?: Product[]) => {
+
+    //Verifica se está tentando editar o carrinho (se sim vai apenas editar o produto selecionado)
+    if (editProduceCarList) {
+      this.cartItensSubject.next(editProduceCarList)
+      return
+    }
+
     const currentCart: Product[]  = this.cartItensSubject.value;    
     const cartList: Product[] = [...currentCart, newProductCart];
-
+    
     this.cartItensSubject.next(cartList);
   }
 
@@ -38,5 +45,14 @@ export class CartService {
       entrega: false,
       finalizado: false,
     })
+  }
+
+  returnCartItensStorge = () => {
+    const cartItensString = localStorage.getItem('cartItens');
+
+    if (cartItensString) {
+      const cartItens = JSON.parse(cartItensString);
+      return cartItens
+    }
   }
 }

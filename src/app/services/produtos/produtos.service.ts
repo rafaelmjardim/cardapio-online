@@ -19,9 +19,9 @@ export class ProdutosService {
     });
   };
 
-  getProduto = (product: Product) => {
+  getProduto = (codigo: number) => {
     return this.http.get<any>(`${API_KEY}/produto`, {
-      params: new HttpParams().set('codigo', product.codigo)
+      params: new HttpParams().set('codigo', codigo)
     })
   }
 }

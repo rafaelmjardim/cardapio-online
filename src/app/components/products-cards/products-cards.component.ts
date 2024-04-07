@@ -44,7 +44,7 @@ export class ProductsCardsComponent implements OnInit, OnChanges{
   handleOpenProductDialog = (currentProduct: Product) => {
     this.dialog.open(ProductDialogComponent, {
       panelClass: 'mobile-dialog',
-      data: currentProduct
+      data: {currentProduct}
     })
   }
 

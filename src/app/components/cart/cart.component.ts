@@ -5,6 +5,7 @@ import { Order } from './cart';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { UtilsService } from 'src/app/services/utils/utils.service';
+import { ProductDialogComponent } from '../products-cards/product-dialog/product-dialog.component';
 
 @Component({
   selector: 'app-cart',
@@ -30,7 +31,7 @@ export class CartComponent implements OnInit, OnDestroy {
   
   ngOnInit(): void {    
     this.onCartItensList();
-    this.checkUrlApi();
+    this.checkUrlApi();    
   }
 
   ngOnDestroy(): void {
@@ -121,5 +122,13 @@ export class CartComponent implements OnInit, OnDestroy {
 
   checkUrlApi = () => {
     this.API_URL = this.utils_service.returnUrlServer();
+  }
+
+  handleOpenProduct = (currentProduct: Product, indexProduct: number) => {     
+    
+    this.dialog.open(ProductDialogComponent, {
+      panelClass: 'mobile-dialog',
+      data: {currentProduct, isEdit: true, indexProduct}
+    })
   }
 }

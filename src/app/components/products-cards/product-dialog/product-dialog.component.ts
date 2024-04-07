@@ -4,7 +4,7 @@ import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 import { AdicionaisList, Product } from '../products-cards';
 import { CartService } from '../../cart/cart.service';
 import { ProductDialogService } from './product-dialog.service';
-import { Adicinal } from './product-dialog';
+import { Adicinal, CurrentProductData } from './product-dialog';
 import { UtilsService } from 'src/app/services/utils/utils.service';
 
 @Component({
@@ -22,29 +22,34 @@ export class ProductDialogComponent implements OnInit{
   adicionaisList: Adicinal[] = [];
 
   API_URL!: string;
-
+  isEdit = this.dialog_data.isEdit;
+  
   constructor (
     public dialog: MatDialog,
     private produtos_service: ProdutosService, 
     private cart_service: CartService,
     private product_dialog_service: ProductDialogService,
     private utils_service: UtilsService,
-    @Inject(MAT_DIALOG_DATA) private dialog_data: Product,
+    @Inject(MAT_DIALOG_DATA) private dialog_data: CurrentProductData,
   ){}
 
   ngOnInit(): void {
-    this.onGetProduct();
-    this.checkUrlApi();
+    // this.onGetProduct();
+    this.onGetAdicionais();
+    this.checkUrlApi(); 
+    
+    this.currentProduct = this.dialog_data.currentProduct;
+    this.countProduct = this.dialog_data.currentProduct.quantidade ?? 1;
   }
   
-  onGetProduct = () => {
-    this.produtos_service.getProduto(this.dialog_data).subscribe(res => {
-      this.currentProduct = res[0];            
-    })
+  // onGetProduct = () => {
+  //   this.produtos_service.getProduto(this.dialog_data.codigo).subscribe(res => {
+  //     // this.currentProduct = res[0]; 
+            
+  //   })
 
-    //Carrega os adicinais
-    this.onGetAdicionais();
-  }
+  //   //Carrega os adicinais
+  // }
 
   onGetAdicionais = () => {
     this.product_dialog_service.getAdicionais().subscribe(res => {
@@ -83,6 +88,17 @@ export class ProductDialogComponent implements OnInit{
 
     this.cart_service.updateCartItensSubject(newProductCart);
     this.dialog.closeAll()    
+  }
+
+  handleEditCart = () => {
+    const index = this.dialog_data.indexProduct;
+    const updateCartItens: Product[] = this.cart_service.returnCartItensStorge();   
+    const currentEditProduct = updateCartItens[index];
+    
+    currentEditProduct.quantidade = this.countProduct;
+
+    this.cart_service.updateCartItensSubject(currentEditProduct, updateCartItens);
+    this.dialog.closeAll();
   }
 
   checkUrlApi = () => {
