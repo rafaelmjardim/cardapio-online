@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Product } from 'src/app/components/products-cards/products-cards';
@@ -6,15 +6,18 @@ import { CartService } from 'src/app/components/cart/cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from 'src/app/components/cart/cart.component';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
+import { Subscription } from 'rxjs';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit{
-  
-  cartItens!: Product[]
+export class HomeComponent implements OnInit, OnDestroy{
+  subscription = new Subscription();
+
+  cartItens: Product[] = this.cart_service.storedCartItens ? JSON.parse(this.cart_service.storedCartItens) : [];
   countCart: number = 1;
 
   products!: Product[];
@@ -26,6 +29,7 @@ export class HomeComponent implements OnInit{
     public cart_service: CartService,
     private form_builder: FormBuilder,
     private dialog: MatDialog,
+    private home_service: HomeService
   ){}
 
   ngOnInit(): void {
@@ -36,6 +40,10 @@ export class HomeComponent implements OnInit{
     this.mobile_utils.onInitMediaMobile()
   }
   
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   initForm = () => {
     this.selectForm = this.form_builder.group({
       selectInput: ['']
@@ -43,13 +51,9 @@ export class HomeComponent implements OnInit{
   }
   
   setCartItens = () => {
-    this.cart_service.cartItensStram$.subscribe(cartItens => {
+    this.subscription = this.cart_service.cartItensStram$.subscribe(cartItens => {
       this.cartItens = cartItens;
-
-      console.log('home cartItens', this.cartItens);
       
-      // this.countCart = this.cartItens.length
-
       this.quantityCalc();
     })
   }

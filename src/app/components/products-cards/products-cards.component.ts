@@ -3,6 +3,7 @@ import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 import { Product } from './products-cards';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
+import { UtilsService } from 'src/app/services/utils/utils.service';
 
 @Component({
   selector: 'app-products-cards',
@@ -18,13 +19,16 @@ export class ProductsCardsComponent implements OnInit, OnChanges{
 
   @Input() deleteProductFunction!: Function;
 
+  API_URL!: string;
+
   constructor (
     private produtos_service: ProdutosService, 
     private dialog: MatDialog, 
+    private utils_service: UtilsService
   ){}
 
   ngOnInit(): void {
-
+    this.checkUrlApi();
   }
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -42,5 +46,9 @@ export class ProductsCardsComponent implements OnInit, OnChanges{
       panelClass: 'mobile-dialog',
       data: currentProduct
     })
+  }
+
+  checkUrlApi = () => {
+    this.API_URL = this.utils_service.returnUrlServer();
   }
 }
