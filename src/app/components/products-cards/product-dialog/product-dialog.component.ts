@@ -14,10 +14,14 @@ import { UtilsService } from 'src/app/services/utils/utils.service';
 })
 export class ProductDialogComponent implements OnInit{
   currentProduct!: Product;
+  
   //Contador de quantidade do produto
   countProduct: number = 1;
+
   //Contador de quantidade do Adicional
-  countAdicionalList: AdicionaisList = {};
+  countAdicionalList: AdicionaisList = {} as AdicionaisList;
+  countAdicional: number = 0;
+
   updateCurrentProduct: Product[] = [];
   adicionaisList: Adicinal[] = [];
 
@@ -34,14 +38,26 @@ export class ProductDialogComponent implements OnInit{
   ){}
 
   ngOnInit(): void {
+    this.currentProduct = this.dialog_data.currentProduct;
     // this.onGetProduct();
     this.onGetAdicionais();
     this.checkUrlApi(); 
+    this.checkAdicinaisList();
+    
     
     this.currentProduct = this.dialog_data.currentProduct;
+
+    this.currentProduct = this.dialog_data.currentProduct;
     this.countProduct = this.dialog_data.currentProduct.quantidade ?? 1;
+
   }
   
+  checkAdicinaisList = () => {
+    if (this.currentProduct.adicionais && this.dialog_data.isEdit) {
+      this.countAdicionalList = this.currentProduct.adicionais;
+    } 
+    
+  }
   // onGetProduct = () => {
   //   this.produtos_service.getProduto(this.dialog_data.codigo).subscribe(res => {
   //     // this.currentProduct = res[0]; 
@@ -70,13 +86,15 @@ export class ProductDialogComponent implements OnInit{
   handleCountAdicional = (option: string, adicional: Adicinal) => {
     if (option === 'plus' && this.countAdicionalList[adicional.codigo]) {
       this.countAdicionalList[adicional.codigo]++
-    }else {
-      this.countAdicionalList[adicional.codigo] = 1
-    } 
+      console.log('count', this.countAdicionalList[adicional.codigo]);
+    }
     
     if (option === 'minus' && this.countAdicionalList[adicional.codigo]) {
       this.countAdicionalList[adicional.codigo]--
     }
+
+    
+    
   }
   
   //Função para adicionar item ao carrinho
@@ -96,6 +114,7 @@ export class ProductDialogComponent implements OnInit{
     const currentEditProduct = updateCartItens[index];
     
     currentEditProduct.quantidade = this.countProduct;
+    currentEditProduct.adicionais = this.countAdicionalList;
 
     this.cart_service.updateCartItensSubject(currentEditProduct, updateCartItens);
     this.dialog.closeAll();
