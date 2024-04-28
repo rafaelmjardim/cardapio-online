@@ -148,6 +148,7 @@ export class CartComponent implements OnInit, OnDestroy {
       next: (pedido_response) => {
         console.log('post realizado com sucesso');
         this.dialog.open(ConfirmationDialogComponent);
+        this.handleClearAllBag();
       }
     })
   }
