@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/services/user/user.service';
+import { User } from 'src/app/services/user/user';
 
 @Component({
   selector: 'app-login',
@@ -12,23 +13,36 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor (public dialog: MatDialog, private form_builder: FormBuilder, private user: UserService){}
+  constructor (
+    private form_builder: FormBuilder, 
+    public user: UserService,
+    public dialog: MatDialog, 
+  ){}
 
   ngOnInit(): void {
+    this.initForm();    
+  }
+
+  initForm = () => {
     this.loginForm = this.form_builder.group({
-      nameInput: [''],
-      phoneInput: ['']
+      nameInput: ['', Validators.required],
+      phoneInput: ['', Validators.required]
     })
   }
 
   submitLoginForm = () => {
-    const nameInput = this.loginForm.controls['nameInput'].value;
-    const phoneInput = this.loginForm.controls['phoneInput'].value;
+    const user: User = {
+      name: this.loginForm.controls['nameInput'].value,
+      phone:  this.loginForm.controls['phoneInput'].value
+    }
+    
+    if (this.loginForm.invalid) {
+      return
+    }
 
-    localStorage.setItem('nome', nameInput);
-    localStorage.setItem('numero', phoneInput);
-
-    this.user.userGetItem();
+    //Adiciona usuario na localStorge
+    localStorage.setItem('user', JSON.stringify(user));
     this.dialog.closeAll();
+    this.user.updateIsLoggedSubject(true);
   }
 }

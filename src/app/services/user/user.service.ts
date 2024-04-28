@@ -5,19 +5,13 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-
-  // user = new BehaviorSubject<User>({name: '', phone: ''})
-  userData!: User;
+export class UserService {  
+  isLoggedSubject = new BehaviorSubject<boolean>(localStorage.getItem('user') ? true : false)
+  isLeggedSubjectStream$ = this.isLoggedSubject.asObservable();
 
   constructor() { }
 
-  userGetItem = () => {
-    if (localStorage.getItem('nome')) {
-      this.userData= {
-        name: localStorage.getItem('nome'),
-        phone: localStorage.getItem('numero')
-      }
-    }
+  updateIsLoggedSubject = (value: boolean) => {
+    this.isLoggedSubject.next(value);
   }
 }

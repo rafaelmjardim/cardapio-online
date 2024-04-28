@@ -20,19 +20,21 @@
                 <lucide-icon name="home" class="icon" [size]="20"></lucide-icon>
                 Início
             </li>
+
             <li class="subheader_group_menu_button" [ngClass]="router.url === '/promocoes' ? 'clicked' : '' " routerLink="/promocoes">
                 <lucide-icon name="badge-percent" [size]="20"></lucide-icon>
                 Promoções
             </li>
+
             <li class="subheader_group_menu_button" [ngClass]="router.url === '/pedidos' ? 'clicked' : '' " routerLink="/pedidos">
                 <lucide-icon name="shopping-bag" [size]="20"></lucide-icon>
                 Pedidos
             </li>
-            <li class="subheader_group_menu_button" [ngClass]="router.url === '/user' ? 'clicked' : '' " (click)="handleOpenLoginDialog()">
-                <lucide-icon name="user" [size]="20"></lucide-icon>
-                Usuário
-            </li>
-            
+
+            <li class="subheader_group_menu_button" [ngClass]="router.url === '/user' ? 'clicked' : '' " (click)="!isLogged ? handleOpenLoginDialog() : handleLogout()">
+                <lucide-icon [name]="isLogged ? 'log-out' : 'user'" [size]="20"></lucide-icon>
+                <span>{{isLogged ? 'Sair' : 'Entrar'}}</span>
+            </li>            
         </ul>
     </div>
         

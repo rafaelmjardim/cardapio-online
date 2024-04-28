@@ -93,11 +93,13 @@ export class CartComponent implements OnInit, OnDestroy {
       entrega: false,
       finalizado: false,
     }
+   
+    console.log('Pedido realizado com sucesso!', this.newOrder);
     
-    this.cart_service.postPedido(this.newOrder).subscribe(res => {
-      console.log('post realizado com sucesso');
+    // this.cart_service.postPedido(this.newOrder).subscribe(res => {
+    //   console.log('post realizado com sucesso');
       
-    })
+    // })
   }
 
   //função que converte valor para ficar com duas casas decimais
