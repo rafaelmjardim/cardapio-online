@@ -22,6 +22,7 @@ import { InfoDialogComponent } from './components/subheader/info-dialog/info-dia
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProductDialogComponent } from './components/products-cards/product-dialog/product-dialog.component';
+import { ConfirmationDialogComponent } from './components/cart/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ProductDialogComponent } from './components/products-cards/product-dial
     InfoDialogComponent,
     LoginComponent,
     ProductDialogComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

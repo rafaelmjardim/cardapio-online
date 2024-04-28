@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { UtilsService } from 'src/app/services/utils/utils.service';
 import { ProductDialogComponent } from '../products-cards/product-dialog/product-dialog.component';
+import { UserService } from 'src/app/services/user/user.service';
+import { LoginComponent } from '../login/login.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-cart',
@@ -22,8 +25,11 @@ export class CartComponent implements OnInit, OnDestroy {
   newOrder!: Order;
 
   API_URL!: string;
+
+  isLogged!: boolean;
   
   constructor (
+    private user: UserService,
     private utils_service: UtilsService,
     public cart_service: CartService,
     public dialog: MatDialog
@@ -32,10 +38,17 @@ export class CartComponent implements OnInit, OnDestroy {
   ngOnInit(): void {    
     this.onCartItensList();
     this.checkUrlApi();    
+    this.checkUserLogged();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+  
+  checkUserLogged = () => {
+    this.subscription = this.user.isLeggedSubjectStream$.subscribe(res => {
+      this.isLogged = res;
+    })
   }
   
   onCartItensList = () => {
@@ -81,27 +94,6 @@ export class CartComponent implements OnInit, OnDestroy {
     }
   }
 
-  handleSubmitOrder = () => {
-    const date = new Date();
-
-    this.newOrder = {
-      id_cliente: 1,
-      lista_carrinho: this.cartItens,
-      mesa: 2,
-      form_pag: 1,
-      data_venda: date,
-      entrega: false,
-      finalizado: false,
-    }
-   
-    console.log('Pedido realizado com sucesso!', this.newOrder);
-    
-    // this.cart_service.postPedido(this.newOrder).subscribe(res => {
-    //   console.log('post realizado com sucesso');
-      
-    // })
-  }
-
   //função que converte valor para ficar com duas casas decimais
   decimalConvert = (value: number) => {
     return value.toFixed(2)
@@ -131,6 +123,32 @@ export class CartComponent implements OnInit, OnDestroy {
     this.dialog.open(ProductDialogComponent, {
       panelClass: 'mobile-dialog',
       data: {currentProduct, isEdit: true, indexProduct}
+    })
+  }
+
+  handleSubmitOrder = () => {
+    const date = new Date();
+
+    this.newOrder = {
+      id_cliente: 1,
+      lista_carrinho: this.cartItens,
+      mesa: 2,
+      form_pag: 1,
+      data_venda: date,
+      entrega: false,
+      finalizado: false,
+    }
+   
+    if (!this.isLogged) {
+      this.dialog.open(LoginComponent);
+      return
+    } 
+    
+    this.cart_service.postPedido(this.newOrder).subscribe({
+      next: (pedido_response) => {
+        console.log('post realizado com sucesso');
+        this.dialog.open(ConfirmationDialogComponent);
+      }
     })
   }
 }
