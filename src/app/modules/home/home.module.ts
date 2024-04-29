@@ -24,7 +24,6 @@ import { MatDialogModule } from "@angular/material/dialog";
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search})
   ],
   exports: [
     SharedModule
