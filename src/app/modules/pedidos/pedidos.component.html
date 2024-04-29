@@ -1,3 +1,7 @@
-<div class="pedidos dev">
-    <H2>Pagina em desenvolvimento.</H2>
+<div class="pedidos">
+    <ul class="pedidos_list">
+        <li class="pedidos_list_card" *ngFor="let order of ordersList">
+            {{order.name}}
+        </li>
+    </ul>
 </div>
