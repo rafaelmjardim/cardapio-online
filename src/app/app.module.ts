@@ -23,6 +23,8 @@ import { InfoDialogComponent } from './components/subheader/info-dialog/info-dia
 import { MatTabsModule } from '@angular/material/tabs';
 import { ProductDialogComponent } from './components/products-cards/product-dialog/product-dialog.component';
 import { ConfirmationDialogComponent } from './components/cart/confirmation-dialog/confirmation-dialog.component';
+import { PedidosModule } from './modules/pedidos/pedidos.module';
+import { PromocoesModule } from './modules/promocoes/promocoes.module';
 
 @NgModule({
   declarations: [
@@ -40,9 +42,11 @@ import { ConfirmationDialogComponent } from './components/cart/confirmation-dial
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    PedidosModule,
+    PromocoesModule,
+    HomeModule,
     ReactiveFormsModule,
     FormsModule,
-    HomeModule,
     LayoutModule,
     MatTabsModule,
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle, BaggageClaim, X, Minus, Plus, Info}),
