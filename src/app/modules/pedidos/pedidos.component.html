@@ -1,6 +1,6 @@
 <div class="pedidos">
     <ul class="pedidos_list">
-        <li class="pedidos_list_card" *ngFor="let order of ordersList">
+        <li class="pedidos_list_card" *ngFor="let order of ordersList; let i = index">
 
             <div class="pedidos_list_card_icon">
                 <lucide-icon name="shopping-cart" size="32" color="#34b35a"  [strokeWidth]="1.25"></lucide-icon>
@@ -8,7 +8,7 @@
 
             <div class="pedidos_list_card_content">
                 <div class="pedidos_list_card_content_details">
-                    <div class="pedidos_list_card_content_details_title">{{order.name}}</div>
+                    <div class="pedidos_list_card_content_details_title">Pedido Nº #{{i + 1}}</div> <!--Posteriormernte trocar por numero gerado no pedido (aleatorio padronizado) -->
                     <div class="pedidos_list_card_content_details_label">Total: <b>R$ 40,00</b> </div>
                     <div class="pedidos_list_card_content_details_clock">
                         <lucide-icon name="calendar-clock"  color="#777"></lucide-icon>
