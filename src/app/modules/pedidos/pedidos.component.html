@@ -7,10 +7,19 @@
             </div>
 
             <div class="pedidos_list_card_content">
-                <div class="pedidos_list_card_content_title">{{order.name}}</div>
-                <div class="pedidos_list_card_content_label">Total: <b>R$ 40,00</b> </div>
-                <div class="pedidos_list_card_content_label">29/04 às 20h</div>
+                <div class="pedidos_list_card_content_details">
+                    <div class="pedidos_list_card_content_details_title">{{order.name}}</div>
+                    <div class="pedidos_list_card_content_details_label">Total: <b>R$ 40,00</b> </div>
+                    <div class="pedidos_list_card_content_details_clock">
+                        <lucide-icon name="calendar-clock"  color="#777"></lucide-icon>
+                        <span class="pedidos_list_card_content_details_clock_label">29/04 às 20h</span>
+                    </div>
+                </div>
 
+                <div class="pedidos_list_card_content_status">
+                    <div class="pedidos_list_card_content_status_icon"></div>
+                    <div class="pedidos_list_card_content_status_label">Em andamento</div>
+                </div>
             </div>
         </li>
     </ul>
