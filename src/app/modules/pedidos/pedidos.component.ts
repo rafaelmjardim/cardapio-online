@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PedidosService } from './pedidos.service';
 import { Pedido } from './pedidos';
+import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-pedidos',
@@ -8,13 +10,26 @@ import { Pedido } from './pedidos';
   styleUrls: ['./pedidos.component.scss']
 })
 export class PedidosComponent implements OnInit {
+  subscription = new Subscription();
 
   ordersList: Pedido[] = [];
 
-  constructor (private pedidos_service: PedidosService) {}
+  isLogged!: boolean;
+
+  constructor (
+    private pedidos_service: PedidosService,
+    private user_service: UserService
+  ) {}
 
   ngOnInit(): void {
     this.onGetOrders();
+    this.checkUserLogged();
+  }
+
+  checkUserLogged = () => {
+    this.subscription = this.user_service.isLeggedSubjectStream$.subscribe(res => {
+      this.isLogged = res;
+    })
   }
 
   onGetOrders = () => {

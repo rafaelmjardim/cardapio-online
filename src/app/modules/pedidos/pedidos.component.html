@@ -1,26 +1,33 @@
 <div class="pedidos">
-    <ul class="pedidos_list">
-        <li class="pedidos_list_card" *ngFor="let order of ordersList; let i = index">
-
-            <div class="pedidos_list_card_icon">
-                <lucide-icon name="shopping-cart" size="32" color="#34b35a"  [strokeWidth]="1.25"></lucide-icon>
-            </div>
-
-            <div class="pedidos_list_card_content">
-                <div class="pedidos_list_card_content_details">
-                    <div class="pedidos_list_card_content_details_title">Pedido Nº #{{i + 1}}</div> <!--Posteriormernte trocar por numero gerado no pedido (aleatorio padronizado) -->
-                    <div class="pedidos_list_card_content_details_label">Total: <b>{{order.valor_total | currency: 'BRL'}}</b> </div>
-                    <div class="pedidos_list_card_content_details_clock">
-                        <lucide-icon name="calendar-clock" size="18" color="#777"></lucide-icon>
-                        <span class="pedidos_list_card_content_details_clock_label">{{order.data_venda | date : 'short' : '' : 'pt-BR'}}</span>
+    <div class="pedidos_container" *ngIf="isLogged; else loginMessageError">
+        <ul class="pedidos_container_list" *ngIf="ordersList.length; else emptyOrders">
+            <li class="pedidos_container_list_card" *ngFor="let order of ordersList; let i = index">
+                <div class="pedidos_container_list_card_icon">
+                    <lucide-icon name="shopping-cart" size="32" color="#34b35a"  [strokeWidth]="1.25"></lucide-icon>
+                </div>
+                <div class="pedidos_container_list_card_content">
+                    <div class="pedidos_container_list_card_content_details">
+                        <div class="pedidos_container_list_card_content_details_title">Pedido Nº #{{i + 1}}</div> <!--Posteriormernte trocar por numero gerado no pedido (aleatorio padronizado) -->
+                        <div class="pedidos_container_list_card_content_details_label">Total: <b>{{order.valor_total | currency: 'BRL'}}</b> </div>
+                        <div class="pedidos_container_list_card_content_details_clock">
+                            <lucide-icon name="calendar-clock" size="18" color="#777"></lucide-icon>
+                            <span class="pedidos_container_list_card_content_details_clock_label">{{order.data_venda | date : 'short' : '' : 'pt-BR'}}</span>
+                        </div>
+                    </div>
+                    <div class="pedidos_container_list_card_content_status">
+                        <div class="pedidos_container_list_card_content_status_icon"></div>
+                        <div class="pedidos_container_list_card_content_status_label">Em andamento</div>
                     </div>
                 </div>
+            </li>
+        </ul>
+        
+        <ng-template #emptyOrders>
+            <span class="template">Nenhum pedido realizado</span>
+        </ng-template>
+    </div>
 
-                <div class="pedidos_list_card_content_status">
-                    <div class="pedidos_list_card_content_status_icon"></div>
-                    <div class="pedidos_list_card_content_status_label">Em andamento</div>
-                </div>
-            </div>
-        </li>
-    </ul>
+    <ng-template #loginMessageError>
+        <span class="template">Faça login para visualizar os pedidos</span>
+    </ng-template>
 </div>
