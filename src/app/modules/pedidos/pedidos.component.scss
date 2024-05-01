@@ -41,6 +41,10 @@
                     padding: 1.4rem;
                     background-color: #7bd39585;
                     border-radius: 5rem;
+
+                    &.finalized {
+                        background-color: #ccc;
+                    }
     
                     lucide-icon {
                         width: 3rem;
