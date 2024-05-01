@@ -9,10 +9,10 @@
             <div class="pedidos_list_card_content">
                 <div class="pedidos_list_card_content_details">
                     <div class="pedidos_list_card_content_details_title">Pedido Nº #{{i + 1}}</div> <!--Posteriormernte trocar por numero gerado no pedido (aleatorio padronizado) -->
-                    <div class="pedidos_list_card_content_details_label">Total: <b>R$ 40,00</b> </div>
+                    <div class="pedidos_list_card_content_details_label">Total: <b>{{order.valor_total | currency: 'BRL'}}</b> </div>
                     <div class="pedidos_list_card_content_details_clock">
                         <lucide-icon name="calendar-clock" size="18" color="#777"></lucide-icon>
-                        <span class="pedidos_list_card_content_details_clock_label">29/04 às 20h</span>
+                        <span class="pedidos_list_card_content_details_clock_label">{{order.data_venda | date : 'short' : '' : 'pt-BR'}}</span>
                     </div>
                 </div>
 

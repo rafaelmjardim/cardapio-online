@@ -44,6 +44,7 @@ export class CartService {
       form_pag: 1,
       entrega: false,
       finalizado: false,
+      valor_total: pedido.valor_total
     })
   }
 

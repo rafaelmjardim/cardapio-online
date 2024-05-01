@@ -9,6 +9,7 @@ export interface Pedido {
   form_pag: number
   entrega: boolean
   finalizado: boolean
+  valor_total: number
 }
 
 export interface ListaCarrinho {

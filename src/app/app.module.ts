@@ -26,6 +26,12 @@ import { ConfirmationDialogComponent } from './components/cart/confirmation-dial
 import { PedidosModule } from './modules/pedidos/pedidos.module';
 import { PromocoesModule } from './modules/promocoes/promocoes.module';
 
+
+import { registerLocaleData } from '@angular/common';
+import localePT from '@angular/common/locales/pt';
+
+registerLocaleData(localePT);
+
 @NgModule({
   declarations: [
     AppComponent,

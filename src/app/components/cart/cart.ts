@@ -9,4 +9,5 @@ export type Order = {
     entrega: boolean
     finalizado: boolean
     desconto?: number
+    valor_total: number
 }

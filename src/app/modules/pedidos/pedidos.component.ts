@@ -23,13 +23,5 @@ export class PedidosComponent implements OnInit {
         this.ordersList = pedidos_response;
       }
     })
-    // this.ordersList = [
-    //   {
-    //     name: 'Pedido 1'
-    //   },
-    //   {
-    //     name: 'Pedido 2'
-    //   },
-    // ]
   }
 }
