@@ -129,6 +129,11 @@ export class CartComponent implements OnInit, OnDestroy {
   handleSubmitOrder = () => {
     const date = new Date();
 
+    const valorTotal = this.amountAll;
+
+    console.log('valor total', this.amountAll);
+    
+
     this.newOrder = {
       id_cliente: 1,
       lista_carrinho: this.cartItens,
@@ -144,12 +149,12 @@ export class CartComponent implements OnInit, OnDestroy {
       return
     } 
     
-    this.cart_service.postPedido(this.newOrder).subscribe({
-      next: (pedido_response) => {
-        console.log('post realizado com sucesso');
-        this.dialog.open(ConfirmationDialogComponent);
-        this.handleClearAllBag();
-      }
-    })
+    // this.cart_service.postPedido(this.newOrder).subscribe({
+    //   next: (pedido_response) => {
+    //     console.log('post realizado com sucesso');
+    //     this.dialog.open(ConfirmationDialogComponent);
+    //     this.handleClearAllBag();
+    //   }
+    // })
   }
 }

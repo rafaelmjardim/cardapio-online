@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PedidosService } from './pedidos.service';
+import { Pedido } from './pedidos';
 
 @Component({
   selector: 'app-pedidos',
@@ -7,20 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PedidosComponent implements OnInit {
 
-  ordersList: any[] = [];
+  ordersList: Pedido[] = [];
+
+  constructor (private pedidos_service: PedidosService) {}
 
   ngOnInit(): void {
     this.onGetOrders();
   }
 
   onGetOrders = () => {
-    this.ordersList = [
-      {
-        name: 'Pedido 1'
-      },
-      {
-        name: 'Pedido 2'
-      },
-    ]
+    this.pedidos_service.getOrders().subscribe({
+      next: (pedidos_response) => {
+        this.ordersList = pedidos_response;
+      }
+    })
+    // this.ordersList = [
+    //   {
+    //     name: 'Pedido 1'
+    //   },
+    //   {
+    //     name: 'Pedido 2'
+    //   },
+    // ]
   }
 }
