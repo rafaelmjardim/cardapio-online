@@ -1,6 +1,6 @@
 import { Product } from "../products-cards"
 
-export type Adicinal = {
+export type Adicional = {
     codigo: number
     nome: string
     valor_venda: number

@@ -19,6 +19,8 @@
         </div>
 
         <ul class="product_dialog_main_add scroll">
+
+            <!-- ADICIONAIS -->
             <li class="product_dialog_main_add_item" *ngFor="let adicional of adicionaisList">
                 <div class="product_dialog_main_add_item_content">
                     <span class="product_dialog_main_add_item_content_title">
@@ -30,12 +32,13 @@
                 </div>
 
                 <div class="product_dialog_main_add_item_action">
-                    <button (click)="handleCountAdicional('minus', adicional)" [ngClass]="{'disabled': countAdicionalList[adicional.codigo] <= 0}">
+                    <button (click)="handleCountAdicional('minus', adicional)" [ngClass]="{'disabled': adicional.quantidade <= 0}">
                         <lucide-icon name="minus" [size]="16"></lucide-icon>
                     </button>
 
                     <span class="product_dialog_main_add_item_action_value">
-                        <span>{{ countAdicionalList[adicional.codigo] || 0}}</span>
+                        <span> {{ adicional.quantidade }}</span>
+                        <!-- <span>{{ countAdicionalList[adicional.codigo] || 0}}</span> -->
                     </span>
                     
                     <button (click)="handleCountAdicional('plus', adicional)">
@@ -43,6 +46,7 @@
                     </button>
                 </div>
             </li>
+            <!-- FIM ADICIONAIS -->
         </ul>
 
         <div class="product_dialog_main_content_actions">
