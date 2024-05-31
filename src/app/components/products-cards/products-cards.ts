@@ -1,3 +1,5 @@
+import { Adicional } from "./product-dialog/product-dialog"
+
 export interface Product {
     codigo: number
     codigo_interno: string
@@ -8,7 +10,7 @@ export interface Product {
     categoria: string
     status: boolean
     id_categoria: number
-    adicionais: AdicionaisList[]
+    adicionais: Adicional[]
     id_sabores: number
     destaque: boolean
     observacao: string
@@ -17,6 +19,6 @@ export interface Product {
     imagem?: string
 }
 
-export interface AdicionaisList {
-    [codigo: number]: number
-}
+// export interface AdicionaisList {
+//     // [codigo: number]: number
+// }

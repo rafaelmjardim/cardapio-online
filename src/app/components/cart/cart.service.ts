@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Order } from './cart';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environments.prod';
-import { AdicionaisList, Product } from '../products-cards/products-cards';
+import { Product } from '../products-cards/products-cards';
 import { BehaviorSubject } from 'rxjs';
 
 const API_KEY = environment.API_KEY;
