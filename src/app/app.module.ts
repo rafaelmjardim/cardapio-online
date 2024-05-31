@@ -29,6 +29,7 @@ import { PromocoesModule } from './modules/promocoes/promocoes.module';
 
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
 registerLocaleData(localePT);
 
@@ -56,12 +57,14 @@ registerLocaleData(localePT);
     LayoutModule,
     MatTabsModule,
     LucideAngularModule.pick({Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle, BaggageClaim, X, Minus, Plus, Info}),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   exports: [
     HttpClientModule,
   ],
-  providers: [],
+  providers: [provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
