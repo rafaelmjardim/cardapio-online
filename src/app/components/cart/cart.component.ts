@@ -9,6 +9,7 @@ import { ProductDialogComponent } from '../products-cards/product-dialog/product
 import { UserService } from 'src/app/services/user/user.service';
 import { LoginComponent } from '../login/login.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { User } from 'src/app/services/user/user';
 
 @Component({
   selector: 'app-cart',
@@ -129,12 +130,20 @@ export class CartComponent implements OnInit, OnDestroy {
   handleSubmitOrder = () => {
     const date = new Date();
 
-    const amountAll = Number(this.amountAll.toFixed(2));    
+    const amountAll = Number(this.amountAll.toFixed(2));   
+
+    const userString =  localStorage.getItem('user');
+    
+    const user: User = JSON.parse(userString ?? '');
+
+    console.log(user);
+    
 
     this.newOrder = {
       id_cliente: 1,
       lista_carrinho: this.cartItens,
       mesa: 2,
+      nome_cliente: user.name,
       form_pag: 1,
       data_venda: date,
       entrega: false,
