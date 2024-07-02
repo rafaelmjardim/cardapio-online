@@ -134,10 +134,8 @@ export class CartComponent implements OnInit, OnDestroy {
 
     const userString =  localStorage.getItem('user');
     
-    const user: User = JSON.parse(userString ?? '');
+    const user: User = userString ? JSON.parse(userString) : '';
 
-    console.log(user);
-    
 
     this.newOrder = {
       id_cliente: 1,
