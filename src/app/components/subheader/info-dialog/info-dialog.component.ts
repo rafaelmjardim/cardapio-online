@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { HorarioSemanal } from './info-dialog';
+import { NgFor } from '@angular/common';
+import { MatTabGroup, MatTab } from '@angular/material/tabs';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
-  selector: 'app-info-dialog',
-  templateUrl: './info-dialog.component.html',
-  styleUrls: ['./info-dialog.component.scss']
+    selector: 'app-info-dialog',
+    templateUrl: './info-dialog.component.html',
+    styleUrls: ['./info-dialog.component.scss'],
+    standalone: true,
+    imports: [LucideAngularModule, MatTabGroup, MatTab, NgFor]
 })
 export class InfoDialogComponent implements OnInit{
 

@@ -4,11 +4,15 @@ import { Product } from './products-cards';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { UtilsService } from 'src/app/services/utils/utils.service';
+import { LucideAngularModule } from 'lucide-angular';
+import { NgFor, NgClass, NgIf, CurrencyPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-products-cards',
-  templateUrl: './products-cards.component.html',
-  styleUrls: ['./products-cards.component.scss']
+    selector: 'app-products-cards',
+    templateUrl: './products-cards.component.html',
+    styleUrls: ['./products-cards.component.scss'],
+    standalone: true,
+    imports: [NgFor, NgClass, NgIf, LucideAngularModule, CurrencyPipe]
 })
 export class ProductsCardsComponent implements OnInit, OnChanges{
   @Input() productsData!: Product[]; //Crirar tipagem global ou aqui no componente futuramente

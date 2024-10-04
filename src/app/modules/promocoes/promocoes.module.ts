@@ -6,12 +6,10 @@ import { PromocoesComponent } from './promocoes.component';
 
 
 @NgModule({
-  declarations: [
-    PromocoesComponent
-  ],
-  imports: [
-    CommonModule,
-    PromocoesRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        PromocoesRoutingModule,
+        PromocoesComponent
+    ]
 })
 export class PromocoesModule { }

@@ -7,13 +7,11 @@ import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
-  declarations: [
-    PedidosComponent
-  ],
-  imports: [
-    CommonModule,
-    PedidosRoutingModule,
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        PedidosRoutingModule,
+        SharedModule,
+        PedidosComponent
+    ]
 })
 export class PedidosModule { }

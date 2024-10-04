@@ -10,11 +10,15 @@ import { UserService } from 'src/app/services/user/user.service';
 import { LoginComponent } from '../login/login.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { User } from 'src/app/services/user/user';
+import { NgIf, NgFor, NgClass, CurrencyPipe } from '@angular/common';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
-  selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+    selector: 'app-cart',
+    templateUrl: './cart.component.html',
+    styleUrls: ['./cart.component.scss'],
+    standalone: true,
+    imports: [LucideAngularModule, NgIf, NgFor, NgClass, CurrencyPipe]
 })
 export class CartComponent implements OnInit, OnDestroy {
   subscription = new Subscription();

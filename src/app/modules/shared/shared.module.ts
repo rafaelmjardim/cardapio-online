@@ -12,26 +12,24 @@ import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
-  declarations: [
-    ProductsCardsComponent,
-    CartComponent
-  ],
-  imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatMenuModule,
-    MatBadgeModule,
-    LucideAngularModule.pick({ Menu, Home, BadgePercent, ShoppingBag, ShoppingCart, User, Search, XCircle, X, BaggageClaim, Minus, Plus, Info, LogOut, CheckCircle, CalendarClock })
-  ],
-  exports: [
-    ProductsCardsComponent,
-    CartComponent,
-    MatFormFieldModule,
-    MatInputModule,
-    MatMenuModule,
-    MatBadgeModule,
-    LucideAngularModule
-  ]
+    imports: [
+        CommonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatMenuModule,
+        MatBadgeModule,
+        LucideAngularModule.pick({ Menu, Home, BadgePercent, ShoppingBag, ShoppingCart, User, Search, XCircle, X, BaggageClaim, Minus, Plus, Info, LogOut, CheckCircle, CalendarClock }),
+        ProductsCardsComponent,
+        CartComponent
+    ],
+    exports: [
+        ProductsCardsComponent,
+        CartComponent,
+        MatFormFieldModule,
+        MatInputModule,
+        MatMenuModule,
+        MatBadgeModule,
+        LucideAngularModule
+    ]
 })
 export class SharedModule { }

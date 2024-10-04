@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Product } from 'src/app/components/products-cards/products-cards';
 import { CartService } from 'src/app/components/cart/cart.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,11 +8,18 @@ import { CartComponent } from 'src/app/components/cart/cart.component';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 import { Subscription } from 'rxjs';
 import { HomeService } from './home.service';
+import { MatBadge } from '@angular/material/badge';
+import { CartComponent as CartComponent_1 } from '../../components/cart/cart.component';
+import { ProductsCardsComponent } from '../../components/products-cards/products-cards.component';
+import { NgIf } from '@angular/common';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    standalone: true,
+    imports: [LucideAngularModule, FormsModule, ReactiveFormsModule, NgIf, ProductsCardsComponent, CartComponent_1, MatBadge]
 })
 export class HomeComponent implements OnInit, OnDestroy{
   subscription = new Subscription();

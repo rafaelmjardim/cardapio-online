@@ -13,20 +13,18 @@ import { MatDialogModule } from "@angular/material/dialog";
 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    HomeFiltersComponent,
-  ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    SharedModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatDialogModule,
-  ],
-  exports: [
-    SharedModule
-  ]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        SharedModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatDialogModule,
+        HomeComponent,
+        HomeFiltersComponent,
+    ],
+    exports: [
+        SharedModule
+    ]
 })
 export class HomeModule { }

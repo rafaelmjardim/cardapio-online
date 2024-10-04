@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-promocoes',
-  templateUrl: './promocoes.component.html',
-  styleUrls: ['./promocoes.component.scss']
+    selector: 'app-promocoes',
+    templateUrl: './promocoes.component.html',
+    styleUrls: ['./promocoes.component.scss'],
+    standalone: true
 })
 export class PromocoesComponent {
 

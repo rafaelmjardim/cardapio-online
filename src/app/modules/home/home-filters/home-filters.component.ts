@@ -1,10 +1,13 @@
 import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
-  selector: 'app-home-filters',
-  templateUrl: './home-filters.component.html',
-  styleUrls: ['./home-filters.component.scss']
+    selector: 'app-home-filters',
+    templateUrl: './home-filters.component.html',
+    styleUrls: ['./home-filters.component.scss'],
+    standalone: true,
+    imports: [LucideAngularModule, FormsModule, ReactiveFormsModule]
 })
 export class HomeFiltersComponent implements OnInit {
 

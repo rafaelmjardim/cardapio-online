@@ -3,11 +3,15 @@ import { PedidosService } from './pedidos.service';
 import { Pedido } from './pedidos';
 import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/services/user/user.service';
+import { LucideAngularModule } from 'lucide-angular';
+import { NgIf, NgFor, NgClass, NgStyle, CurrencyPipe, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-pedidos',
-  templateUrl: './pedidos.component.html',
-  styleUrls: ['./pedidos.component.scss']
+    selector: 'app-pedidos',
+    templateUrl: './pedidos.component.html',
+    styleUrls: ['./pedidos.component.scss'],
+    standalone: true,
+    imports: [NgIf, NgFor, NgClass, LucideAngularModule, NgStyle, CurrencyPipe, DatePipe]
 })
 export class PedidosComponent implements OnInit {
   subscription = new Subscription();

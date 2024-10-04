@@ -6,11 +6,15 @@ import { CartService } from '../../cart/cart.service';
 import { ProductDialogService } from './product-dialog.service';
 import { Adicional, CurrentProductData } from './product-dialog';
 import { UtilsService } from 'src/app/services/utils/utils.service';
+import { LucideAngularModule } from 'lucide-angular';
+import { NgIf, NgFor, NgClass, CurrencyPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-product-dialog',
-  templateUrl: './product-dialog.component.html',
-  styleUrls: ['./product-dialog.component.scss']
+    selector: 'app-product-dialog',
+    templateUrl: './product-dialog.component.html',
+    styleUrls: ['./product-dialog.component.scss'],
+    standalone: true,
+    imports: [NgIf, LucideAngularModule, NgFor, NgClass, CurrencyPipe]
 })
 export class ProductDialogComponent implements OnInit{
   currentProduct!: Product;
