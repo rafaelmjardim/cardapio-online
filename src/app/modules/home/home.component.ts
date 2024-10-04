@@ -13,13 +13,14 @@ import { CartComponent as CartComponent_1 } from '../../components/cart/cart.com
 import { ProductsCardsComponent } from '../../components/products-cards/products-cards.component';
 import { NgIf } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
     standalone: true,
-    imports: [LucideAngularModule, FormsModule, ReactiveFormsModule, NgIf, ProductsCardsComponent, CartComponent_1, MatBadge]
+    imports: [LucideAngularModule, FormsModule, ReactiveFormsModule, NgIf, ProductsCardsComponent, CartComponent_1, MatBadge, SharedModule]
 })
 export class HomeComponent implements OnInit, OnDestroy{
   subscription = new Subscription();
