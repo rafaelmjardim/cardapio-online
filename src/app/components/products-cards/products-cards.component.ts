@@ -32,11 +32,11 @@ export class ProductsCardsComponent implements OnInit, OnChanges{
   ){}
 
   ngOnInit(): void {
-    this.checkUrlApi();
+    // this.checkUrlApi();
   }
   
   ngOnChanges(changes: SimpleChanges): void {
-    this.onGetProducts(this.idCategory);    
+    // this.onGetProducts(this.idCategory);    
   }
 
   onGetProducts = (id_categoria?: number) => {

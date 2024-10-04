@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnDestroy, OnInit } from '@angular/core';
 import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Product } from 'src/app/components/products-cards/products-cards';
@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from 'src/app/components/cart/cart.component';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 import { Subscription } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { HomeService } from './home.service';
 import { MatBadge } from '@angular/material/badge';
 import { CartComponent as CartComponent_1 } from '../../components/cart/cart.component';
@@ -23,6 +24,7 @@ import { SharedModule } from '../shared/shared.module';
     imports: [LucideAngularModule, FormsModule, ReactiveFormsModule, NgIf, ProductsCardsComponent, CartComponent_1, MatBadge, SharedModule]
 })
 export class HomeComponent implements OnInit, OnDestroy{
+  destroyRef = inject(DestroyRef);
   subscription = new Subscription();
 
   cartItens: Product[] = this.cart_service.storedCartItens ? JSON.parse(this.cart_service.storedCartItens) : [];
@@ -37,12 +39,14 @@ export class HomeComponent implements OnInit, OnDestroy{
     public cart_service: CartService,
     private form_builder: FormBuilder,
     private dialog: MatDialog,
-    private home_service: HomeService
+    private home_service: HomeService,
+    private produtos_service: ProdutosService
   ){}
 
   ngOnInit(): void {
     this.initForm();
-    this.setCartItens();
+    // this.setCartItens();
+    this.onGetProdutos();
 
     this.mobile_utils.onInitMediaMedium()
     this.mobile_utils.onInitMediaMobile()
@@ -50,6 +54,14 @@ export class HomeComponent implements OnInit, OnDestroy{
   
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  onGetProdutos = () => {
+    this.produtos_service.getProdutos().pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(produtos => {
+      console.log('produtos', produtos);
+    })
   }
 
   initForm = () => {

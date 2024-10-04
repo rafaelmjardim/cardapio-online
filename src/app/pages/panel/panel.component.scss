@@ -1,0 +1,33 @@
+.panel {
+    padding: 1.2rem 2rem;
+
+    &__group {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__form {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        input, select, button {
+            border: .1rem solid #DDD;
+            padding: 0 1.2rem;
+            border-radius: 1rem;
+            height: 3.5rem;
+        }
+    }
+
+    &__btn {
+        border: .1rem solid #DDD;
+        padding: 0 1.2rem;
+        border-radius: 1rem;
+        height: 3.5rem;
+        cursor: pointer;
+        width: 100%;
+    }
+}

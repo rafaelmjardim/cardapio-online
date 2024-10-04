@@ -1,0 +1,20 @@
+<div class="panel">
+  <h2>Adicionar produto</h2>
+
+  <div class="panel__group">
+    <form class="panel__form" [formGroup]="productFormGroup">
+      <input type="text" placeholder="Nome do produto" formControlName="nome">
+      <input type="text" placeholder="Descrição do produto" formControlName="descricao">
+      <input type="text" placeholder="Valor do produto" formControlName="valor">
+      <select formControlName="categoria">
+        <option>Selecione uma categoria</option>
+        <option value="Lanche">Lanche</option>
+        <option value="Bebida">Bebida</option>
+        <option value="Porções">Porções</option>
+      </select>
+    </form>
+  
+    <button class="panel__btn" (click)="handleCreateProduto()">Salvar</button>
+  </div>
+
+</div>

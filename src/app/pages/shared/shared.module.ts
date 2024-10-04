@@ -7,12 +7,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 
 import {MatBadgeModule} from '@angular/material/badge';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
     imports: [
         CommonModule,
         MatFormFieldModule,
+        ReactiveFormsModule,
         MatInputModule,
         MatMenuModule,
         MatBadgeModule,
@@ -22,6 +24,7 @@ import {MatBadgeModule} from '@angular/material/badge';
         MatFormFieldModule,
         MatInputModule,
         MatMenuModule,
+        ReactiveFormsModule,
         MatBadgeModule,
         LucideAngularModule
     ]

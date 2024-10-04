@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
   
-    API_KEY: 'http://localhost:3001',
+    API_KEY: 'https://cardapio-online-7b6a9-default-rtdb.firebaseio.com',
     JSON_SERVER: 'http://localhost:3000'
 };
