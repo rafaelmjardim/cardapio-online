@@ -64,7 +64,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.produtos_service.getProdutos().pipe(
       takeUntilDestroyed(this.destroyRef)
     ).subscribe(produtos => {
-      this.produtosList = this.utils_service.convertGetFirebase(produtos);
+      this.products = this.utils_service.convertGetFirebase(produtos);
     })
   }
 

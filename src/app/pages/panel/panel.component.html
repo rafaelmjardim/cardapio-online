@@ -5,7 +5,8 @@
     <form class="panel__form" [formGroup]="productFormGroup">
       <input type="text" placeholder="Nome do produto" formControlName="nome">
       <input type="text" placeholder="Descrição do produto" formControlName="descricao">
-      <input type="text" placeholder="Valor do produto" formControlName="valor">
+      <input type="number" placeholder="Valor do produto" formControlName="valor_venda">
+      <input type="text" placeholder="URL da imagem" formControlName="imagem">
       <select formControlName="categoria">
         <option>Selecione uma categoria</option>
         <option value="Lanche">Lanche</option>

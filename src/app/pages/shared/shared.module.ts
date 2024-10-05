@@ -8,6 +8,8 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import {MatBadgeModule} from '@angular/material/badge';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatInputModule,
         MatMenuModule,
         MatBadgeModule,
+        MatSnackBarModule,
         LucideAngularModule.pick({ Menu, Home, BadgePercent, ShoppingBag, ShoppingCart, User, Search, XCircle, X, BaggageClaim, Minus, Plus, Info, LogOut, CheckCircle, CalendarClock }),
     ],
     exports: [
@@ -26,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         MatMenuModule,
         ReactiveFormsModule,
         MatBadgeModule,
+        MatSnackBarModule,
         LucideAngularModule
     ]
 })

@@ -1,7 +1,8 @@
 export type NewProduct = {
     nome: string
-    valor: number
+    valor_venda: number
     descricao: string
     categoria: number
+    imagem: string
     file: any
 }

@@ -30,7 +30,8 @@ export class ProdutosService {
     return this.http.post(`${API_KEY}/produtos.json`, {
       nome: newProduct.nome,
       descricao: newProduct.descricao,
-      valor: newProduct.valor,
+      valor_venda: newProduct.valor_venda,
+      imagem: newProduct.imagem,
       categoria: newProduct.categoria
     });
   }

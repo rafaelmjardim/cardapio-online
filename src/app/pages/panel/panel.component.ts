@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 import { NewProduct } from 'src/app/services/produtos/produtos';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-panel',
@@ -18,6 +19,7 @@ export class PanelComponent implements OnInit {
 
   constructor(
     private produtos_service: ProdutosService,
+    private snack_bar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -28,8 +30,9 @@ export class PanelComponent implements OnInit {
     this.productFormGroup = new FormGroup({
       nome: new FormControl(''),
       descricao: new FormControl(''),
-      valor: new FormControl(''),
+      valor_venda: new FormControl(''),
       categoria: new FormControl(''),
+      imagem: new FormControl(''),
     })
   }
 
@@ -37,11 +40,16 @@ export class PanelComponent implements OnInit {
     const newProduct: NewProduct = this.productFormGroup.value;    
     this.produtos_service.postProduct(newProduct).subscribe({
       next: (produtos_response) => {
-        console.log('Cadastrado com sucesso', produtos_response);
+        this.alertMessage('Cadastrado com sucesso!');
+        this.initFormGroup();
       },error: (produtos_error: HttpErrorResponse) => {
-        console.log('error', produtos_error);
+        this.alertMessage('Erro ao cadastrar!');
       }
     })
+  }
+  
+  alertMessage = (mensagem: string) => {
+    this.snack_bar.open(mensagem, 'ok', {duration: 1000});
   }
 
 }
