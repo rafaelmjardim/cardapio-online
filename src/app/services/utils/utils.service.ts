@@ -12,4 +12,14 @@ export class UtilsService {
   returnUrlServer = () => {
     return API_KEY + '/';
   }
+
+  //Função que convete objetos do get em array de objetos.
+  convertGetFirebase = (objects: any) => {
+    return Object.keys(objects).map(key => {
+      return {
+        ...objects[key],
+        id: key
+      }
+    })
+  }
 }

@@ -15,6 +15,7 @@ import { ProductsCardsComponent } from '../../components/products-cards/products
 import { NgIf } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { SharedModule } from '../shared/shared.module';
+import { UtilsService } from 'src/app/services/utils/utils.service';
 
 @Component({
     selector: 'app-home',
@@ -34,13 +35,16 @@ export class HomeComponent implements OnInit, OnDestroy{
   filterValue!: number;
   selectForm!: FormGroup;
 
+  produtosList!: any;
+
   constructor (
     public mobile_utils: MobileUtilsService, 
     public cart_service: CartService,
     private form_builder: FormBuilder,
     private dialog: MatDialog,
     private home_service: HomeService,
-    private produtos_service: ProdutosService
+    private produtos_service: ProdutosService,
+    private utils_service: UtilsService
   ){}
 
   ngOnInit(): void {
@@ -60,7 +64,7 @@ export class HomeComponent implements OnInit, OnDestroy{
     this.produtos_service.getProdutos().pipe(
       takeUntilDestroyed(this.destroyRef)
     ).subscribe(produtos => {
-      console.log('produtos', produtos);
+      this.produtosList = this.utils_service.convertGetFirebase(produtos);
     })
   }
 
