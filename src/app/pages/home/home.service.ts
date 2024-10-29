@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environments.prod';
 
 const API_KEY = environment.API_KEY;
@@ -9,6 +10,6 @@ const API_KEY = environment.API_KEY;
 })
 export class HomeService {
 
-  constructor() { }
+  currentCategoria = signal<number>(0);
   
 }

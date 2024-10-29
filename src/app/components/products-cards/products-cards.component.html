@@ -1,25 +1,34 @@
-<div class="products_cards">
-    <span class="products_cards_title">{{title}}</span>
-    
-    <ul class="products_cards_list">
-        <li class="products_cards_list_item" *ngFor="let product of productsData" (click)=" !admin ? handleOpenProductDialog(product) : null">
-            <div class="products_cards_list_item_card" [ngClass]="admin ? 'card-hover' : ''">
-                <div class="products_cards_list_item_card_actions" *ngIf="admin">
-                    <div class="products_cards_list_item_card_actions_delete" (click)="deleteProductFunction(product)">
-                        <lucide-icon name="x-circle"></lucide-icon>
-                    </div>
-                </div>
+<div class="products-cards">
+    @for (cardList of productsCards; track $index) {
+        <div class="products-cards__group">
+            <label class="products-cards__title">{{cardList.label}}</label>
+            
+            <ul class="products-cards__list">
 
-                <div class="products_cards_list_item_card_content">
-                    <span class="products_cards_list_item_card_content_name">{{ product.nome }}</span>
-                    <span class="products_cards_list_item_card_content_description line-clamp-2">{{ product.descricao }}</span>
-                    <span class="products_cards_list_item_card_content_value">{{ product.valor_venda | currency:'BRL'}}</span>
-                </div>
+                @for (product of cardList.products; track $index) {
 
-                <div class="products_cards_list_item_card_img">
-                    <img [src]="product.imagem" alt="Imagem do produto">
-                </div>
-            </div>
-        </li>
-    </ul>
+                    <li class="products-cards__item" (click)="handleOpenProductDialog(product)">
+                        <div class="products-cards__card">
+                            <div class="products-cards__actions">
+                                <div class="products-cards__delete">
+                                    <lucide-icon name="x-circle"></lucide-icon>
+                                </div>
+                            </div>
+            
+                            <div class="products-cards__content">
+                                <span class="products-cards__name">{{ product.nome }}</span>
+                                <span class="products-cards__description line-clamp-2">{{ product.descricao }}</span>
+                                <span class="products-cards__value">{{ product.valor_venda | currency:'BRL'}}</span>
+                            </div>
+            
+                            <div class="products-cards__card-img">
+                                <img [src]="product.imagem" alt="Imagem do produto">
+                            </div>
+                        </div>
+                    </li>
+                }
+
+            </ul>
+        </div>    
+    }
 </div>

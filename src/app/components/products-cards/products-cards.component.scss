@@ -1,13 +1,16 @@
 @import '/src/styles/config';
 
-.products_cards {
+.products-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 
-    &_title {
+    &__title {
         font-weight: 600;
         font-size: 2rem;      
     }
     
-    &_list {
+    &__list {
         margin-top: 2rem;
         display: grid;
         gap: 1rem;
@@ -20,91 +23,79 @@
         @media screen and (min-width: 1570px) {
             grid-template-columns: repeat(3, minmax(0,1fr));
         }
-       
-        // @media screen and (min-width: 1600px) {
-        //     grid-template-columns: repeat(4, minmax(0,1fr));
-        // }
-
-        &_item {
-
-            &_card {
-                display: flex;
-                justify-content: space-between;
-                gap: 1rem;
-                padding: .5rem;
-                background-color: #fff;
-                border-radius: 1rem;
-                border: .1rem solid #ddd;
-                position: relative;
-                cursor: pointer;
-                transition: .3s;
-
-                &:hover {
-                    box-shadow: rgba(74, 74, 74, 0.24) 0px 3px 8px;
-            
-                }
-
-                .card-hover:hover &_content {
-                    opacity: .2;
-                }
-
-                .card-hover:hover &_img {
-                    opacity: .2;
-                    margin-right: 3.2rem;
-                }
-
-                .card-hover:hover &_actions {
-                    display: block;
-                }
-
-                &_content {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    padding: .8rem;
-                    transition: .3s;
-
+    }
     
-                    &_name {
-                        font-weight: 500;
-                    }
+    &__card {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: .5rem;
+        background-color: #fff;
+        border-radius: 1rem;
+        border: .1rem solid #ddd;
+        position: relative;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover {
+            box-shadow: rgba(74, 74, 74, 0.24) 0px 3px 8px;
     
-                    &_description {
-                        font-size: 1.4rem;
-                        color: $txt-color-label;
-                        overflow: hidden;
-                        
-                    }
-    
-                    &_value {
-                        color: $txt-color-green;
-                    }
-                }
-    
-                &_img, img {
-                    width: 11rem;
-                    height: 10rem;
-                    border-radius: 1rem;
-                    transition: .3s ease-in-out;
-
-                    object-fit: cover;
-
-                }
-
-
-                &_actions {
-                    display: none;
-                    position: absolute;
-                    right: .8rem;
-                    z-index: 999;
-                    transition: .3s ease-in-out;
-
-
-                    &_delete {
-                        cursor: pointer;
-                    }
-                }
-            }
         }
+
+        .card-hover:hover &__content {
+            opacity: .2;
+        }
+
+        .card-hover:hover &__img {
+            opacity: .2;
+            margin-right: 3.2rem;
+        }
+
+        .card-hover:hover &__actions {
+            display: block;
+        }
+    }
+    
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: .8rem;
+        transition: .3s;
+
+    }
+
+    &__name {
+        font-weight: 500;
+    }
+
+    &__description {
+        font-size: 1.4rem;
+        color: $txt-color-label;
+        overflow: hidden;
+    }
+
+    &__value {
+        color: $txt-color-green;
+    }
+
+    &__card-img, img {
+        width: 11rem;
+        height: 10rem;
+        border-radius: 1rem;
+        transition: .3s ease-in-out;
+        object-fit: cover;
+    }
+
+    &__actions {
+        display: none;
+        position: absolute;
+        right: .8rem;
+        z-index: 999;
+        transition: .3s ease-in-out;
+    }
+    
+    &__delete {
+        cursor: pointer;
     }
 }

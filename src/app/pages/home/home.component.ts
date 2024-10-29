@@ -5,17 +5,14 @@ import { Product } from 'src/app/components/products-cards/products-cards';
 import { CartService } from 'src/app/components/cart/cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from 'src/app/components/cart/cart.component';
-import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 import { Subscription } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { HomeService } from './home.service';
 import { MatBadge } from '@angular/material/badge';
 import { CartComponent as CartComponent_1 } from '../../components/cart/cart.component';
 import { ProductsCardsComponent } from '../../components/products-cards/products-cards.component';
 import { NgIf } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { SharedModule } from '../shared/shared.module';
-import { UtilsService } from 'src/app/services/utils/utils.service';
+import { HomeService } from './home.service';
 
 @Component({
     selector: 'app-home',
@@ -32,7 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   countCart: number = 1;
 
   products!: Product[];
-  filterValue!: number;
+  selectCetegoria: number = 0;
   selectForm!: FormGroup;
 
   produtosList!: any;
@@ -42,30 +39,17 @@ export class HomeComponent implements OnInit, OnDestroy{
     public cart_service: CartService,
     private form_builder: FormBuilder,
     private dialog: MatDialog,
-    private home_service: HomeService,
-    private produtos_service: ProdutosService,
-    private utils_service: UtilsService
+    private home_service: HomeService
   ){}
 
   ngOnInit(): void {
     this.initForm();
-    // this.setCartItens();
-    this.onGetProdutos();
-
     this.mobile_utils.onInitMediaMedium()
     this.mobile_utils.onInitMediaMobile()
   }
   
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  onGetProdutos = () => {
-    this.produtos_service.getProdutos().pipe(
-      takeUntilDestroyed(this.destroyRef)
-    ).subscribe(produtos => {
-      this.products = this.utils_service.convertGetFirebase(produtos);
-    })
   }
 
   initForm = () => {
@@ -94,11 +78,13 @@ export class HomeComponent implements OnInit, OnDestroy{
   }
 
   onChangeCategoryValue = () => {
-    this.filterValue = this.selectForm.controls['selectInput'].value;
+    this.selectCetegoria = this.selectForm.controls['selectInput'].value;
     
-    if (this.selectForm.controls['selectInput'].value === '0'){
-      this.filterValue = 0;
-    }    
+    if (this.selectForm.controls['selectInput'].value === 0){
+      this.selectCetegoria = 0;
+    }
+    
+    this.home_service.currentCategoria.set(this.selectCetegoria);
   }
 
   handleOpenDialogCart = () => {
