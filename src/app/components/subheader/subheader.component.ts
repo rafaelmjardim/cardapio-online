@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user/user.service';
 import { Subscription } from 'rxjs';
 import { NgIf, NgClass } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { SharedModule } from 'src/app/pages/shared/shared.module';
 
 
 @Component({
@@ -16,9 +17,9 @@ import { LucideAngularModule } from 'lucide-angular';
     templateUrl: './subheader.component.html',
     styleUrls: ['./subheader.component.scss'],
     standalone: true,
-    imports: [LucideAngularModule, NgIf, RouterLink, NgClass]
+    imports: [LucideAngularModule, NgIf, RouterLink, NgClass, SharedModule]
 })
-export class SubheaderComponent implements AfterViewInit, OnDestroy {
+export class SubheaderComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   isLogged!: boolean;
 
@@ -29,7 +30,7 @@ export class SubheaderComponent implements AfterViewInit, OnDestroy {
     public user: UserService,
   ){}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.mobile_utils.onInitMediaMobile();
     this.checkUserLogged();
   }

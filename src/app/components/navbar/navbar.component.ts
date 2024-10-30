@@ -8,13 +8,14 @@ import { Subscription } from 'rxjs';
 import { MatMenu, MatMenuItem } from '@angular/material/menu';
 import { LucideAngularModule } from 'lucide-angular';
 import { NgIf, NgClass } from '@angular/common';
+import { SharedModule } from 'src/app/pages/shared/shared.module';
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss'],
     standalone: true,
-    imports: [NgIf, RouterLink, NgClass, LucideAngularModule, MatMenu, MatMenuItem]
+    imports: [NgIf, RouterLink, NgClass, LucideAngularModule, MatMenu, MatMenuItem, SharedModule]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
