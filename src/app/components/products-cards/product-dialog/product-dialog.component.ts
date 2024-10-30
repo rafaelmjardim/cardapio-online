@@ -27,22 +27,17 @@ export class ProductDialogComponent implements OnInit{
   updateCurrentProduct: Product[] = [];
   adicionaisList: Adicional[] = [];
 
-  API_URL!: string;
   isEdit = this.dialog_data.isEdit;
   
   constructor (
     public dialog: MatDialog,
-    private produtos_service: ProdutosService, 
     private cart_service: CartService,
-    private product_dialog_service: ProductDialogService,
-    private utils_service: UtilsService,
     @Inject(MAT_DIALOG_DATA) private dialog_data: CurrentProductData,
   ){}
 
   ngOnInit(): void {
     this.setCurrentProduct();
     this.onGetAdicionais();
-    this.checkUrlApi(); 
   }
 
   setCurrentProduct = () => {
@@ -51,20 +46,7 @@ export class ProductDialogComponent implements OnInit{
   }
   
   onGetAdicionais = () => {
-    //checa se está editando pra setar adicinais do produto atual
-    // if (this.dialog_data.isEdit) {
-    //   this.adicionaisList = this.currentProduct.adicionais;
-    //   return
-    // }
-
-    // this.product_dialog_service.getAdicionais().subscribe(adicionais => {
-    //   this.adicionaisList = adicionais;   
-
-    //   this.adicionaisList.map(adicional => {
-    //     adicional.quantidade = 0; //Inicializa zerado
-    //   })              
-    // })
-
+    // Adicionais fixos (temporario)
     this.adicionaisList = [
       {
         codigo: 1,
@@ -152,9 +134,5 @@ export class ProductDialogComponent implements OnInit{
 
     this.cart_service.updateCartItensSubject(currentEditProduct, updateCartItens);
     this.dialog.closeAll();
-  }
-
-  checkUrlApi = () => {
-    this.API_URL = this.utils_service.returnUrlServer();
   }
 }
