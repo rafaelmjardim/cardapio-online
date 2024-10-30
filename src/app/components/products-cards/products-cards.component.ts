@@ -39,23 +39,23 @@ export class ProductsCardsComponent implements OnInit {
         {
           label: 'Lanches',
           id_categoria: 1,
-          products: this.filterProductCategory(this.products, 'Lanche')
+          products: this.setProductsByCategory(this.products, 'Lanche')
         },
         {
           label: 'Porções',
           id_categoria: 2,
-          products: this.filterProductCategory(this.products, 'Porções')
+          products: this.setProductsByCategory(this.products, 'Porções')
         },
         {
           label: 'Bebidas',
           id_categoria: 3,
-          products: this.filterProductCategory(this.products, 'Bebida')
+          products: this.setProductsByCategory(this.products, 'Bebida')
         },
       ];      
     });
   }
 
-  filterProductCategory = (products: NewProduct[], categoria: string) => {
+  setProductsByCategory = (products: NewProduct[], categoria: string) => {
     return products.filter(product => product.categoria == categoria);
   }
 
