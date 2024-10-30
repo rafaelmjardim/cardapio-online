@@ -7,14 +7,14 @@ import { ProductDialogService } from './product-dialog.service';
 import { Adicional, CurrentProductData } from './product-dialog';
 import { UtilsService } from 'src/app/services/utils/utils.service';
 import { LucideAngularModule } from 'lucide-angular';
-import { NgIf, NgFor, NgClass, CurrencyPipe } from '@angular/common';
+import { NgIf, NgFor, NgClass, CurrencyPipe, NgStyle } from '@angular/common';
 
 @Component({
     selector: 'app-product-dialog',
     templateUrl: './product-dialog.component.html',
     styleUrls: ['./product-dialog.component.scss'],
     standalone: true,
-    imports: [NgIf, LucideAngularModule, NgFor, NgClass, CurrencyPipe]
+    imports: [NgIf, LucideAngularModule, NgFor, NgClass, NgStyle, CurrencyPipe]
 })
 export class ProductDialogComponent implements OnInit{
   currentProduct!: Product;
@@ -52,18 +52,45 @@ export class ProductDialogComponent implements OnInit{
   
   onGetAdicionais = () => {
     //checa se está editando pra setar adicinais do produto atual
-    if (this.dialog_data.isEdit) {
-      this.adicionaisList = this.currentProduct.adicionais;
-      return
-    }
+    // if (this.dialog_data.isEdit) {
+    //   this.adicionaisList = this.currentProduct.adicionais;
+    //   return
+    // }
 
-    this.product_dialog_service.getAdicionais().subscribe(adicionais => {
-      this.adicionaisList = adicionais;   
+    // this.product_dialog_service.getAdicionais().subscribe(adicionais => {
+    //   this.adicionaisList = adicionais;   
 
-      this.adicionaisList.map(adicional => {
-        adicional.quantidade = 0; //Inicializa zerado
-      })              
-    })
+    //   this.adicionaisList.map(adicional => {
+    //     adicional.quantidade = 0; //Inicializa zerado
+    //   })              
+    // })
+
+    this.adicionaisList = [
+      {
+        codigo: 1,
+        nome: 'Bacon',
+        quantidade: 0,
+        valor_venda: 2.00
+      },
+      {
+        codigo: 2,
+        nome: 'Queijo',
+        quantidade: 0,
+        valor_venda: 2.00
+      },
+      {
+        codigo: 3,
+        nome: 'Mostarda',
+        quantidade: 0,
+        valor_venda: 2.00
+      },
+      {
+        codigo: 4,
+        nome: 'Carne',
+        quantidade: 0,
+        valor_venda: 2.00
+      },
+    ]
   }
 
   //Função que realiza a contagem de produtos

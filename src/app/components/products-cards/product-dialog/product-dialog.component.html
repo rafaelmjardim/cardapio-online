@@ -1,44 +1,43 @@
-<div class="product_dialog" *ngIf="currentProduct">
-    <div class="product_dialog_header">
-        <div class="product_dialog_header_actions">
-            <div class="product_dialog_header_actions_bag">
-                <lucide-icon name="shopping-bag" [size]="20"></lucide-icon>
-            </div>
-
-            <div class="product_dialog_header_actions_close" (click)="dialog.closeAll()">
-                <lucide-icon name="x" [size]="20"></lucide-icon>
-            </div>
+<div class="product-dialog" *ngIf="currentProduct">
+    <div class="product-dialog__header">
+        <div class="product-dialog__bag">
+            <lucide-icon name="shopping-bag" [size]="20"></lucide-icon>
         </div>
-        <img [src]="currentProduct.imagem" alt="Imagem ilustrativa">
+
+        <div class="product-dialog__close" (click)="dialog.closeAll()">
+            <lucide-icon name="x" [size]="20"></lucide-icon>
+        </div>
     </div>
+    
+    <!-- Imagem do produto -->
+    <div class="product-dialog__ilustration" [ngStyle]="{'background-image': 'url(' + currentProduct.imagem +')'}"></div>
 
-    <div class="product_dialog_main">
-        <div class="product_dialog_main_content">
-            <span class="product_dialog_main_content_title">{{ currentProduct.nome }}</span>
-            <p class="product_dialog_main_content_description">{{ currentProduct.descricao}}</p>
+    <div class="product-dialog__main">
+        <div class="product-dialog__content">
+            <span class="product-dialog__title">{{ currentProduct.nome }}</span>
+            <p class="product-dialog__description">{{ currentProduct.descricao}}</p>
         </div>
 
-        <ul class="product_dialog_main_add scroll" *ngIf="currentProduct.id_categoria !== 3">
+        <ul class="product-dialog__add scroll" *ngIf="currentProduct.id_categoria !== 3">
 
             <!-- ADICIONAIS -->
-            <li class="product_dialog_main_add_item" *ngFor="let adicional of adicionaisList">
-                <div class="product_dialog_main_add_item_content">
-                    <span class="product_dialog_main_add_item_content_title">
+            <li class="product-dialog__item" *ngFor="let adicional of adicionaisList">
+                <div class="product-dialog__group">
+                    <span class="product-dialog_main___group-title">
                         {{adicional.nome}}
                     </span>
-                    <span class="product_dialog_main_add_item_content_value">
+                    <span class="product-dialog__group-value">
                         + {{adicional.valor_venda | currency:"BRL"}}
                     </span>
                 </div>
 
-                <div class="product_dialog_main_add_item_action">
-                    <button (click)="handleCountAdicional('minus', adicional)" [ngClass]="{'disabled': adicional.quantidade <= 0}">
+                <div class="product-dialog__action">
+                    <button (click)="handleCountAdicional('minus', adicional)" [ngClass]="{'product-dialog__actions--disable': adicional.quantidade <= 0}">
                         <lucide-icon name="minus" [size]="16"></lucide-icon>
                     </button>
 
-                    <span class="product_dialog_main_add_item_action_value">
+                    <span class="product-dialog__action-value">
                         <span> {{ adicional.quantidade }}</span>
-                        <!-- <span>{{ countAdicionalList[adicional.codigo] || 0}}</span> -->
                     </span>
                     
                     <button (click)="handleCountAdicional('plus', adicional)">
@@ -49,28 +48,28 @@
             <!-- FIM ADICIONAIS -->
         </ul>
 
-        <div class="product_dialog_main_content_actions">
-            <div class="product_dialog_main_content_actions_quantity_selector">
-                <button class="product_dialog_main_content_actions_quantity_selector_less" [ngClass]="countProduct < 1 ? 'disabled' : '' " (click)="handleCountProducts('less')">
+        <div class="product-dialog__actions">
+            <div class="product-dialog__selector">
+                <button class="product-dialog__less" [ngClass]="countProduct < 1 ? 'product-dialog__selector--disable' : '' " (click)="handleCountProducts('less')">
                     <lucide-icon name="minus" [size]="20"></lucide-icon>
                 </button>
 
-                <div class="product_dialog_main_content_actions_quantity_selector_value">
+                <div class="product-dialog__selector-value">
                     {{countProduct}}
                 </div>
                 
-                <button class="product_dialog_main_content_actions_quantity_selector_more" (click)="handleCountProducts('plus')">
+                <button class="product-dialog__more" (click)="handleCountProducts('plus')">
                     <lucide-icon name="plus"  [size]="20"></lucide-icon>
                 </button>
                 
-                <div class="product_dialog_main_content_actions_quantity">    
-                    <span class="product_dialog_main_content_actions_quantity_value"> 
+                <div class="product-dialog__quantity">    
+                    <span class="product-dialog__quantity-value"> 
                        {{countProduct * currentProduct.valor_venda | currency:'BRL' }}
                     </span>
                 </div>
             </div>
 
-            <button class="product_dialog_content_button button-primary" (click)="!isEdit ? handleAddCart(currentProduct) : handleEditCart()">{{!isEdit ? 'Adicionar' : 'Editar'}}</button>
+            <button class="product-dialog__button button-primary" (click)="!isEdit ? handleAddCart(currentProduct) : handleEditCart()">{{!isEdit ? 'Adicionar' : 'Editar'}}</button>
         </div>
     </div>
 </div>
