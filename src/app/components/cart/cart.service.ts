@@ -37,7 +37,7 @@ export class CartService {
 
   postPedido = (pedido: Order) => {
     const user = localStorage.getItem('user');    
-    return this.http.post(`${JSON_SERVER}/pedidos`, {
+    return this.http.post(`${API_KEY}/usuarios/user123/pedidos.json`, {
       id_cliente: pedido.id_cliente,
       mesa: pedido.mesa,
       nome_cliente: pedido.nome_cliente,

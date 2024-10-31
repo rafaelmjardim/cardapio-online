@@ -18,7 +18,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     templateUrl: './subheader.component.html',
     styleUrls: ['./subheader.component.scss'],
     standalone: true,
-    imports: [LucideAngularModule, NgIf, RouterLink, NgClass, SharedModule]
+    imports: [NgIf, RouterLink, NgClass, SharedModule]
 })
 export class SubheaderComponent implements OnInit {
   destroyRef = inject(DestroyRef);

@@ -10,15 +10,15 @@ import { LoginComponent } from '../login/login.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { User } from 'src/app/services/user/user';
 import { NgIf, NgFor, NgClass, CurrencyPipe } from '@angular/common';
-import { LucideAngularModule } from 'lucide-angular';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { SharedModule } from 'src/app/pages/shared/shared.module';
 
 @Component({
     selector: 'app-cart',
     templateUrl: './cart.component.html',
     styleUrls: ['./cart.component.scss'],
     standalone: true,
-    imports: [LucideAngularModule, NgIf, NgFor, NgClass, CurrencyPipe]
+    imports: [SharedModule, NgIf, NgFor, NgClass, CurrencyPipe]
 })
 export class CartComponent implements OnInit {  
   destroyRef = inject(DestroyRef);
@@ -131,38 +131,40 @@ export class CartComponent implements OnInit {
   }
 
   handleSubmitOrder = () => {
-    const date = new Date();
+    this.dialog.open(ConfirmationDialogComponent);
 
-    const amountAll = Number(this.amountAll.toFixed(2));   
+    // const date = new Date();
 
-    const userString =  localStorage.getItem('user');
+    // const amountAll = Number(this.amountAll.toFixed(2));   
+
+    // const userString =  localStorage.getItem('user');
     
-    const user: User = userString ? JSON.parse(userString) : '';
+    // const user: User = userString ? JSON.parse(userString) : '';
 
 
-    this.newOrder = {
-      id_cliente: 1,
-      lista_carrinho: this.cartItens,
-      mesa: 2,
-      nome_cliente: user.name,
-      form_pag: 1,
-      data_venda: date,
-      entrega: false,
-      finalizado: false,
-      valor_total: amountAll
-    }
+    // this.newOrder = {
+    //   id_cliente: 1,
+    //   lista_carrinho: this.cartItens,
+    //   mesa: 2,
+    //   nome_cliente: user.name,
+    //   form_pag: 1,
+    //   data_venda: date,
+    //   entrega: false,
+    //   finalizado: false,
+    //   valor_total: amountAll
+    // }
    
-    if (!this.isLogged) {
-      this.dialog.open(LoginComponent);
-      return
-    } 
+    // if (!this.isLogged) {
+    //   this.dialog.open(LoginComponent);
+    //   return
+    // } 
     
-    this.cart_service.postPedido(this.newOrder).subscribe({
-      next: (pedido_response) => {
-        console.log('post realizado com sucesso');
-        this.dialog.open(ConfirmationDialogComponent);
-        this.handleClearAllBag();
-      }
-    })
+    // this.cart_service.postPedido(this.newOrder).subscribe({
+    //   next: (pedido_response) => {
+    //     console.log('post realizado com sucesso');
+    //     this.dialog.open(ConfirmationDialogComponent);
+    //     this.handleClearAllBag();
+    //   }
+    // })
   }
 }

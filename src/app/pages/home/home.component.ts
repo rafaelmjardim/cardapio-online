@@ -9,7 +9,6 @@ import { MatBadge } from '@angular/material/badge';
 import { CartComponent as CartComponent_1 } from '../../components/cart/cart.component';
 import { ProductsCardsComponent } from '../../components/products-cards/products-cards.component';
 import { NgIf } from '@angular/common';
-import { LucideAngularModule } from 'lucide-angular';
 import { SharedModule } from '../shared/shared.module';
 import { HomeService } from './home.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -19,7 +18,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
     standalone: true,
-    imports: [LucideAngularModule, FormsModule, ReactiveFormsModule, NgIf, ProductsCardsComponent, CartComponent_1, MatBadge, SharedModule]
+    imports: [FormsModule, ReactiveFormsModule, NgIf, ProductsCardsComponent, CartComponent_1, MatBadge, SharedModule]
 })
 export class HomeComponent implements OnInit{
   destroyRef = inject(DestroyRef);

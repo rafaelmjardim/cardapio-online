@@ -13,11 +13,12 @@ import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideNgxMask, NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { APP_ROUTES } from './app/app.routes';
+import { SharedModule } from './app/pages/shared/shared.module';
 
 
 bootstrapApplication(AppComponent, {
     providers: [
-        importProvidersFrom(BrowserModule, ReactiveFormsModule, FormsModule, LayoutModule, MatTabsModule, LucideAngularModule.pick({ Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle, BaggageClaim, X, Minus, Plus, Info }), NgxMaskDirective, NgxMaskPipe),
+        importProvidersFrom(BrowserModule, ReactiveFormsModule, FormsModule, LayoutModule, MatTabsModule, SharedModule, NgxMaskDirective, NgxMaskPipe),
         provideNgxMask(),
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations(),

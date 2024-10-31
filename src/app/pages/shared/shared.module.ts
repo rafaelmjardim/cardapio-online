@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, ShoppingCart, User, Search, XCircle, X, BaggageClaim, Minus, Plus, Info, LogOut, CheckCircle, CalendarClock } from "lucide-angular";
+import { LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, ShoppingCart, User, Search, XCircle, X, BaggageClaim, Minus, Plus, Info, LogOut, CircleCheckBig, CalendarClock, CircleCheck } from "lucide-angular";
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -21,7 +21,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatMenuModule,
         MatBadgeModule,
         MatSnackBarModule,
-        LucideAngularModule.pick({ Menu, Home, BadgePercent, ShoppingBag, ShoppingCart, User, Search, XCircle, X, BaggageClaim, Minus, Plus, Info, LogOut, CheckCircle, CalendarClock }),
+        LucideAngularModule.pick({ Menu, Home, BadgePercent, ShoppingBag, ShoppingCart, User, Search, XCircle, X, BaggageClaim, Minus, Plus, Info, LogOut, CircleCheckBig, CalendarClock, CircleCheck }),
     ],
     exports: [
         MatFormFieldModule,
