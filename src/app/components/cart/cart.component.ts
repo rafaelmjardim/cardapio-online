@@ -131,40 +131,38 @@ export class CartComponent implements OnInit {
   }
 
   handleSubmitOrder = () => {
-    this.dialog.open(ConfirmationDialogComponent);
+    const date = new Date();
 
-    // const date = new Date();
+    const amountAll = Number(this.amountAll.toFixed(2));   
 
-    // const amountAll = Number(this.amountAll.toFixed(2));   
-
-    // const userString =  localStorage.getItem('user');
+    const userString =  localStorage.getItem('user');
     
-    // const user: User = userString ? JSON.parse(userString) : '';
+    const user: User = userString ? JSON.parse(userString) : '';
 
 
-    // this.newOrder = {
-    //   id_cliente: 1,
-    //   lista_carrinho: this.cartItens,
-    //   mesa: 2,
-    //   nome_cliente: user.name,
-    //   form_pag: 1,
-    //   data_venda: date,
-    //   entrega: false,
-    //   finalizado: false,
-    //   valor_total: amountAll
-    // }
+    this.newOrder = {
+      id_cliente: 1,
+      lista_carrinho: this.cartItens,
+      mesa: 2,
+      nome_cliente: user.name,
+      form_pag: 1,
+      data_venda: date,
+      entrega: false,
+      finalizado: false,
+      valor_total: amountAll
+    }
    
-    // if (!this.isLogged) {
-    //   this.dialog.open(LoginComponent);
-    //   return
-    // } 
+    if (!this.isLogged) {
+      this.dialog.open(LoginComponent);
+      return
+    } 
     
-    // this.cart_service.postPedido(this.newOrder).subscribe({
-    //   next: (pedido_response) => {
-    //     console.log('post realizado com sucesso');
-    //     this.dialog.open(ConfirmationDialogComponent);
-    //     this.handleClearAllBag();
-    //   }
-    // })
+    this.cart_service.postPedido(this.newOrder).subscribe({
+      next: (pedido_response) => {
+        console.log('post realizado com sucesso');
+        this.dialog.open(ConfirmationDialogComponent);
+        this.handleClearAllBag();
+      }
+    })
   }
 }
