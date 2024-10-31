@@ -1,9 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../products-cards/products-cards';
 import { CartService } from './cart.service';
 import { Order } from './cart';
 import { MatDialog } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
 import { UtilsService } from 'src/app/services/utils/utils.service';
 import { ProductDialogComponent } from '../products-cards/product-dialog/product-dialog.component';
 import { UserService } from 'src/app/services/user/user.service';
@@ -12,6 +11,7 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { User } from 'src/app/services/user/user';
 import { NgIf, NgFor, NgClass, CurrencyPipe } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-cart',
@@ -20,9 +20,9 @@ import { LucideAngularModule } from 'lucide-angular';
     standalone: true,
     imports: [LucideAngularModule, NgIf, NgFor, NgClass, CurrencyPipe]
 })
-export class CartComponent implements OnInit, OnDestroy {
-  subscription = new Subscription();
-  
+export class CartComponent implements OnInit {  
+  destroyRef = inject(DestroyRef);
+
   @Input() amountValues: any = []; //Rever tipagem para essa variavel
 
   cartItens: Product[] = [];
@@ -46,18 +46,18 @@ export class CartComponent implements OnInit, OnDestroy {
     this.checkUserLogged();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-  
   checkUserLogged = () => {
-    this.subscription = this.user.isLeggedSubjectStream$.subscribe(res => {
+    this.user.isLeggedSubjectStream$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(res => {
       this.isLogged = res;
     })
   }
   
   onCartItensList = () => {
-    this.subscription = this.cart_service.cartItensStram$.subscribe(cartItens => {
+    this.cart_service.cartItensStram$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(cartItens => {
       this.cartItens = cartItens; 
       this.setAmountAll();
       
@@ -68,7 +68,6 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   setAmountAll = () => {
-
     //Pega os valores de todos os produtos do carrinho e retorna num array (já verificando a quantidade)
     const productsCartValuesArray = this.cartItens.map(productCart => {
       return productCart.quantidade ? productCart.valor_venda * productCart.quantidade : productCart.valor_venda;
