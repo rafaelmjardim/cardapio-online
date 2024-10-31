@@ -1,14 +1,14 @@
-import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
+import { Component, OnInit, inject, DestroyRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, RouterLink } from '@angular/router';
 import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.service';
 import { LoginComponent } from '../login/login.component';
 import { UserService } from 'src/app/services/user/user.service';
-import { Subscription } from 'rxjs';
 import { MatMenu, MatMenuItem } from '@angular/material/menu';
 import { LucideAngularModule } from 'lucide-angular';
 import { NgIf, NgClass } from '@angular/common';
 import { SharedModule } from 'src/app/pages/shared/shared.module';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-navbar',
@@ -17,9 +17,8 @@ import { SharedModule } from 'src/app/pages/shared/shared.module';
     standalone: true,
     imports: [NgIf, RouterLink, NgClass, LucideAngularModule, MatMenu, MatMenuItem, SharedModule]
 })
-export class NavbarComponent implements OnInit, OnDestroy {
-  subscription = new Subscription();
-
+export class NavbarComponent implements OnInit {
+  destroyRef = inject(DestroyRef);
   logout: boolean = false;
 
   isLogged!: boolean;
@@ -33,15 +32,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.mobile_utils.onInitMediaMobile();
     this.checkUserLogged();
-    // this.user.userGetItem();
-
-  }
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
   checkUserLogged = () => {
-    this.subscription = this.user.isLeggedSubjectStream$.subscribe(res => {
+    this.user.isLeggedSubjectStream$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(res => {
       this.isLogged = res;
     })
   }

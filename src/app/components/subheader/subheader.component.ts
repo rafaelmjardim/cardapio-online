@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, DestroyRef, inject, OnDestroy, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { MobileUtilsService } from 'src/app/services/mobile_utils/mobile-utils.service';
 
@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 import { NgIf, NgClass } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { SharedModule } from 'src/app/pages/shared/shared.module';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 
 @Component({
@@ -19,8 +20,8 @@ import { SharedModule } from 'src/app/pages/shared/shared.module';
     standalone: true,
     imports: [LucideAngularModule, NgIf, RouterLink, NgClass, SharedModule]
 })
-export class SubheaderComponent implements OnInit, OnDestroy {
-  subscription = new Subscription();
+export class SubheaderComponent implements OnInit {
+  destroyRef = inject(DestroyRef);
   isLogged!: boolean;
 
   constructor (
@@ -35,12 +36,10 @@ export class SubheaderComponent implements OnInit, OnDestroy {
     this.checkUserLogged();
   }
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();    
-  }
-
   checkUserLogged = () => {
-    this.subscription = this.user.isLeggedSubjectStream$.subscribe(res => {
+    this.user.isLeggedSubjectStream$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(res => {
       this.isLogged = res;
     })
   }

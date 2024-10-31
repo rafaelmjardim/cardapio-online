@@ -1,12 +1,11 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges, Inject, effect, inject, DestroyRef } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ProdutosService } from 'src/app/services/produtos/produtos.service';
 import { cardList, Categoria } from './products-cards';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ProductDialogComponent } from './product-dialog/product-dialog.component';
 import { UtilsService } from 'src/app/services/utils/utils.service';
 import { LucideAngularModule } from 'lucide-angular';
 import { NgFor, NgClass, NgIf, CurrencyPipe } from '@angular/common';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NewProduct } from 'src/app/services/produtos/produtos';
 import { HomeService } from 'src/app/pages/home/home.service';
 
@@ -20,8 +19,6 @@ import { HomeService } from 'src/app/pages/home/home.service';
 export class ProductsCardsComponent implements OnInit {
   private products!: NewProduct[];
   protected productsCards!: cardList[];
-  private destroyRef = inject(DestroyRef);
-
   private produtos_service = inject(ProdutosService);
   private dialog = inject(MatDialog);
   private utils_service = inject(UtilsService);

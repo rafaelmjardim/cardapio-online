@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { PedidosService } from './pedidos.service';
 import { Pedido } from './pedidos';
-import { Subscription } from 'rxjs';
 import { UserService } from 'src/app/services/user/user.service';
 import { LucideAngularModule } from 'lucide-angular';
 import { NgIf, NgFor, NgClass, NgStyle, CurrencyPipe, DatePipe } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-pedidos',
@@ -14,7 +14,7 @@ import { NgIf, NgFor, NgClass, NgStyle, CurrencyPipe, DatePipe } from '@angular/
     imports: [NgIf, NgFor, NgClass, LucideAngularModule, NgStyle, CurrencyPipe, DatePipe]
 })
 export class PedidosComponent implements OnInit {
-  subscription = new Subscription();
+  destroyRef = inject(DestroyRef);
 
   ordersList: Pedido[] = [];
 
@@ -31,7 +31,9 @@ export class PedidosComponent implements OnInit {
   }
 
   checkUserLogged = () => {
-    this.subscription = this.user_service.isLeggedSubjectStream$.subscribe(res => {
+    this.user_service.isLeggedSubjectStream$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(res => {
       this.isLogged = res;
     })
   }
