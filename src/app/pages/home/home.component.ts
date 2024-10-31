@@ -58,8 +58,10 @@ export class HomeComponent implements OnInit{
     this.cart_service.cartItensStram$.pipe(
       takeUntilDestroyed(this.destroyRef)
     ).subscribe(cartItens => {
-      this.cartItens = cartItens;
-      this.quantityCalc();
+      this.cartItens = cartItens;      
+      if (cartItens?.length) {
+        this.quantityCalc();
+      }
     })
   }
 
