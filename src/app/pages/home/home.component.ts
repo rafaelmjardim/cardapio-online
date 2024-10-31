@@ -5,7 +5,6 @@ import { Product } from 'src/app/components/products-cards/products-cards';
 import { CartService } from 'src/app/components/cart/cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CartComponent } from 'src/app/components/cart/cart.component';
-import { Subscription } from 'rxjs';
 import { MatBadge } from '@angular/material/badge';
 import { CartComponent as CartComponent_1 } from '../../components/cart/cart.component';
 import { ProductsCardsComponent } from '../../components/products-cards/products-cards.component';
@@ -13,6 +12,7 @@ import { NgIf } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { SharedModule } from '../shared/shared.module';
 import { HomeService } from './home.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-home',
@@ -21,9 +21,8 @@ import { HomeService } from './home.service';
     standalone: true,
     imports: [LucideAngularModule, FormsModule, ReactiveFormsModule, NgIf, ProductsCardsComponent, CartComponent_1, MatBadge, SharedModule]
 })
-export class HomeComponent implements OnInit, OnDestroy{
+export class HomeComponent implements OnInit{
   destroyRef = inject(DestroyRef);
-  subscription = new Subscription();
 
   cartItens: Product[] = this.cart_service.storedCartItens ? JSON.parse(this.cart_service.storedCartItens) : [];
   countCart: number = 1;
@@ -44,12 +43,9 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.initForm();
+    this.checkCartItens();
     this.mobile_utils.onInitMediaMedium()
     this.mobile_utils.onInitMediaMobile()
-  }
-  
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 
   initForm = () => {
@@ -58,10 +54,11 @@ export class HomeComponent implements OnInit, OnDestroy{
     })
   }
   
-  setCartItens = () => {
-    this.subscription = this.cart_service.cartItensStram$.subscribe(cartItens => {
+  checkCartItens = () => {
+    this.cart_service.cartItensStram$.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(cartItens => {
       this.cartItens = cartItens;
-      
       this.quantityCalc();
     })
   }
