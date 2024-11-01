@@ -51,6 +51,7 @@ export class CartComponent implements OnInit {
       takeUntilDestroyed(this.destroyRef)
     ).subscribe(res => {
       this.isLogged = res;
+      this.cart_service.user = this.user.getUserStorge();      
     })
   }
   

@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environments.prod';
 import { Product } from '../products-cards/products-cards';
 import { BehaviorSubject } from 'rxjs';
+import { UserService } from 'src/app/services/user/user.service';
+import { User } from 'src/app/services/user/user';
 
 const API_KEY = environment.API_KEY;
 const JSON_SERVER = environment.JSON_SERVER;
@@ -18,6 +20,8 @@ export class CartService {
   cartItensStram$ = this.cartItensSubject.asObservable();
     
   quantityCount: number = 0
+
+  user!: User; 
 
   constructor(private http: HttpClient) { }
 
@@ -37,7 +41,7 @@ export class CartService {
 
   postPedido = (pedido: Order) => {
     const user = localStorage.getItem('user');    
-    return this.http.post(`${API_KEY}/usuarios/user123/pedidos.json`, {
+    return this.http.post(`${API_KEY}/usuarios/${this.user.phone}/pedidos.json`, {
       id_cliente: pedido.id_cliente,
       mesa: pedido.mesa,
       nome_cliente: pedido.nome_cliente,

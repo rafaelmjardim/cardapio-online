@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   constructor (
     private form_builder: FormBuilder, 
-    public user: UserService,
+    public user_service: UserService,
     public dialog: MatDialog, 
   ){}
 
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
     //Adiciona usuario na localStorge
     localStorage.setItem('user', JSON.stringify(user));
+    this.user_service.updateIsLoggedSubject(true);
     this.dialog.closeAll();
-    this.user.updateIsLoggedSubject(true);
   }
 }

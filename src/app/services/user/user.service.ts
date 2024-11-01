@@ -6,12 +6,20 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {  
-  isLoggedSubject = new BehaviorSubject<boolean>(localStorage.getItem('user') ? true : false)
+  isLoggedSubject = new BehaviorSubject<boolean>(localStorage.getItem('user') ? true : false);
   isLeggedSubjectStream$ = this.isLoggedSubject.asObservable();
 
+  user!: User;
+  
   constructor() { }
 
   updateIsLoggedSubject = (value: boolean) => {
     this.isLoggedSubject.next(value);
   }
+
+  getUserStorge = () => {
+    const userStorge = localStorage.getItem('user');
+    return  userStorge ? JSON.parse(userStorge) : null;
+  }
+
 }
