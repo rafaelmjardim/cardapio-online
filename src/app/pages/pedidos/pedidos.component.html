@@ -7,7 +7,7 @@
                 </div>
                 <div class="pedidos_container_list_card_content">
                     <div class="pedidos_container_list_card_content_details">
-                        <div class="pedidos_container_list_card_content_details_title">Pedido #{{order.id}}</div> <!--Posteriormernte trocar por numero gerado no pedido (aleatorio padronizado) -->
+                        <div class="pedidos_container_list_card_content_details_title" [matTooltip]="order.id" >Pedido {{order.id}}</div> <!--Posteriormernte trocar por numero gerado no pedido (aleatorio padronizado) -->
                         <div class="pedidos_container_list_card_content_details_label">Total: <b [ngStyle]="{'color': order.finalizado ? '#777' : ''}">{{order.valor_total | currency: 'BRL'}}</b> </div>
                         <div class="pedidos_container_list_card_content_details_clock">
                             <lucide-icon name="calendar-clock" size="18" color="#777"></lucide-icon>

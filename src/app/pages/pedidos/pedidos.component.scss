@@ -69,8 +69,12 @@
     
                     &_details, &_status, &_details_clock {
                         &_title {
-                            font-size: 1.8rem;
+                            font-size: 1.6rem;
                             font-weight: 500;
+                            max-width: 19rem;
+                            text-wrap: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
                         }
         
                         &_label {
