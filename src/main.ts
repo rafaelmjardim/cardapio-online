@@ -1,7 +1,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 
-import { importProvidersFrom } from '@angular/core';
+import { importProvidersFrom, LOCALE_ID } from '@angular/core';
 import { AppComponent } from './app/app.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { LucideAngularModule, Menu, Home, BadgePercent, ShoppingBag, User, Search, XCircle, BaggageClaim, X, Minus, Plus, Info } from 'lucide-angular';
@@ -14,6 +14,11 @@ import { provideNgxMask, NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { PreloadAllModules, provideRouter, withPreloading } from '@angular/router';
 import { APP_ROUTES } from './app/app.routes';
 import { SharedModule } from './app/pages/shared/shared.module';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+
+registerLocaleData(localePt);
 
 
 bootstrapApplication(AppComponent, {
@@ -23,6 +28,7 @@ bootstrapApplication(AppComponent, {
         provideHttpClient(withInterceptorsFromDi()),
         provideAnimations(),
         provideRouter(APP_ROUTES, withPreloading(PreloadAllModules)),
+        { provide: LOCALE_ID, useValue: 'pt-BR' }
     ]
 })
   .catch(err => console.error(err));
