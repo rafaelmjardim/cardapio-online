@@ -32,6 +32,8 @@ export class HomeComponent implements OnInit{
 
   produtosList!: any;
 
+  showSearchIcon: boolean = true;
+
   constructor (
     public mobile_utils: MobileUtilsService, 
     public cart_service: CartService,
@@ -83,6 +85,14 @@ export class HomeComponent implements OnInit{
     }
     
     this.home_service.currentCategoria.set(this.selectCetegoria);
+  }
+
+  searchProduct = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    this.showSearchIcon = target.value.length ? false : true;
+
+    console.log('Event input', target.value);
+    
   }
 
   handleOpenDialogCart = () => {

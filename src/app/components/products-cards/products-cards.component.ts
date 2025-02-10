@@ -48,8 +48,9 @@ export class ProductsCardsComponent implements OnInit {
           id_categoria: 3,
           products: this.setProductsByCategory(this.products, 'Bebida')
         },
-      ];      
+      ];   
     });
+
   }
 
   setProductsByCategory = (products: NewProduct[], categoria: string) => {
