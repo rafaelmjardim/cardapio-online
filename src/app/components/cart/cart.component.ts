@@ -161,7 +161,9 @@ export class CartComponent implements OnInit {
     this.cart_service.postPedido(this.newOrder).subscribe({
       next: (pedido_response) => {
         console.log('post realizado com sucesso');
-        this.dialog.open(ConfirmationDialogComponent);
+        this.dialog.open(ConfirmationDialogComponent, {
+          width: '100%'
+        });
         this.handleClearAllBag();
       }
     })
